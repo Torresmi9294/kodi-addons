@@ -1358,7 +1358,7 @@
                         <width>331</width>
                         <height>620</height>
                         <onleft>1002</onleft>
-                        <onright condition="!Skin.HasSetting(HomeTV)">903</onright>
+                        <onright condition="!Skin.HasSetting(HomeTV)">901</onright>
                         <onright condition="Skin.HasSetting(HomeTV) + !Skin.HasSetting(HomeMovies)">203</onright>
                         <onright condition="Skin.HasSetting(HomeTV) + Skin.HasSetting(HomeMovies) + !Skin.HasSetting(HomeTVShows)">303</onright>
                         <onright condition="Skin.HasSetting(HomeTV) + Skin.HasSetting(HomeMovies) + Skin.HasSetting(HomeTVShows) + !Skin.HasSetting(HomeMusic)">403</onright>
