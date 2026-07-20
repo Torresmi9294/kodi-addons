@@ -186,6 +186,22 @@ msgctxt "#32045"
 msgid "Ask every time"
 msgstr ""
 
+msgctxt "#32046"
+msgid "Launch"
+msgstr ""
+
+msgctxt "#32047"
+msgid "Trailer"
+msgstr ""
+
+msgctxt "#32048"
+msgid "Close"
+msgstr ""
+
+msgctxt "#32049"
+msgid "Show game info dialog"
+msgstr ""
+
 msgctxt "#32100"
 msgid "Server"
 msgstr ""

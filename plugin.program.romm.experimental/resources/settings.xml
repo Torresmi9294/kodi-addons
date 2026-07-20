@@ -179,8 +179,9 @@
                     <default>0</default>
                     <constraints>
                         <options>
-                            <option label="32009">0</option>
-                            <option label="32010">1</option>
+                            <option label="32049">0</option>
+                            <option label="32009">1</option>
+                            <option label="32010">2</option>
                         </options>
                     </constraints>
                     <control type="list" format="integer">

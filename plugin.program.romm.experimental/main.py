@@ -16,6 +16,7 @@ import xbmcvfs
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'resources', 'lib'))
 from client import RommClient, RommError  # noqa: E402
+from gameinfo import GameInfoDialog  # noqa: E402
 
 ADDON = xbmcaddon.Addon()
 HANDLE = int(sys.argv[1])
@@ -427,9 +428,11 @@ def extract_zip(zip_path, rom):
     return os.path.join(out_dir, target) if target else None
 
 
-def fetch_rom_to_disk(client, rom_id):
-    """Download a rom (respecting the existing-file policy). Returns (path, rom)."""
-    rom = client.rom(rom_id)
+def fetch_rom_to_disk(client, rom_or_id):
+    """Download a rom (respecting the existing-file policy). Returns (path, rom).
+
+    Accepts either a rom id or an already-fetched rom detail dict."""
+    rom = rom_or_id if isinstance(rom_or_id, dict) else client.rom(rom_or_id)
     files = rom.get('files') or []
     multi = len(files) > 1
     if not multi:
@@ -545,22 +548,70 @@ def launch(client, path, rom):
     record_history(client, rom)
 
 
-def select_rom(client, rom_id):
+def play_trailer(rom):
+    video_id = rom.get('youtube_video_id')
+    if video_id:
+        xbmc.executebuiltin(
+            'PlayMedia("plugin://plugin.video.youtube/play/?video_id=%s")' % video_id)
+
+
+def show_game_info(client, rom):
+    """IAGL-style info dialog; returns the chosen action or None."""
+    dialog = GameInfoDialog(
+        'romm-gameinfo.xml', ADDON.getAddonInfo('path'), 'Default', '1080i',
+        rom=rom,
+        title=rom_label(rom),
+        cover=client.cover_url(rom),
+        fanart=client.fanart_url(rom),
+        strings={
+            'launch': L(32046),
+            'trailer': L(32047),
+            'download': L(32010),
+            'close': L(32048),
+        })
+    dialog.doModal()
+    result = dialog.result
+    del dialog
+    return result
+
+
+def do_launch_flow(client, rom):
     try:
-        dest, rom = fetch_rom_to_disk(client, rom_id)
+        dest, rom = fetch_rom_to_disk(client, rom)
     except RommError as e:
         if str(e) != 'cancelled':
             notify(L(32019) % str(e), xbmcgui.NOTIFICATION_ERROR)
         return
-    if ADDON.getSettingInt('on_select') == 1:
-        notify(L(32017))
-        return
     launch(client, dest, rom)
 
 
-def download_rom(client, rom_id):
+def select_rom(client, rom_id):
+    mode = ADDON.getSettingInt('on_select')
+    if mode == 2:  # download only
+        download_rom(client, rom_id)
+        return
+    if mode == 1:  # straight to download + launch
+        do_launch_flow(client, rom_id)
+        return
+
+    # default: game info dialog first
     try:
-        fetch_rom_to_disk(client, rom_id)
+        rom = client.rom(rom_id)
+    except RommError as e:
+        notify(L(32019) % str(e), xbmcgui.NOTIFICATION_ERROR)
+        return
+    result = show_game_info(client, rom)
+    if result == 'launch':
+        do_launch_flow(client, rom)
+    elif result == 'download':
+        download_rom(client, rom)
+    elif result == 'trailer':
+        play_trailer(rom)
+
+
+def download_rom(client, rom_or_id):
+    try:
+        fetch_rom_to_disk(client, rom_or_id)
         notify(L(32017))
     except RommError as e:
         if str(e) != 'cancelled':
