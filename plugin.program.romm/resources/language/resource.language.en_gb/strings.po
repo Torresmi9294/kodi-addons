@@ -1,0 +1,103 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: plugin.program.romm\n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgctxt "#32001"
+msgid "Server URL (e.g. http://192.168.1.100:8080)"
+msgstr ""
+
+msgctxt "#32002"
+msgid "Username"
+msgstr ""
+
+msgctxt "#32003"
+msgid "Password"
+msgstr ""
+
+msgctxt "#32004"
+msgid "Client API token (optional, used instead of username/password)"
+msgstr ""
+
+msgctxt "#32005"
+msgid "Ignore SSL certificate errors"
+msgstr ""
+
+msgctxt "#32006"
+msgid "Download directory"
+msgstr ""
+
+msgctxt "#32007"
+msgid "Games per page"
+msgstr ""
+
+msgctxt "#32008"
+msgid "When a game is selected"
+msgstr ""
+
+msgctxt "#32009"
+msgid "Download and launch"
+msgstr ""
+
+msgctxt "#32010"
+msgid "Download only"
+msgstr ""
+
+msgctxt "#32011"
+msgid "Browse by Platform"
+msgstr ""
+
+msgctxt "#32012"
+msgid "Recently Added"
+msgstr ""
+
+msgctxt "#32013"
+msgid "Search"
+msgstr ""
+
+msgctxt "#32014"
+msgid "Settings"
+msgstr ""
+
+msgctxt "#32015"
+msgid "Next page >>"
+msgstr ""
+
+msgctxt "#32016"
+msgid "Downloading %s..."
+msgstr ""
+
+msgctxt "#32017"
+msgid "Download complete"
+msgstr ""
+
+msgctxt "#32018"
+msgid "Search RomM"
+msgstr ""
+
+msgctxt "#32019"
+msgid "RomM server error: %s"
+msgstr ""
+
+msgctxt "#32020"
+msgid "No games found"
+msgstr ""
+
+msgctxt "#32021"
+msgid "RomM server not configured - opening settings"
+msgstr ""
+
+msgctxt "#32100"
+msgid "Server"
+msgstr ""
+
+msgctxt "#32101"
+msgid "Browsing"
+msgstr ""
+
+msgctxt "#32102"
+msgid "Downloads"
+msgstr ""

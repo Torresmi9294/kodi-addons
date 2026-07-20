@@ -7,6 +7,8 @@ Personal Kodi addon repository. Push a version bump, Kodi picks it up automatica
 - `plugin.video.kronos.example/` — example addon, proves the pipeline works
 - `skin.xperience1080/` — fork of [xperience1080/skin.xperience1080](https://github.com/xperience1080/skin.xperience1080) (upstream fork lives separately at [Torresmi9294/skin.xperience1080](https://github.com/Torresmi9294/skin.xperience1080) for pulling upstream changes); this copy is the one Kodi actually installs from. See `skin.xperience1080/ARCHITECTURE.md` for how it's built.
 - `skin.xperience1080.experimental/` — separate addon id, installs side by side with the main skin on the same device. In-progress changes get tested here first; once you're happy with them they're promoted into `skin.xperience1080/`. See "Experimental skin workflow" below.
+- `plugin.program.romm/` — RomM Game Launcher: browses a self-hosted [RomM](https://romm.app) server, downloads ROMs, and launches them via RetroPlayer. IAGL-style menus (Browse by Platform / Recently Added / Search). See `plugin.program.romm/ARCHITECTURE.md`.
+- `plugin.program.romm.experimental/` — separate-id testing copy of the RomM launcher, same experimental→promote workflow as the skin pair.
 - `repository.kronos/` — the repository addon Kodi installs once; it points at this repo's `zips/` folder
 - `tools/build.py` — builds `zips/` (per-addon zips + `addons.xml` + `addons.xml.md5`) from the addon folders
 - `.github/workflows/build.yml` — runs `tools/build.py` and commits `zips/` on every push to `main`

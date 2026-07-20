@@ -34,3 +34,17 @@ device without touching the daily-driver install. See "Experimental skin workflo
   the stable main skin.
 - `addon.xml` differences between the two (`id`, `name`, `description`) are intentional and
   permanent — never overwrite one with the other wholesale.
+
+## plugin.program.romm / plugin.program.romm.experimental
+
+RomM Game Launcher — browses a self-hosted RomM server, downloads ROMs, launches via
+RetroPlayer. `plugin.program.romm/ARCHITECTURE.md` is the maintained reference (RomM API
+endpoints/auth used, file layout, flow, settings, skin-integration notes). Same rules as the
+skin pair, applied to this pair:
+
+- Changes go to `plugin.program.romm.experimental/` by default; main gets them at promotion
+  time (copy changed files, never `addon.xml`, bump main's version).
+- Update `ARCHITECTURE.md` (main copy only) when structure changes — new endpoints used, new
+  settings, changed flow — at promotion time.
+- The addon is stdlib-only on purpose (urllib, no `script.module.requests` dependency) — keep
+  it that way unless there's a strong reason, and note it in ARCHITECTURE.md if that changes.

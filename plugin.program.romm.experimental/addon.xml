@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="plugin.program.romm.experimental" name="RomM Game Launcher (Experimental)" version="1.0.0" provider-name="kronos">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="main.py">
+        <provides>executable game</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en_GB">Experimental testing build of the RomM Game Launcher — not for daily use.</summary>
+        <description lang="en_GB">Experimental build of the RomM Game Launcher used to test in-progress changes on a real device before they're promoted into the main addon. Installs side by side with the main addon since it uses a separate addon id. May be unstable.</description>
+        <platform>all</platform>
+        <license>MIT</license>
+        <source>https://github.com/Torresmi9294/kodi-addons</source>
+        <assets>
+            <icon>resources/icon.png</icon>
+        </assets>
+    </extension>
+</addon>
