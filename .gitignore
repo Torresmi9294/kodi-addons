@@ -1,7 +1,7 @@
 __pycache__/
 *.pyc
 
-# skin.xperience1080
+# skin.xperience1080 and skin.xperience1080.experimental
 Thumbs.db
 *.psd
 *.sublime-project
@@ -9,4 +9,4 @@ Thumbs.db
 *.xbt
 *.log
 *.cmd
-skin.xperience1080/1080i/script-skinshortcuts-includes.xml
+skin.xperience1080*/1080i/script-skinshortcuts-includes.xml
