@@ -1,12 +1,9 @@
-"""Xbox-game-hub-style game info dialog (WindowXMLDialog backed by
+"""IAGL-style game info dialog (WindowXMLDialog backed by
 resources/skins/Default/1080i/romm-gameinfo.xml).
 
-Layout mirrors the Xbox Series X|S game page: big title + dot-separated meta
-line, age-rating block top right, a row of rounded cards (cover / game details
-/ about / screenshots), and a bottom button row with a green primary PLAY.
-
-Buttons: Launch (3001), Trailer (3002), Download (3003), Close (3004). The
-chosen action is exposed as .result ('launch' / 'trailer' / 'download' / None).
+Shown when a game is selected (if the on_select setting says so). Buttons:
+Launch (3001), Trailer (3002), Download (3003), Close (3004). The chosen
+action is exposed as .result ('launch' / 'trailer' / 'download' / None).
 """
 import time
 
@@ -46,101 +43,69 @@ def release_date(meta):
         return str(value)[:10]
 
 
-def release_year(meta):
+def build_meta_lines(rom):
+    """The right-hand info panel: (line, ...) with empty lines dropped in XML."""
+    meta = rom.get('metadatum') or {}
+    lines = []
+
+    genres = meta.get('genres') or []
+    if genres:
+        lines.append('Genre: %s' % ', '.join(genres[:3]))
+
     date = release_date(meta)
-    return date[-4:] if len(date) >= 4 else ''
+    if date:
+        lines.append('Date: %s' % date)
 
+    companies = meta.get('companies') or []
+    if companies:
+        lines.append('Studio: %s' % companies[0])
 
-def age_rating(meta):
-    ratings = meta.get('age_ratings') or []
-    if not ratings:
-        return ''
-    first = ratings[0]
-    if isinstance(first, dict):
-        first = first.get('rating') or first.get('name') or ''
-    return str(first)
-
-
-def star_rating(meta):
     rating = meta.get('average_rating')
-    if not rating:
-        return ''
-    try:
-        rating = float(rating)
-        if rating > 10:
-            rating /= 20.0  # 0-100 -> 0-5 stars
-        return 'Rating: %.1f / 5' % rating
-    except (TypeError, ValueError):
-        return ''
+    if rating:
+        try:
+            rating = float(rating)
+            if rating > 10:
+                rating /= 20.0  # 0-100 -> 0-5 stars
+            lines.append('Rating: %.1f' % rating)
+        except (TypeError, ValueError):
+            pass
+
+    modes = meta.get('game_modes') or []
+    if modes:
+        lines.append('Modes: %s' % ', '.join(modes[:2]))
+
+    size = human_size(rom.get('fs_size_bytes'))
+    if size:
+        lines.append('Size: %s' % size)
+
+    return lines
 
 
 class GameInfoDialog(xbmcgui.WindowXMLDialog):
     def __init__(self, xml_file, addon_path, skin='Default', res='1080i',
-                 rom=None, title='', cover='', fanart='', shots=None, strings=None):
+                 rom=None, title='', cover='', fanart='', strings=None):
         super().__init__()
         self.rom = rom or {}
         self.title = title
         self.cover = cover
         self.fanart = fanart
-        self.shots = shots or []
         self.strings = strings or {}
         self.result = None
 
     def onInit(self):
         rom = self.rom
-        meta = rom.get('metadatum') or {}
-
         self.setProperty('title', self.title)
+        self.setProperty('platform', rom.get('platform_display_name', ''))
         self.setProperty('summary', rom.get('summary') or '')
         self.setProperty('cover', self.cover)
         self.setProperty('fanart', self.fanart or self.cover)
-
-        # header meta line, Xbox style: Studio - Year - Size - Genres
-        companies = meta.get('companies') or []
-        genres = meta.get('genres') or []
-        parts = [
-            companies[0] if companies else '',
-            release_year(meta),
-            human_size(rom.get('fs_size_bytes')),
-            ', '.join(genres[:2]),
-        ]
-        self.setProperty('metaline', '  •  '.join(p for p in parts if p))
-
-        # rating block, top right
-        self.setProperty('agerating', age_rating(meta))
-        self.setProperty('ratingline', star_rating(meta))
-        modes = meta.get('game_modes') or []
-        self.setProperty('modesline', ', '.join(modes[:3]))
-
-        # card headers
-        self.setProperty('statscard', 'Game details')
-        self.setProperty('aboutcard', 'About this game')
-        self.setProperty('capturescard', 'Screenshots')
-        self.setProperty('noshots', 'No screenshots available for this game.')
-
-        # game details card: caption/value pairs, empty ones collapse
-        pairs = [
-            ('Platform', rom.get('platform_display_name', '')),
-            ('Genre', ', '.join(genres[:3])),
-            ('Released', release_date(meta)),
-            ('Studio', companies[0] if companies else ''),
-            ('Size', human_size(rom.get('fs_size_bytes'))),
-        ]
-        shown = [(label, value) for label, value in pairs if value][:5]
-        for i, (label, value) in enumerate(shown):
-            self.setProperty('stat%dlabel' % (i + 1), label)
-            self.setProperty('stat%dvalue' % (i + 1), value)
-
-        # screenshots card
-        if self.shots:
-            self.setProperty('shot1', self.shots[0])
-        if len(self.shots) > 1:
-            self.setProperty('shot2', self.shots[1])
-
-        # buttons
-        self.setProperty('btn_launch', self.strings.get('launch', 'Play'))
+        self.setProperty('btn_launch', self.strings.get('launch', 'Launch'))
         self.setProperty('btn_trailer', self.strings.get('trailer', 'Trailer'))
         self.setProperty('btn_download', self.strings.get('download', 'Download'))
+        self.setProperty('btn_close', self.strings.get('close', 'Close'))
+
+        for i, line in enumerate(build_meta_lines(rom)[:6]):
+            self.setProperty('meta%d' % (i + 1), line)
 
         if not rom.get('youtube_video_id'):
             try:
