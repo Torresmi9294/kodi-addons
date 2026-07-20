@@ -395,6 +395,11 @@
                     <property name="multi">$INFO[Skin.String(HomeHomeMultiImage)]</property>
                     <property name="home">1</property>
                 </item>
+                <item id="10">
+                    <label>Games</label>
+                    <property name="single">$INFO[Skin.String(HomeGamesSingleImage)]</property>
+                    <visible>!Skin.HasSetting(HomeGames)</visible>
+                </item>
                 <item id="9">
                     <label>$LOCALIZE[31220]</label>
                     <visible>!Skin.HasSetting(HomeTV)</visible>
@@ -419,11 +424,6 @@
                     <property name="multi">$INFO[Skin.String(HomeMusicMultiImage)]</property>
                     <property name="music">1</property>
                     <visible>!Skin.HasSetting(HomeMusic)</visible>
-                </item>
-                <item id="10">
-                    <label>Games</label>
-                    <property name="single">$INFO[Skin.String(HomeGamesSingleImage)]</property>
-                    <visible>!Skin.HasSetting(HomeGames)</visible>
                 </item>
                 <item id="6">
                     <label>$LOCALIZE[31504]</label>
