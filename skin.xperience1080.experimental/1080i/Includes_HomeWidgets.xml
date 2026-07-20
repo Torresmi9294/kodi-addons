@@ -13,7 +13,7 @@
         <onload condition="String.IsEmpty(Skin.String(HomeWidget.5.Type))">Skin.SetString(HomeWidget.5.Type,21)</onload>
         <onload condition="String.IsEmpty(Skin.String(HomeWidget.5.Label))">Skin.SetString(HomeWidget.5.Label,$LOCALIZE[31049])</onload>
         <onload condition="String.IsEmpty(Skin.String(HomeWidget.6.Type))">Skin.SetString(HomeWidget.6.Type,30)</onload>
-        <onload condition="String.IsEmpty(Skin.String(HomeWidget.6.Label))">Skin.SetString(HomeWidget.6.Label,$LOCALIZE[31033])</onload>
+        <onload condition="String.IsEmpty(Skin.String(HomeWidget.6.Label))">Skin.SetString(HomeWidget.6.Label,Games)</onload>
     </include>
 
     <variable name="Widget.1.Home">
@@ -67,9 +67,9 @@
         <value condition="String.IsEqual(Skin.String(HomeWidget.5.Type),17)">$INFO[Skin.String(HomeWidget.5.Path)]</value>
     </variable>
 
-    <variable name="Widget.6.Pictures">
-        <value condition="String.IsEqual(Skin.String(HomeWidget.6.Type),30)">plugin://plugin.image.xkcd/todaysimages</value>
-        <value condition="String.IsEqual(Skin.String(HomeWidget.6.Type),31)">plugin://plugin.image.cyanidehappiness/todaysimages</value>
-        <value condition="String.IsEqual(Skin.String(HomeWidget.6.Type),34)">$INFO[Skin.String(PicturesPath)]</value>
+    <variable name="Widget.6.Games">
+        <value condition="String.IsEqual(Skin.String(HomeWidget.6.Type),30)">plugin://plugin.program.iagl/</value>
+        <value condition="String.IsEqual(Skin.String(HomeWidget.6.Type),31)">plugin://plugin.program.advanced.launcher/</value>
+        <value condition="String.IsEqual(Skin.String(HomeWidget.6.Type),34)">$INFO[Skin.String(GamesWidgetPath)]</value>
     </variable>
 </includes>

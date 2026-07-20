@@ -184,13 +184,13 @@
     </include>
 
     <variable name="HomePictureImageSingle">
-        <value condition="String.IsEmpty(Skin.String(HomePicturesSingleImage))">$INFO[Skin.String(GlobalBackdropSingle)]</value>
-        <value>$INFO[Skin.String(HomePicturesSingleImage)]</value>
+        <value condition="String.IsEmpty(Skin.String(HomeGamesSingleImage))">$INFO[Skin.String(GlobalBackdropSingle)]</value>
+        <value>$INFO[Skin.String(HomeGamesSingleImage)]</value>
     </variable>
 
     <variable name="HomePictureImageMulti">
-        <value condition="String.IsEmpty(Skin.String(HomePicturesMultiImage))">$INFO[Skin.String(GlobalBackdropMulti)]</value>
-        <value>$INFO[Skin.String(HomePicturesMultiImage)]</value>
+        <value condition="String.IsEmpty(Skin.String(HomeGamesMultiImage))">$INFO[Skin.String(GlobalBackdropMulti)]</value>
+        <value>$INFO[Skin.String(HomeGamesMultiImage)]</value>
     </variable>
 
     <variable name="HomeDVDLabel">
@@ -421,9 +421,9 @@
                     <visible>!Skin.HasSetting(HomeMusic)</visible>
                 </item>
                 <item id="10">
-                    <label>$LOCALIZE[1]</label>
-                    <property name="single">$INFO[Skin.String(HomePicturesSingleImage)]</property>
-                    <visible>!Skin.HasSetting(HomePictures)</visible>
+                    <label>Games</label>
+                    <property name="single">$INFO[Skin.String(HomeGamesSingleImage)]</property>
+                    <visible>!Skin.HasSetting(HomeGames)</visible>
                 </item>
                 <item id="6">
                     <label>$LOCALIZE[31504]</label>
@@ -608,7 +608,7 @@
                 <label>$LOCALIZE[1]</label>
                 <animation effect="fade" start="100" end="40" time="300" tween="cubic" easing="inout" condition="!Container(20).HasFocus(10)">Conditional</animation>
                 <animation effect="zoom" start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Control.HasFocus(1025)">Conditional</animation>
-                <visible>!Skin.HasSetting(HomePictures)</visible>
+                <visible>!Skin.HasSetting(HomeGames)</visible>
             </control>
 
             <control type="label">

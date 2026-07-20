@@ -533,22 +533,22 @@
       </focusedlayout>
       <content>
         <item>
-          <label>$LOCALIZE[31033]</label>
+          <label>IAGL (Internet Archive Game Launcher)</label>
           <onclick>Skin.SetString(HomeWidget.6.Type,30)</onclick>
-          <onclick>Skin.SetString(HomeWidget.6.Label,$LOCALIZE[31033])</onclick>
+          <onclick>Skin.SetString(HomeWidget.6.Label,Games)</onclick>
           <onclick>Close</onclick>
         </item>
         <item>
-          <label>$LOCALIZE[31034]</label>
+          <label>Advanced Emulator Launcher</label>
           <onclick>Skin.SetString(HomeWidget.6.Type,31)</onclick>
-          <onclick>Skin.SetString(HomeWidget.6.Label,$LOCALIZE[31034])</onclick>
+          <onclick>Skin.SetString(HomeWidget.6.Label,Games)</onclick>
           <onclick>Close</onclick>
         </item>
         <item>
-          <label>$LOCALIZE[31051]</label>
+          <label>Other Program Addon...</label>
           <onclick>Skin.SetString(HomeWidget.6.Type,34)</onclick>
-          <onclick>Skin.SetString(HomeWidget.6.Label,$LOCALIZE[31051])</onclick>
-          <onclick>Skin.SetPath(PicturesPath)</onclick>
+          <onclick>Skin.SetString(HomeWidget.6.Label,Games)</onclick>
+          <onclick>Skin.SetAddon(GamesWidgetPath,xbmc.addon.executable)</onclick>
           <onclick>Close</onclick>
         </item>
       </content>
@@ -818,7 +818,7 @@
           </control>
           <control type="button" id="16">
             <onfocus>Skin.Reset(HomeWidget.6.Type)</onfocus>
-            <onfocus>Skin.SetString(HomeWidget.6.TypeName,$LOCALIZE[1])</onfocus>
+            <onfocus>Skin.SetString(HomeWidget.6.TypeName,Games)</onfocus>
             <onfocus>Skin.SetString(HomeWidget.6.SubType,Photo)</onfocus>
             <onfocus>Skin.SetString(HomeWidget.6.SubTypeName,Photo)</onfocus>
             <onfocus>Skin.SetString(HomeWidget.6.Method,Playlist)</onfocus>

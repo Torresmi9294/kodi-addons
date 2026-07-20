@@ -19,10 +19,10 @@
     <onunload condition="Skin.HasSetting(HomeMusicTile4) + String.IsEmpty(Skin.String(HomeMusicTile4.Path))">Skin.Reset(HomeMusicTile4)</onunload>
     <onunload condition="Skin.HasSetting(HomeMusicTile5) + String.IsEmpty(Skin.String(HomeMusicTile5.Path))">Skin.Reset(HomeMusicTile5)</onunload>
     <onunload condition="Skin.HasSetting(HomeMusicTile6) + String.IsEmpty(Skin.String(HomeMusicTile6.Path))">Skin.Reset(HomeMusicTile6)</onunload>
-    <onunload condition="Skin.HasSetting(HomePicturesTile1) + String.IsEmpty(Skin.String(HomePicturesTile1.Path))">Skin.Reset(HomePicturesTile1)</onunload>
-    <onunload condition="Skin.HasSetting(HomePicturesTile2) + String.IsEmpty(Skin.String(HomePicturesTile2.Path))">Skin.Reset(HomePicturesTile2)</onunload>
-    <onunload condition="Skin.HasSetting(HomePicturesTile3) + String.IsEmpty(Skin.String(HomePicturesTile3.Path))">Skin.Reset(HomePicturesTile3)</onunload>
-    <onunload condition="Skin.HasSetting(HomePicturesTile4) + String.IsEmpty(Skin.String(HomePicturesTile4.Path))">Skin.Reset(HomePicturesTile4)</onunload>
+    <onunload condition="Skin.HasSetting(HomeGamesTile1) + String.IsEmpty(Skin.String(HomeGamesTile1.Path))">Skin.Reset(HomeGamesTile1)</onunload>
+    <onunload condition="Skin.HasSetting(HomeGamesTile2) + String.IsEmpty(Skin.String(HomeGamesTile2.Path))">Skin.Reset(HomeGamesTile2)</onunload>
+    <onunload condition="Skin.HasSetting(HomeGamesTile3) + String.IsEmpty(Skin.String(HomeGamesTile3.Path))">Skin.Reset(HomeGamesTile3)</onunload>
+    <onunload condition="Skin.HasSetting(HomeGamesTile4) + String.IsEmpty(Skin.String(HomeGamesTile4.Path))">Skin.Reset(HomeGamesTile4)</onunload>
     <onunload condition="Skin.HasSetting(HomeProgramTile1) + String.IsEmpty(Skin.String(HomeProgramTile1.Path))">Skin.Reset(HomeProgramTile1)</onunload>
     <onunload condition="Skin.HasSetting(HomeProgramTile2) + String.IsEmpty(Skin.String(HomeProgramTile2.Path))">Skin.Reset(HomeProgramTile2)</onunload>
     <onunload condition="Skin.HasSetting(HomeProgramTile3) + String.IsEmpty(Skin.String(HomeProgramTile3.Path))">Skin.Reset(HomeProgramTile3)</onunload>

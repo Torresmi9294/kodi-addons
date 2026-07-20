@@ -169,7 +169,7 @@
                     <onright condition="!Skin.HasSetting(HomeMovies)">225</onright>
                     <onright condition="!Skin.HasSetting(HomeTVShows)">325</onright>
                     <onright condition="!Skin.HasSetting(HomeMusic)">425</onright>
-                    <onright condition="!Skin.HasSetting(HomePictures)">1025</onright>
+                    <onright condition="!Skin.HasSetting(HomeGames)">1025</onright>
                     <onright condition="!Skin.HasSetting(HomePrograms)">625</onright>
                     <onright condition="!Skin.HasSetting(HomeWeather)">725</onright>
                     <onright>825</onright>
@@ -445,7 +445,7 @@
                             <onright condition="!Skin.HasSetting(HomeTVShows)">301</onright>
                             <onright condition="!Skin.HasSetting(HomeMusic)">401</onright>
                             <onright condition="!Skin.HasSetting(HomeWeather)">701</onright>
-                            <onright condition="!Skin.HasSetting(HomePictures)">1001</onright>
+                            <onright condition="!Skin.HasSetting(HomeGames)">1001</onright>
                             <onright condition="!Skin.HasSetting(HomePrograms)">601</onright>
                             <onright>801</onright>
                             <onright>Control.Move(20,1)</onright>
@@ -858,7 +858,7 @@
                     <onright condition="!Skin.HasSetting(HomeMovies)">225</onright>
                     <onright condition="!Skin.HasSetting(HomeTVShows)">325</onright>
                     <onright condition="!Skin.HasSetting(HomeMusic)">425</onright>
-                    <onright condition="!Skin.HasSetting(HomePictures)">1025</onright>
+                    <onright condition="!Skin.HasSetting(HomeGames)">1025</onright>
                     <onright condition="!Skin.HasSetting(HomePrograms)">625</onright>
                     <onright condition="!Skin.HasSetting(HomeWeather)">725</onright>
                     <onright>825</onright>
@@ -1292,7 +1292,7 @@
                         <onright condition="!Skin.HasSetting(HomeMovies)">201</onright>
                         <onright condition="!Skin.HasSetting(HomeTVShows)">301</onright>
                         <onright condition="!Skin.HasSetting(HomeMusic)">401</onright>
-                        <onright condition="!Skin.HasSetting(HomePictures)">1001</onright>
+                        <onright condition="!Skin.HasSetting(HomeGames)">1001</onright>
                         <onright condition="!Skin.HasSetting(HomePrograms)">601</onright>
                         <onright condition="!Skin.HasSetting(HomeWeather)">701</onright>
                         <onright>801</onright>
@@ -1455,8 +1455,8 @@
                     <onleft>525</onleft>
                     <onright condition="!Skin.HasSetting(HomeTVShows)">325</onright>
                     <onright condition="Skin.HasSetting(HomeTVShows) + !Skin.HasSetting(HomeMusic)">425</onright>
-                    <onright condition="Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMusic) + !Skin.HasSetting(HomePictures)">1025</onright>
-                    <onright condition="Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomePictures) + Skin.HasSetting(HomePrograms) + !Skin.HasSetting(HomeWeather)">725</onright>
+                    <onright condition="Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMusic) + !Skin.HasSetting(HomeGames)">1025</onright>
+                    <onright condition="Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomeGames) + Skin.HasSetting(HomePrograms) + !Skin.HasSetting(HomeWeather)">725</onright>
                     <onright>Control.Move(20,1)</onright>
                     <onright condition="Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMusic) + !Skin.HasSetting(HomePrograms)">625</onright>
                     <onright condition="Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomePrograms) + Skin.HasSetting(HomeWeather)">825</onright>
@@ -1946,11 +1946,11 @@
                         <onleft>202</onleft>
                         <onright condition="!Skin.HasSetting(HomeTVShows)">301</onright>
                         <onright condition="Skin.HasSetting(HomeTVShows) + !Skin.HasSetting(HomeMusic)">401</onright>
-                        <onright condition="Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMusic) + !Skin.HasSetting(HomePictures)">1001</onright>
+                        <onright condition="Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMusic) + !Skin.HasSetting(HomeGames)">1001</onright>
                         <onright>Control.Move(20,1)</onright>
-                        <onright condition="Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomePictures) +!Skin.HasSetting(HomePrograms)">601</onright>
-                        <onright condition="Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomePictures) + Skin.HasSetting(HomePrograms) + !Skin.HasSetting(HomeWeather)">701</onright>
-                        <onright condition="Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomePictures) + Skin.HasSetting(HomePrograms) + Skin.HasSetting(HomeWeather)">801</onright>
+                        <onright condition="Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomeGames) +!Skin.HasSetting(HomePrograms)">601</onright>
+                        <onright condition="Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomeGames) + Skin.HasSetting(HomePrograms) + !Skin.HasSetting(HomeWeather)">701</onright>
+                        <onright condition="Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomeGames) + Skin.HasSetting(HomePrograms) + Skin.HasSetting(HomeWeather)">801</onright>
                         <onup>225</onup>
                         <ondown condition="!Skin.HasSetting(KioskMode)">80</ondown>
                         <ondown condition="Skin.HasSetting(KioskMode)">21</ondown>
@@ -2161,7 +2161,7 @@
                     <onleft>525</onleft>
                     <onright>Control.Move(20,1)</onright>
                     <onright condition="!Skin.HasSetting(HomeMusic)">425</onright>
-                    <onright condition="!Skin.HasSetting(HomePictures)">1025</onright>
+                    <onright condition="!Skin.HasSetting(HomeGames)">1025</onright>
                     <onright condition="!Skin.HasSetting(HomePrograms)">625</onright>
                     <onright condition="!Skin.HasSetting(HomeWeather)">725</onright>
                     <onright>825</onright>
@@ -2651,11 +2651,11 @@
                         <height>620</height>
                         <onleft>302</onleft>
                         <onright condition="!Skin.HasSetting(HomeMusic)">401</onright>
-                        <onright condition="Skin.HasSetting(HomeMusic) + !Skin.HasSetting(HomePictures)">1001</onright>
-                        <onright condition="Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomePictures) + Skin.HasSetting(HomePrograms) + !Skin.HasSetting(HomeWeather)">701</onright>
+                        <onright condition="Skin.HasSetting(HomeMusic) + !Skin.HasSetting(HomeGames)">1001</onright>
+                        <onright condition="Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomeGames) + Skin.HasSetting(HomePrograms) + !Skin.HasSetting(HomeWeather)">701</onright>
                         <onright>Control.Move(20,1)</onright>
-                        <onright condition="Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomePictures) + !Skin.HasSetting(HomePrograms)">601</onright>
-                        <onright condition="Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomePictures) + Skin.HasSetting(HomePrograms) + Skin.HasSetting(HomeWeather)">801</onright>
+                        <onright condition="Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomeGames) + !Skin.HasSetting(HomePrograms)">601</onright>
+                        <onright condition="Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomeGames) + Skin.HasSetting(HomePrograms) + Skin.HasSetting(HomeWeather)">801</onright>
                         <onup>325</onup>
                         <ondown condition="!Skin.HasSetting(KioskMode)">80</ondown>
                         <ondown condition="Skin.HasSetting(KioskMode)">21</ondown>
@@ -2864,10 +2864,10 @@
                     <onleft condition="!Skin.HasSetting(HomeTV)">925</onleft>
                     <onleft>525</onleft>
                     <onright>Control.Move(20,1)</onright>
-                    <onright condition="Skin.HasSetting(HomePictures) + !Skin.HasSetting(HomePrograms)">625</onright>
-                    <onright condition="Skin.HasSetting(HomePictures) + Skin.HasSetting(HomePrograms) + !Skin.HasSetting(HomeWeather)">725</onright>
-                    <onright condition="Skin.HasSetting(HomePictures) + Skin.HasSetting(HomePrograms) + Skin.HasSetting(HomeWeather)">825</onright>
-                    <onright condition="!Skin.HasSetting(HomePictures)">1025</onright>
+                    <onright condition="Skin.HasSetting(HomeGames) + !Skin.HasSetting(HomePrograms)">625</onright>
+                    <onright condition="Skin.HasSetting(HomeGames) + Skin.HasSetting(HomePrograms) + !Skin.HasSetting(HomeWeather)">725</onright>
+                    <onright condition="Skin.HasSetting(HomeGames) + Skin.HasSetting(HomePrograms) + Skin.HasSetting(HomeWeather)">825</onright>
+                    <onright condition="!Skin.HasSetting(HomeGames)">1025</onright>
                     <onclick condition="!Library.HasContent(music)">ActivateWindow(Music,Files,return)</onclick>
                     <onclick condition="Library.HasContent(music) + String.IsEmpty(Skin.String(music.path))">ActivateWindow(Music)</onclick>
                     <onclick condition="Library.HasContent(music) + !String.IsEmpty(Skin.String(music.path))">ActivateWindow(Music,$INFO[Skin.String(music.path)],return)</onclick>
@@ -3356,9 +3356,9 @@
                         <height>620</height>
                         <onleft>402</onleft>
                         <onright>Control.Move(20,1)</onright>
-                        <onright condition="!Skin.HasSetting(HomePictures)">1001</onright>
-                        <onright condition="Skin.HasSetting(HomePictures) + !Skin.HasSetting(HomePrograms)">601</onright>
-                        <onright condition="Skin.HasSetting(HomePictures) + Skin.HasSetting(HomePrograms) + !Skin.HasSetting(HomeWeather)">701</onright>
+                        <onright condition="!Skin.HasSetting(HomeGames)">1001</onright>
+                        <onright condition="Skin.HasSetting(HomeGames) + !Skin.HasSetting(HomePrograms)">601</onright>
+                        <onright condition="Skin.HasSetting(HomeGames) + Skin.HasSetting(HomePrograms) + !Skin.HasSetting(HomeWeather)">701</onright>
                         <onright condition="Skin.HasSetting(HomePrograms) + Skin.HasSetting(HomeWeather)">801</onright>
                         <onup>425</onup>
                         <ondown condition="!Skin.HasSetting(KioskMode)">80</ondown>
@@ -3599,12 +3599,14 @@
                 </control>
             </control>
 
-            <!-- Pictures -->
+            <!-- Games (repurposed from the original Pictures tab; internal control/panel ids
+                 are unchanged since renumbering them has no benefit and high blast radius -
+                 only the HomePictures* skin settings were renamed to HomeGames*) -->
             <control type="group" id="1000">
-                <description>Pictures</description>
+                <description>Games</description>
                 <width>2320</width>
                 <height>780</height>
-                <visible>!Skin.HasSetting(HomePictures)</visible>
+                <visible>!Skin.HasSetting(HomeGames)</visible>
                 <control type="button" id="1025">
                     <onleft condition="!Skin.HasSetting(HomeMusic)">425</onleft>
                     <onleft condition="!Skin.HasSetting(HomeTVShows)">325</onleft>
@@ -3618,7 +3620,8 @@
                     <onright condition="Skin.HasSetting(HomePrograms) + Skin.HasSetting(HomeWeather)">825</onright>
                     <onup>80</onup>
                     <ondown>1001</ondown>
-                    <onclick>ActivateWindow(10002)</onclick>
+                    <onclick condition="String.IsEmpty(Skin.String(GameTile.Path))">ActivateWindow(10001,plugin://plugin.program.iagl/,return)</onclick>
+                    <onclick condition="!String.IsEmpty(Skin.String(GameTile.Path))">ActivateWindow(10001,$INFO[Skin.String(GameTile.Path)],return)</onclick>
                 </control>
                 <control type="group" id="1050">
                     <posy>100</posy>
@@ -3674,7 +3677,7 @@
                         <texture>windows/home/item-shadow.png</texture>
                     </control>
                     <control type="group" id="1002">
-                        <description>Pictures</description>
+                        <description>Games</description>
                         <posx>289</posx>
                         <control type="button" id="10021">
                             <onup>1025</onup>
@@ -3748,7 +3751,7 @@
                                     <visible>!String.IsEmpty(ListItem.PicturePath)</visible>
                                 </control>
                             </focusedlayout>
-                            <content target="pictures">$VAR[Widget.6.Pictures]</content>
+                            <content target="files">$VAR[Widget.6.Games]</content>
                         </control>
                         <control type="image">
                             <description>Title overlay</description>
@@ -4054,56 +4057,56 @@
                         </focusedlayout>
                         <content>
                             <item id="1">
-                                <label fallback="1">$INFO[Skin.String(HomePicturesTile1.Label)]</label>
-                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + Skin.HasSetting(HomePicturesTile1) + !String.IsEqual(Skin.String(HomePicturesTile1.Type),4) + !String.IsEqual(Skin.String(HomePicturesTile1.Type),5) + !String.IsEqual(Skin.String(HomePicturesTile1.Type),6) + !String.IsEqual(Skin.String(HomePicturesTile1.Type),7) + !String.IsEqual(Skin.String(HomePicturesTile1.Type),8)">RunAddon($INFO[Skin.String(HomePicturesTile1.Path)])</onclick>
-                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + Skin.HasSetting(HomePicturesTile1) + String.IsEqual(Skin.String(HomePicturesTile1.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(HomePicturesTile1.Path)],return)</onclick>
-                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + Skin.HasSetting(HomePicturesTile1) + String.IsEqual(Skin.String(HomePicturesTile1.Type),8)">ActivateWindow(10025,$INFO[Skin.String(HomePicturesTile1.Path)],return)</onclick>
-                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + Skin.HasSetting(HomePicturesTile1) + String.IsEqual(Skin.String(HomePicturesTile1.Type),5)">ActivateWindow(Music,$INFO[Skin.String(HomePicturesTile1.Path)],return)</onclick>
-                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + Skin.HasSetting(HomePicturesTile1) + [String.IsEqual(Skin.String(HomePicturesTile1.Type),6) | String.IsEqual(Skin.String(HomePicturesTile1.Type),7)]">$INFO[Skin.String(HomePicturesTile1.Path)]</onclick>
-                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + !Skin.HasSetting(HomePicturesTile1)">ActivateWindow(pictures)</onclick>
-                                <onclick condition="!String.IsEmpty(Window.Property(EditTile))">Skin.SetBool(HomePicturesTile1)</onclick>
-                                <onclick condition="!String.IsEmpty(Window.Property(EditTile)) + String.IsEmpty(Skin.String(HomePicturesTile1.Type))">Skin.SetString(HomePicturesTile1.Type,0)</onclick>
-                                <onclick condition="!String.IsEmpty(Window.Property(EditTile)) + String.IsEmpty(Skin.String(HomePicturesTile1.TypeName))">Skin.SetString(HomePicturesTile1.TypeName,$LOCALIZE[41145])</onclick>
+                                <label fallback="1">$INFO[Skin.String(HomeGamesTile1.Label)]</label>
+                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + Skin.HasSetting(HomeGamesTile1) + !String.IsEqual(Skin.String(HomeGamesTile1.Type),4) + !String.IsEqual(Skin.String(HomeGamesTile1.Type),5) + !String.IsEqual(Skin.String(HomeGamesTile1.Type),6) + !String.IsEqual(Skin.String(HomeGamesTile1.Type),7) + !String.IsEqual(Skin.String(HomeGamesTile1.Type),8)">RunAddon($INFO[Skin.String(HomeGamesTile1.Path)])</onclick>
+                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + Skin.HasSetting(HomeGamesTile1) + String.IsEqual(Skin.String(HomeGamesTile1.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(HomeGamesTile1.Path)],return)</onclick>
+                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + Skin.HasSetting(HomeGamesTile1) + String.IsEqual(Skin.String(HomeGamesTile1.Type),8)">ActivateWindow(10025,$INFO[Skin.String(HomeGamesTile1.Path)],return)</onclick>
+                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + Skin.HasSetting(HomeGamesTile1) + String.IsEqual(Skin.String(HomeGamesTile1.Type),5)">ActivateWindow(Music,$INFO[Skin.String(HomeGamesTile1.Path)],return)</onclick>
+                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + Skin.HasSetting(HomeGamesTile1) + [String.IsEqual(Skin.String(HomeGamesTile1.Type),6) | String.IsEqual(Skin.String(HomeGamesTile1.Type),7)]">$INFO[Skin.String(HomeGamesTile1.Path)]</onclick>
+                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + !Skin.HasSetting(HomeGamesTile1)">ActivateWindow(10001,plugin://plugin.program.iagl/,return)</onclick>
+                                <onclick condition="!String.IsEmpty(Window.Property(EditTile))">Skin.SetBool(HomeGamesTile1)</onclick>
+                                <onclick condition="!String.IsEmpty(Window.Property(EditTile)) + String.IsEmpty(Skin.String(HomeGamesTile1.Type))">Skin.SetString(HomeGamesTile1.Type,0)</onclick>
+                                <onclick condition="!String.IsEmpty(Window.Property(EditTile)) + String.IsEmpty(Skin.String(HomeGamesTile1.TypeName))">Skin.SetString(HomeGamesTile1.TypeName,$LOCALIZE[41145])</onclick>
                                 <onclick condition="!String.IsEmpty(Window.Property(EditTile))">SetProperty(SingleDialog,item39,3003)</onclick>
                                 <onclick condition="!String.IsEmpty(Window.Property(EditTile))">SetProperty(Dialog,$LOCALIZE[41136],skinsettings)</onclick>
-                                <onclick condition="!String.IsEmpty(Window.Property(EditTile))">SetProperty(HomeTileEdit,HomePicturesTile1,3003)</onclick>
-                                <onclick condition="!String.IsEmpty(Window.Property(EditTile))">SetProperty(HomeTileEdit.Type,$INFO[Skin.String(HomePicturesTile1.Type)],3003)</onclick>
-                                <onclick condition="!String.IsEmpty(Window.Property(EditTile))">SetProperty(HomeTileEdit.ShowLabel,$INFO[Skin.String(HomePicturesTile1.ShowLabel)],3003)</onclick>
-                                <onclick condition="!String.IsEmpty(Window.Property(EditTile))">SetProperty(HomeTileEdit.Animate,$INFO[Skin.String(HomePicturesTile1.Animate)],3003)</onclick>
+                                <onclick condition="!String.IsEmpty(Window.Property(EditTile))">SetProperty(HomeTileEdit,HomeGamesTile1,3003)</onclick>
+                                <onclick condition="!String.IsEmpty(Window.Property(EditTile))">SetProperty(HomeTileEdit.Type,$INFO[Skin.String(HomeGamesTile1.Type)],3003)</onclick>
+                                <onclick condition="!String.IsEmpty(Window.Property(EditTile))">SetProperty(HomeTileEdit.ShowLabel,$INFO[Skin.String(HomeGamesTile1.ShowLabel)],3003)</onclick>
+                                <onclick condition="!String.IsEmpty(Window.Property(EditTile))">SetProperty(HomeTileEdit.Animate,$INFO[Skin.String(HomeGamesTile1.Animate)],3003)</onclick>
                                 <onclick condition="!String.IsEmpty(Window.Property(EditTile))">ActivateWindow(3003)</onclick>
                                 <onclick condition="!String.IsEmpty(Window.Property(EditTile))">ClearProperty(EditTile)</onclick>
-                                <thumb>$INFO[Skin.String(HomePicturesTile1.Icon)]</thumb>
-                                <icon>windows/home/icons/pictures.png</icon>
+                                <thumb>$INFO[Skin.String(HomeGamesTile1.Icon)]</thumb>
+                                <icon>windows/home/icons/games.png</icon>
                                 <property name="pos">top</property>
-                                <property name="showlabel">$INFO[Skin.String(HomePicturesTile1.ShowLabel)]</property>
-                                <property name="path">$INFO[Skin.String(HomePicturesTile1.Path)]</property>
-                                <property name="animate">$INFO[Skin.String(HomePicturesTile1.Animate)]</property>
+                                <property name="showlabel">$INFO[Skin.String(HomeGamesTile1.ShowLabel)]</property>
+                                <property name="path">$INFO[Skin.String(HomeGamesTile1.Path)]</property>
+                                <property name="animate">$INFO[Skin.String(HomeGamesTile1.Animate)]</property>
                             </item>
                             <item id="2">
-                                <label fallback="1039">$INFO[Skin.String(HomePicturesTile2.Label)]</label>
-                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + Skin.HasSetting(HomePicturesTile2) + !String.IsEqual(Skin.String(HomePicturesTile2.Type),4) + !String.IsEqual(Skin.String(HomePicturesTile2.Type),5) + !String.IsEqual(Skin.String(HomePicturesTile2.Type),6) + !String.IsEqual(Skin.String(HomePicturesTile2.Type),7) + !String.IsEqual(Skin.String(HomePicturesTile2.Type),8)">RunAddon($INFO[Skin.String(HomePicturesTile2.Path)])</onclick>
-                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + Skin.HasSetting(HomePicturesTile2) + String.IsEqual(Skin.String(HomePicturesTile2.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(HomePicturesTile2.Path)],return)</onclick>
-                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + Skin.HasSetting(HomePicturesTile2) + String.IsEqual(Skin.String(HomePicturesTile2.Type),8)">ActivateWindow(10025,$INFO[Skin.String(HomePicturesTile2.Path)],return)</onclick>
-                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + Skin.HasSetting(HomePicturesTile2) + String.IsEqual(Skin.String(HomePicturesTile2.Type),5)">ActivateWindow(Music,$INFO[Skin.String(HomePicturesTile2.Path)],return)</onclick>
-                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + Skin.HasSetting(HomePicturesTile2) + [String.IsEqual(Skin.String(HomePicturesTile2.Type),6) | String.IsEqual(Skin.String(HomePicturesTile2.Type),7)]">$INFO[Skin.String(HomePicturesTile2.Path)]</onclick>
-                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + !Skin.HasSetting(HomePicturesTile2)">ActivateWindow(pictures,addons,return)</onclick>
-                                <onclick condition="!String.IsEmpty(Window.Property(EditTile))">Skin.SetBool(HomePicturesTile2)</onclick>
-                                <onclick condition="!String.IsEmpty(Window.Property(EditTile)) + String.IsEmpty(Skin.String(HomePicturesTile2.Type))">Skin.SetString(HomePicturesTile2.Type,0)</onclick>
-                                <onclick condition="!String.IsEmpty(Window.Property(EditTile)) + String.IsEmpty(Skin.String(HomePicturesTile2.TypeName))">Skin.SetString(HomePicturesTile2.TypeName,$LOCALIZE[31145])</onclick>
+                                <label fallback="1039">$INFO[Skin.String(HomeGamesTile2.Label)]</label>
+                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + Skin.HasSetting(HomeGamesTile2) + !String.IsEqual(Skin.String(HomeGamesTile2.Type),4) + !String.IsEqual(Skin.String(HomeGamesTile2.Type),5) + !String.IsEqual(Skin.String(HomeGamesTile2.Type),6) + !String.IsEqual(Skin.String(HomeGamesTile2.Type),7) + !String.IsEqual(Skin.String(HomeGamesTile2.Type),8)">RunAddon($INFO[Skin.String(HomeGamesTile2.Path)])</onclick>
+                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + Skin.HasSetting(HomeGamesTile2) + String.IsEqual(Skin.String(HomeGamesTile2.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(HomeGamesTile2.Path)],return)</onclick>
+                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + Skin.HasSetting(HomeGamesTile2) + String.IsEqual(Skin.String(HomeGamesTile2.Type),8)">ActivateWindow(10025,$INFO[Skin.String(HomeGamesTile2.Path)],return)</onclick>
+                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + Skin.HasSetting(HomeGamesTile2) + String.IsEqual(Skin.String(HomeGamesTile2.Type),5)">ActivateWindow(Music,$INFO[Skin.String(HomeGamesTile2.Path)],return)</onclick>
+                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + Skin.HasSetting(HomeGamesTile2) + [String.IsEqual(Skin.String(HomeGamesTile2.Type),6) | String.IsEqual(Skin.String(HomeGamesTile2.Type),7)]">$INFO[Skin.String(HomeGamesTile2.Path)]</onclick>
+                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + !Skin.HasSetting(HomeGamesTile2)">ActivateWindow(programs,addons,return)</onclick>
+                                <onclick condition="!String.IsEmpty(Window.Property(EditTile))">Skin.SetBool(HomeGamesTile2)</onclick>
+                                <onclick condition="!String.IsEmpty(Window.Property(EditTile)) + String.IsEmpty(Skin.String(HomeGamesTile2.Type))">Skin.SetString(HomeGamesTile2.Type,0)</onclick>
+                                <onclick condition="!String.IsEmpty(Window.Property(EditTile)) + String.IsEmpty(Skin.String(HomeGamesTile2.TypeName))">Skin.SetString(HomeGamesTile2.TypeName,$LOCALIZE[31145])</onclick>
                                 <onclick condition="!String.IsEmpty(Window.Property(EditTile))">SetProperty(SingleDialog,item40,3003)</onclick>
                                 <onclick condition="!String.IsEmpty(Window.Property(EditTile))">SetProperty(Dialog,$LOCALIZE[31136],skinsettings)</onclick>
-                                <onclick condition="!String.IsEmpty(Window.Property(EditTile))">SetProperty(HomeTileEdit,HomePicturesTile2,3003)</onclick>
-                                <onclick condition="!String.IsEmpty(Window.Property(EditTile))">SetProperty(HomeTileEdit.Type,$INFO[Skin.String(HomePicturesTile2.Type)],3003)</onclick>
-                                <onclick condition="!String.IsEmpty(Window.Property(EditTile))">SetProperty(HomeTileEdit.ShowLabel,$INFO[Skin.String(HomePicturesTile2.ShowLabel)],3003)</onclick>
-                                <onclick condition="!String.IsEmpty(Window.Property(EditTile))">SetProperty(HomeTileEdit.Animate,$INFO[Skin.String(HomePicturesTile2.Animate)],3003)</onclick>
+                                <onclick condition="!String.IsEmpty(Window.Property(EditTile))">SetProperty(HomeTileEdit,HomeGamesTile2,3003)</onclick>
+                                <onclick condition="!String.IsEmpty(Window.Property(EditTile))">SetProperty(HomeTileEdit.Type,$INFO[Skin.String(HomeGamesTile2.Type)],3003)</onclick>
+                                <onclick condition="!String.IsEmpty(Window.Property(EditTile))">SetProperty(HomeTileEdit.ShowLabel,$INFO[Skin.String(HomeGamesTile2.ShowLabel)],3003)</onclick>
+                                <onclick condition="!String.IsEmpty(Window.Property(EditTile))">SetProperty(HomeTileEdit.Animate,$INFO[Skin.String(HomeGamesTile2.Animate)],3003)</onclick>
                                 <onclick condition="!String.IsEmpty(Window.Property(EditTile))">ActivateWindow(3003)</onclick>
                                 <onclick condition="!String.IsEmpty(Window.Property(EditTile))">ClearProperty(EditTile)</onclick>
-                                <thumb>$INFO[Skin.String(HomePicturesTile2.Icon)]</thumb>
+                                <thumb>$INFO[Skin.String(HomeGamesTile2.Icon)]</thumb>
                                 <icon>windows/home/icons/addons.png</icon>
                                 <property name="pos">top</property>
-                                <property name="showlabel">$INFO[Skin.String(HomePicturesTile2.ShowLabel)]</property>
-                                <property name="path">$INFO[Skin.String(HomePicturesTile2.Path)]</property>
-                                <property name="animate">$INFO[Skin.String(HomePicturesTile2.Animate)]</property>
+                                <property name="showlabel">$INFO[Skin.String(HomeGamesTile2.ShowLabel)]</property>
+                                <property name="path">$INFO[Skin.String(HomeGamesTile2.Path)]</property>
+                                <property name="animate">$INFO[Skin.String(HomeGamesTile2.Animate)]</property>
                             </item>
                         </content>
                     </control>
@@ -4249,48 +4252,48 @@
                         </focusedlayout>
                         <content>
                             <item id="1">
-                                <label>$INFO[Skin.String(HomePicturesTile3.Label)]</label>
-                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + !String.IsEqual(Skin.String(HomePicturesTile3.Type),4) + !String.IsEqual(Skin.String(HomePicturesTile3.Type),5) + !String.IsEqual(Skin.String(HomePicturesTile3.Type),6) + !String.IsEqual(Skin.String(HomePicturesTile3.Type),7)">RunAddon($INFO[Skin.String(HomePicturesTile3.Path)])</onclick>
-                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + String.IsEqual(Skin.String(HomePicturesTile3.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(HomePicturesTile3.Path)],return)</onclick>
-                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + String.IsEqual(Skin.String(HomePicturesTile3.Type),5)">ActivateWindow(Music,$INFO[Skin.String(HomePicturesTile3.Path)],return)</onclick>
-                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + [String.IsEqual(Skin.String(HomePicturesTile3.Type),6) | String.IsEqual(Skin.String(HomePicturesTile3.Type),7)]">$INFO[Skin.String(HomePicturesTile3.Path)]</onclick>
-                                <onclick condition="String.IsEmpty(Skin.String(HomePicturesTile3.Path)) | !String.IsEmpty(Window.Property(EditTile))">Skin.SetBool(HomePicturesTile3)</onclick>
-                                <onclick condition="[String.IsEmpty(Skin.String(HomePicturesTile3.Path)) | !String.IsEmpty(Window.Property(EditTile))] + String.IsEmpty(Skin.String(HomePicturesTile3.Type))">Skin.SetString(HomePicturesTile3.Type,0)</onclick>
-                                <onclick condition="[String.IsEmpty(Skin.String(HomePicturesTile3.Path)) | !String.IsEmpty(Window.Property(EditTile))] + String.IsEmpty(Skin.String(HomePicturesTile3.TypeName))">Skin.SetString(HomePicturesTile3.TypeName,$LOCALIZE[31145])</onclick>
-                                <onclick condition="String.IsEmpty(Skin.String(HomePicturesTile3.Path)) | !String.IsEmpty(Window.Property(EditTile))">SetProperty(SingleDialog,item41,3003)</onclick>
-                                <onclick condition="String.IsEmpty(Skin.String(HomePicturesTile3.Path)) | !String.IsEmpty(Window.Property(EditTile))">SetProperty(Dialog,$LOCALIZE[31136],skinsettings)</onclick>
-                                <onclick condition="String.IsEmpty(Skin.String(HomePicturesTile3.Path)) | !String.IsEmpty(Window.Property(EditTile))">SetProperty(HomeTileEdit,HomePicturesTile3,3003)</onclick>
-                                <onclick condition="String.IsEmpty(Skin.String(HomePicturesTile3.Path)) | !String.IsEmpty(Window.Property(EditTile))">SetProperty(HomeTileEdit.Type,$INFO[Skin.String(HomePicturesTile3.Type)],3003)</onclick>
-                                <onclick condition="String.IsEmpty(Skin.String(HomePicturesTile3.Path)) | !String.IsEmpty(Window.Property(EditTile))">SetProperty(HomeTileEdit.ShowLabel,$INFO[Skin.String(HomePicturesTile3.ShowLabel)],3003)</onclick>
-                                <onclick condition="String.IsEmpty(Skin.String(HomePicturesTile3.Path)) | !String.IsEmpty(Window.Property(EditTile))">SetProperty(HomeTileEdit.Animate,$INFO[Skin.String(HomePicturesTile3.Animate)],3003)</onclick>
-                                <onclick condition="String.IsEmpty(Skin.String(HomePicturesTile3.Path)) | !String.IsEmpty(Window.Property(EditTile))">ActivateWindow(3003)</onclick>
+                                <label>$INFO[Skin.String(HomeGamesTile3.Label)]</label>
+                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + !String.IsEqual(Skin.String(HomeGamesTile3.Type),4) + !String.IsEqual(Skin.String(HomeGamesTile3.Type),5) + !String.IsEqual(Skin.String(HomeGamesTile3.Type),6) + !String.IsEqual(Skin.String(HomeGamesTile3.Type),7)">RunAddon($INFO[Skin.String(HomeGamesTile3.Path)])</onclick>
+                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + String.IsEqual(Skin.String(HomeGamesTile3.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(HomeGamesTile3.Path)],return)</onclick>
+                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + String.IsEqual(Skin.String(HomeGamesTile3.Type),5)">ActivateWindow(Music,$INFO[Skin.String(HomeGamesTile3.Path)],return)</onclick>
+                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + [String.IsEqual(Skin.String(HomeGamesTile3.Type),6) | String.IsEqual(Skin.String(HomeGamesTile3.Type),7)]">$INFO[Skin.String(HomeGamesTile3.Path)]</onclick>
+                                <onclick condition="String.IsEmpty(Skin.String(HomeGamesTile3.Path)) | !String.IsEmpty(Window.Property(EditTile))">Skin.SetBool(HomeGamesTile3)</onclick>
+                                <onclick condition="[String.IsEmpty(Skin.String(HomeGamesTile3.Path)) | !String.IsEmpty(Window.Property(EditTile))] + String.IsEmpty(Skin.String(HomeGamesTile3.Type))">Skin.SetString(HomeGamesTile3.Type,0)</onclick>
+                                <onclick condition="[String.IsEmpty(Skin.String(HomeGamesTile3.Path)) | !String.IsEmpty(Window.Property(EditTile))] + String.IsEmpty(Skin.String(HomeGamesTile3.TypeName))">Skin.SetString(HomeGamesTile3.TypeName,$LOCALIZE[31145])</onclick>
+                                <onclick condition="String.IsEmpty(Skin.String(HomeGamesTile3.Path)) | !String.IsEmpty(Window.Property(EditTile))">SetProperty(SingleDialog,item41,3003)</onclick>
+                                <onclick condition="String.IsEmpty(Skin.String(HomeGamesTile3.Path)) | !String.IsEmpty(Window.Property(EditTile))">SetProperty(Dialog,$LOCALIZE[31136],skinsettings)</onclick>
+                                <onclick condition="String.IsEmpty(Skin.String(HomeGamesTile3.Path)) | !String.IsEmpty(Window.Property(EditTile))">SetProperty(HomeTileEdit,HomeGamesTile3,3003)</onclick>
+                                <onclick condition="String.IsEmpty(Skin.String(HomeGamesTile3.Path)) | !String.IsEmpty(Window.Property(EditTile))">SetProperty(HomeTileEdit.Type,$INFO[Skin.String(HomeGamesTile3.Type)],3003)</onclick>
+                                <onclick condition="String.IsEmpty(Skin.String(HomeGamesTile3.Path)) | !String.IsEmpty(Window.Property(EditTile))">SetProperty(HomeTileEdit.ShowLabel,$INFO[Skin.String(HomeGamesTile3.ShowLabel)],3003)</onclick>
+                                <onclick condition="String.IsEmpty(Skin.String(HomeGamesTile3.Path)) | !String.IsEmpty(Window.Property(EditTile))">SetProperty(HomeTileEdit.Animate,$INFO[Skin.String(HomeGamesTile3.Animate)],3003)</onclick>
+                                <onclick condition="String.IsEmpty(Skin.String(HomeGamesTile3.Path)) | !String.IsEmpty(Window.Property(EditTile))">ActivateWindow(3003)</onclick>
                                 <onclick condition="!String.IsEmpty(Window.Property(EditTile))">ClearProperty(EditTile)</onclick>
-                                <icon>$INFO[Skin.String(HomePicturesTile3.Icon)]</icon>
-                                <property name="showlabel">$INFO[Skin.String(HomePicturesTile3.ShowLabel)]</property>
-                                <property name="path">$INFO[Skin.String(HomePicturesTile3.Path)]</property>
-                                <property name="animate">$INFO[Skin.String(HomePicturesTile3.Animate)]</property>
+                                <icon>$INFO[Skin.String(HomeGamesTile3.Icon)]</icon>
+                                <property name="showlabel">$INFO[Skin.String(HomeGamesTile3.ShowLabel)]</property>
+                                <property name="path">$INFO[Skin.String(HomeGamesTile3.Path)]</property>
+                                <property name="animate">$INFO[Skin.String(HomeGamesTile3.Animate)]</property>
                             </item>
                             <item id="2">
-                                <label>$INFO[Skin.String(HomePicturesTile4.Label)]</label>
-                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + !String.IsEqual(Skin.String(HomePicturesTile4.Type),4) + !String.IsEqual(Skin.String(HomePicturesTile4.Type),5) + !String.IsEqual(Skin.String(HomePicturesTile4.Type),6) + !String.IsEqual(Skin.String(HomePicturesTile4.Type),7)">RunAddon($INFO[Skin.String(HomePicturesTile4.Path)])</onclick>
-                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + String.IsEqual(Skin.String(HomePicturesTile4.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(HomePicturesTile4.Path)],return)</onclick>
-                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + String.IsEqual(Skin.String(HomePicturesTile4.Type),5)">ActivateWindow(Music,$INFO[Skin.String(HomePicturesTile4.Path)],return)</onclick>
-                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + [String.IsEqual(Skin.String(HomePicturesTile4.Type),6) | String.IsEqual(Skin.String(HomePicturesTile4.Type),7)]">$INFO[Skin.String(HomePicturesTile4.Path)]</onclick>
-                                <onclick condition="String.IsEmpty(Skin.String(HomePicturesTile4.Path)) | !String.IsEmpty(Window.Property(EditTile))">Skin.SetBool(HomePicturesTile4)</onclick>
-                                <onclick condition="[String.IsEmpty(Skin.String(HomePicturesTile4.Path)) | !String.IsEmpty(Window.Property(EditTile))] + String.IsEmpty(Skin.String(HomePicturesTile4.Type))">Skin.SetString(HomePicturesTile4.Type,0)</onclick>
-                                <onclick condition="[String.IsEmpty(Skin.String(HomePicturesTile4.Path)) | !String.IsEmpty(Window.Property(EditTile))] + String.IsEmpty(Skin.String(HomePicturesTile4.TypeName))">Skin.SetString(HomePicturesTile4.TypeName,$LOCALIZE[31145])</onclick>
-                                <onclick condition="String.IsEmpty(Skin.String(HomePicturesTile4.Path)) | !String.IsEmpty(Window.Property(EditTile))">SetProperty(SingleDialog,item42,3003)</onclick>
-                                <onclick condition="String.IsEmpty(Skin.String(HomePicturesTile4.Path)) | !String.IsEmpty(Window.Property(EditTile))">SetProperty(Dialog,$LOCALIZE[31136],skinsettings)</onclick>
-                                <onclick condition="String.IsEmpty(Skin.String(HomePicturesTile4.Path)) | !String.IsEmpty(Window.Property(EditTile))">SetProperty(HomeTileEdit,HomePicturesTile4,3003)</onclick>
-                                <onclick condition="String.IsEmpty(Skin.String(HomePicturesTile4.Path)) | !String.IsEmpty(Window.Property(EditTile))">SetProperty(HomeTileEdit.Type,$INFO[Skin.String(HomePicturesTile4.Type)],3003)</onclick>
-                                <onclick condition="String.IsEmpty(Skin.String(HomePicturesTile4.Path)) | !String.IsEmpty(Window.Property(EditTile))">SetProperty(HomeTileEdit.ShowLabel,$INFO[Skin.String(HomePicturesTile4.ShowLabel)],3003)</onclick>
-                                <onclick condition="String.IsEmpty(Skin.String(HomePicturesTile4.Path)) | !String.IsEmpty(Window.Property(EditTile))">SetProperty(HomeTileEdit.Animate,$INFO[Skin.String(HomePicturesTile4.Animate)],3003)</onclick>
-                                <onclick condition="String.IsEmpty(Skin.String(HomePicturesTile4.Path)) | !String.IsEmpty(Window.Property(EditTile))">ActivateWindow(3003)</onclick>
+                                <label>$INFO[Skin.String(HomeGamesTile4.Label)]</label>
+                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + !String.IsEqual(Skin.String(HomeGamesTile4.Type),4) + !String.IsEqual(Skin.String(HomeGamesTile4.Type),5) + !String.IsEqual(Skin.String(HomeGamesTile4.Type),6) + !String.IsEqual(Skin.String(HomeGamesTile4.Type),7)">RunAddon($INFO[Skin.String(HomeGamesTile4.Path)])</onclick>
+                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + String.IsEqual(Skin.String(HomeGamesTile4.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(HomeGamesTile4.Path)],return)</onclick>
+                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + String.IsEqual(Skin.String(HomeGamesTile4.Type),5)">ActivateWindow(Music,$INFO[Skin.String(HomeGamesTile4.Path)],return)</onclick>
+                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + [String.IsEqual(Skin.String(HomeGamesTile4.Type),6) | String.IsEqual(Skin.String(HomeGamesTile4.Type),7)]">$INFO[Skin.String(HomeGamesTile4.Path)]</onclick>
+                                <onclick condition="String.IsEmpty(Skin.String(HomeGamesTile4.Path)) | !String.IsEmpty(Window.Property(EditTile))">Skin.SetBool(HomeGamesTile4)</onclick>
+                                <onclick condition="[String.IsEmpty(Skin.String(HomeGamesTile4.Path)) | !String.IsEmpty(Window.Property(EditTile))] + String.IsEmpty(Skin.String(HomeGamesTile4.Type))">Skin.SetString(HomeGamesTile4.Type,0)</onclick>
+                                <onclick condition="[String.IsEmpty(Skin.String(HomeGamesTile4.Path)) | !String.IsEmpty(Window.Property(EditTile))] + String.IsEmpty(Skin.String(HomeGamesTile4.TypeName))">Skin.SetString(HomeGamesTile4.TypeName,$LOCALIZE[31145])</onclick>
+                                <onclick condition="String.IsEmpty(Skin.String(HomeGamesTile4.Path)) | !String.IsEmpty(Window.Property(EditTile))">SetProperty(SingleDialog,item42,3003)</onclick>
+                                <onclick condition="String.IsEmpty(Skin.String(HomeGamesTile4.Path)) | !String.IsEmpty(Window.Property(EditTile))">SetProperty(Dialog,$LOCALIZE[31136],skinsettings)</onclick>
+                                <onclick condition="String.IsEmpty(Skin.String(HomeGamesTile4.Path)) | !String.IsEmpty(Window.Property(EditTile))">SetProperty(HomeTileEdit,HomeGamesTile4,3003)</onclick>
+                                <onclick condition="String.IsEmpty(Skin.String(HomeGamesTile4.Path)) | !String.IsEmpty(Window.Property(EditTile))">SetProperty(HomeTileEdit.Type,$INFO[Skin.String(HomeGamesTile4.Type)],3003)</onclick>
+                                <onclick condition="String.IsEmpty(Skin.String(HomeGamesTile4.Path)) | !String.IsEmpty(Window.Property(EditTile))">SetProperty(HomeTileEdit.ShowLabel,$INFO[Skin.String(HomeGamesTile4.ShowLabel)],3003)</onclick>
+                                <onclick condition="String.IsEmpty(Skin.String(HomeGamesTile4.Path)) | !String.IsEmpty(Window.Property(EditTile))">SetProperty(HomeTileEdit.Animate,$INFO[Skin.String(HomeGamesTile4.Animate)],3003)</onclick>
+                                <onclick condition="String.IsEmpty(Skin.String(HomeGamesTile4.Path)) | !String.IsEmpty(Window.Property(EditTile))">ActivateWindow(3003)</onclick>
                                 <onclick condition="!String.IsEmpty(Window.Property(EditTile))">ClearProperty(EditTile)</onclick>
-                                <icon>$INFO[Skin.String(HomePicturesTile4.Icon)]</icon>
-                                <property name="showlabel">$INFO[Skin.String(HomePicturesTile4.ShowLabel)]</property>
-                                <property name="path">$INFO[Skin.String(HomePicturesTile4.Path)]</property>
-                                <property name="animate">$INFO[Skin.String(HomePicturesTile4.Animate)]</property>
+                                <icon>$INFO[Skin.String(HomeGamesTile4.Icon)]</icon>
+                                <property name="showlabel">$INFO[Skin.String(HomeGamesTile4.ShowLabel)]</property>
+                                <property name="path">$INFO[Skin.String(HomeGamesTile4.Path)]</property>
+                                <property name="animate">$INFO[Skin.String(HomeGamesTile4.Animate)]</property>
                             </item>
                         </content>
                     </control>
@@ -4318,7 +4321,7 @@
                 <height>780</height>
                 <visible>!Skin.HasSetting(HomePrograms)</visible>
                 <control type="button" id="625">
-                    <onleft condition="!Skin.HasSetting(HomePictures)">1025</onleft>
+                    <onleft condition="!Skin.HasSetting(HomeGames)">1025</onleft>
                     <onleft condition="!Skin.HasSetting(HomeMusic)">425</onleft>
                     <onleft condition="!Skin.HasSetting(HomeTVShows)">325</onleft>
                     <onleft condition="!Skin.HasSetting(HomeMovies)">225</onleft>
@@ -4391,7 +4394,7 @@
                         <posy>-24</posy>
                         <width>1586</width>
                         <height>620</height>
-                        <onleft condition="!Skin.HasSetting(HomePictures)">1003</onleft>
+                        <onleft condition="!Skin.HasSetting(HomeGames)">1003</onleft>
                         <onleft condition="!Skin.HasSetting(HomeMusic)">403</onleft>
                         <onleft condition="!Skin.HasSetting(HomeTVShows)">303</onleft>
                         <onleft condition="!Skin.HasSetting(HomeMovies)">203</onleft>
@@ -4789,7 +4792,7 @@
                 <control type="button" id="725">
                     <onleft>Control.Move(20,-1)</onleft>
                     <onleft condition="!Skin.HasSetting(HomePrograms)">625</onleft>
-                    <onleft condition="!Skin.HasSetting(HomePictures)">1025</onleft>
+                    <onleft condition="!Skin.HasSetting(HomeGames)">1025</onleft>
                     <onleft condition="!Skin.HasSetting(HomeMusic)">425</onleft>
                     <onleft condition="!Skin.HasSetting(HomeMusic)">425</onleft>
                     <onleft condition="!Skin.HasSetting(HomeTVShows)">325</onleft>
@@ -5414,7 +5417,7 @@
                         <height>620</height>
                         <onleft>Control.Move(20,-1)</onleft>
                         <onleft condition="!Skin.HasSetting(HomePrograms)">601</onleft>
-                        <onleft condition="!Skin.HasSetting(HomePictures)">1003</onleft>
+                        <onleft condition="!Skin.HasSetting(HomeGames)">1003</onleft>
                         <onleft condition="!Skin.HasSetting(HomeMusic)">403</onleft>
                         <onleft condition="!Skin.HasSetting(HomeTVShows)">303</onleft>
                         <onleft condition="!Skin.HasSetting(HomeMovies)">203</onleft>
@@ -5556,7 +5559,7 @@
                     <onleft>Control.Move(20,-1)</onleft>
                     <onleft condition="!Skin.HasSetting(HomeWeather)">725</onleft>
                     <onleft condition="!Skin.HasSetting(HomePrograms)">625</onleft>
-                    <onleft condition="!Skin.HasSetting(HomePictures)">1025</onleft>
+                    <onleft condition="!Skin.HasSetting(HomeGames)">1025</onleft>
                     <onleft condition="!Skin.HasSetting(HomeMusic)">425</onleft>
                     <onleft condition="!Skin.HasSetting(HomeTVShows)">325</onleft>
                     <onleft condition="!Skin.HasSetting(HomeMovies)">225</onleft>
@@ -5620,7 +5623,7 @@
                         <onleft>Control.Move(20,-1)</onleft>
                         <onleft condition="!Skin.HasSetting(HomeWeather)">701</onleft>
                         <onleft condition="!Skin.HasSetting(HomePrograms)">601</onleft>
-                        <onleft condition="!Skin.HasSetting(HomePictures)">1003</onleft>
+                        <onleft condition="!Skin.HasSetting(HomeGames)">1003</onleft>
                         <onleft condition="!Skin.HasSetting(HomeMusic)">403</onleft>
                         <onleft condition="!Skin.HasSetting(HomeTVShows)">303</onleft>
                         <onleft condition="!Skin.HasSetting(HomeMovies)">203</onleft>
