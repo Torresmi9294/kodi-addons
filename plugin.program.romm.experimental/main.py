@@ -557,17 +557,18 @@ def play_trailer(rom):
 
 def show_game_info(client, rom):
     """IAGL-style info dialog; returns the chosen action or None."""
+    shots = client.screenshot_urls(rom, limit=2)
     dialog = GameInfoDialog(
         'romm-gameinfo.xml', ADDON.getAddonInfo('path'), 'Default', '1080i',
         rom=rom,
         title=rom_label(rom),
         cover=client.cover_url(rom),
-        fanart=client.fanart_url(rom),
+        fanart=shots[0] if shots else '',
+        shots=shots,
         strings={
             'launch': L(32046),
             'trailer': L(32047),
             'download': L(32010),
-            'close': L(32048),
         })
     dialog.doModal()
     result = dialog.result

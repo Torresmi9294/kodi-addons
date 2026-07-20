@@ -126,15 +126,24 @@ class RommClient:
             return ''
         return self.resource_url(path)
 
-    def fanart_url(self, rom):
-        """A screenshot to use as background art, if the rom has any."""
+    def screenshot_urls(self, rom, limit=4):
+        """Screenshot image URLs for a rom (empty list if none)."""
         for key in ('merged_screenshots', 'path_screenshots', 'url_screenshots'):
             shots = rom.get(key) or []
             if shots and isinstance(shots, list):
-                shot = shots[0]
-                if isinstance(shot, str) and shot:
-                    return shot if shot.startswith('http') else self.resource_url(shot)
-        return ''
+                urls = []
+                for shot in shots[:limit]:
+                    if isinstance(shot, str) and shot:
+                        urls.append(shot if shot.startswith('http')
+                                    else self.resource_url(shot))
+                if urls:
+                    return urls
+        return []
+
+    def fanart_url(self, rom):
+        """A screenshot to use as background art, if the rom has any."""
+        shots = self.screenshot_urls(rom, limit=1)
+        return shots[0] if shots else ''
 
     def download(self, rom, dest_path, progress_cb=None):
         """Stream a rom's content to dest_path.

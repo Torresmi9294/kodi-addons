@@ -187,7 +187,7 @@ msgid "Ask every time"
 msgstr ""
 
 msgctxt "#32046"
-msgid "Launch"
+msgid "Play"
 msgstr ""
 
 msgctxt "#32047"
