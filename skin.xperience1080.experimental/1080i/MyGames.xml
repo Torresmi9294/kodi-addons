@@ -7,7 +7,7 @@
     <controls>
         <include>CommonItems</include>
         <include>GamesHeader</include>
-        <include>GamesViews</include>
+        <include>ProgramViews</include>
         <include>CommonInfo</include>
 
         <include content="OptionsMenu">
@@ -346,7 +346,127 @@
                     <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
                     <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                     <radioposx>-19</radioposx>
-                    <visible>Container.HasFiles + Container.Content(addons)</visible>
+                </control>
+                <control type="radiobutton" id="204">
+                    <description>Info List</description>
+                    <include>optionsbuttonsdimensions</include>
+                    <label>$LOCALIZE[31962]</label>
+                    <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
+                    <onclick>Container.SetViewMode(52)</onclick>
+                    <selected>Control.IsVisible(52)</selected>
+                    <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                    <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
+                    <radioposx>-19</radioposx>
+                </control>
+                <control type="radiobutton" id="205">
+                    <description>Info List Square</description>
+                    <include>optionsbuttonsdimensions</include>
+                    <label>$LOCALIZE[31963]</label>
+                    <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
+                    <onclick>Container.SetViewMode(53)</onclick>
+                    <selected>Control.IsVisible(53)</selected>
+                    <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                    <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
+                    <radioposx>-19</radioposx>
+                </control>
+                <control type="radiobutton" id="206">
+                    <description>Info Panel</description>
+                    <include>optionsbuttonsdimensions</include>
+                    <label>$LOCALIZE[31964]</label>
+                    <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
+                    <onclick>Container.SetViewMode(54)</onclick>
+                    <selected>Control.IsVisible(54)</selected>
+                    <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                    <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
+                    <radioposx>-19</radioposx>
+                </control>
+                <control type="radiobutton" id="207">
+                    <description>Info Panel Square</description>
+                    <include>optionsbuttonsdimensions</include>
+                    <label>$LOCALIZE[31965]</label>
+                    <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
+                    <onclick>Container.SetViewMode(55)</onclick>
+                    <selected>Control.IsVisible(55)</selected>
+                    <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                    <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
+                    <radioposx>-19</radioposx>
+                </control>
+                <control type="radiobutton" id="208">
+                    <description>Landscape</description>
+                    <include>optionsbuttonsdimensions</include>
+                    <label>$LOCALIZE[31966]</label>
+                    <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
+                    <onclick>Container.SetViewMode(56)</onclick>
+                    <selected>Control.IsVisible(56)</selected>
+                    <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                    <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
+                    <radioposx>-19</radioposx>
+                </control>
+                <control type="radiobutton" id="209">
+                    <description>Poster</description>
+                    <include>optionsbuttonsdimensions</include>
+                    <label>$LOCALIZE[31967]</label>
+                    <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
+                    <onclick>Container.SetViewMode(57)</onclick>
+                    <selected>Control.IsVisible(57)</selected>
+                    <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                    <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
+                    <radioposx>-19</radioposx>
+                </control>
+                <control type="radiobutton" id="210">
+                    <description>Poster square</description>
+                    <include>optionsbuttonsdimensions</include>
+                    <label>$LOCALIZE[31968]</label>
+                    <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
+                    <onclick>Container.SetViewMode(58)</onclick>
+                    <selected>Control.IsVisible(58)</selected>
+                    <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                    <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
+                    <radioposx>-19</radioposx>
+                </control>
+                <control type="radiobutton" id="211">
+                    <description>Thumbnail</description>
+                    <include>optionsbuttonsdimensions</include>
+                    <label>$LOCALIZE[31969]</label>
+                    <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
+                    <onclick>Container.SetViewMode(501)</onclick>
+                    <selected>Control.IsVisible(501)</selected>
+                    <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                    <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
+                    <radioposx>-19</radioposx>
+                </control>
+                <control type="radiobutton" id="212">
+                    <description>Thumbnail Square</description>
+                    <include>optionsbuttonsdimensions</include>
+                    <label>$LOCALIZE[31970]</label>
+                    <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
+                    <onclick>Container.SetViewMode(502)</onclick>
+                    <selected>Control.IsVisible(502)</selected>
+                    <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                    <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
+                    <radioposx>-19</radioposx>
+                </control>
+                <control type="radiobutton" id="213">
+                    <description>Banner</description>
+                    <include>optionsbuttonsdimensions</include>
+                    <label>$LOCALIZE[31971]</label>
+                    <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
+                    <onclick>Container.SetViewMode(60)</onclick>
+                    <selected>Control.IsVisible(60)</selected>
+                    <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                    <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
+                    <radioposx>-19</radioposx>
+                </control>
+                <control type="radiobutton" id="214">
+                    <description>Banner Square</description>
+                    <include>optionsbuttonsdimensions</include>
+                    <label>$LOCALIZE[31972]</label>
+                    <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
+                    <onclick>Container.SetViewMode(61)</onclick>
+                    <selected>Control.IsVisible(61)</selected>
+                    <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                    <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
+                    <radioposx>-19</radioposx>
                 </control>
             </control>
         </include>

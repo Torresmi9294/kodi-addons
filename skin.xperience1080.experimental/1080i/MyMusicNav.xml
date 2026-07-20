@@ -294,7 +294,6 @@
                     <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
                     <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                     <radioposx>-19</radioposx>
-                    <visible>Container.Content(Artists) | Container.Content(Albums) | Container.Content(Songs) | Window.IsVisible(MusicPlaylist)</visible>
                 </control>
                 <control type="radiobutton" id="204">
                     <description>Panel</description>
@@ -306,7 +305,6 @@
                     <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
                     <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                     <radioposx>-19</radioposx>
-                    <visible>Container.Content(Artists) | Container.Content(Albums)</visible>
                 </control>
                 <control type="radiobutton" id="205">
                     <description>Cover</description>
@@ -318,7 +316,6 @@
                     <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
                     <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                     <radioposx>-19</radioposx>
-                    <visible>Container.Content(Artists) | Container.Content(Albums)</visible>
                 </control>
                 <control type="radiobutton" id="206">
                     <description>Thumbnail</description>
@@ -330,7 +327,6 @@
                     <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
                     <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                     <radioposx>-19</radioposx>
-                    <visible>String.StartsWith(Container.FolderPath,addons) | String.StartsWith(Container.FolderPath,plugin)</visible>
                 </control>
                 <control type="radiobutton" id="207">
                     <description>Thumbnail</description>
@@ -342,7 +338,6 @@
                     <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
                     <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                     <radioposx>-19</radioposx>
-                    <visible>Container.Content(artists) | Container.Content(albums) | Container.Content(genres)</visible>
                 </control>
                 <control type="radiobutton" id="208">
                     <description>Banner</description>
@@ -354,7 +349,6 @@
                     <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
                     <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                     <radioposx>-19</radioposx>
-                    <visible>Container.Content(Artists) | Container.Content(Albums) | Container.Content(Songs)</visible>
                 </control>
             </control>
         </include>
