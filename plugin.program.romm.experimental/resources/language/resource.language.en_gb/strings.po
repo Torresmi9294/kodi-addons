@@ -90,6 +90,102 @@ msgctxt "#32021"
 msgid "RomM server not configured - opening settings"
 msgstr ""
 
+msgctxt "#32022"
+msgid "Favorites"
+msgstr ""
+
+msgctxt "#32023"
+msgid "Collections"
+msgstr ""
+
+msgctxt "#32024"
+msgid "Last Played"
+msgstr ""
+
+msgctxt "#32025"
+msgid "Random Games"
+msgstr ""
+
+msgctxt "#32026"
+msgid "Tools"
+msgstr ""
+
+msgctxt "#32027"
+msgid "Test connection"
+msgstr ""
+
+msgctxt "#32028"
+msgid "Connection OK - %s platforms found"
+msgstr ""
+
+msgctxt "#32029"
+msgid "RomM statistics"
+msgstr ""
+
+msgctxt "#32030"
+msgid "Clear download cache"
+msgstr ""
+
+msgctxt "#32031"
+msgid "Download cache cleared"
+msgstr ""
+
+msgctxt "#32032"
+msgid "Unhide all platforms"
+msgstr ""
+
+msgctxt "#32033"
+msgid "All platforms unhidden"
+msgstr ""
+
+msgctxt "#32034"
+msgid "Hide platform"
+msgstr ""
+
+msgctxt "#32035"
+msgid "Choose RetroArch core"
+msgstr ""
+
+msgctxt "#32036"
+msgid "Reset RetroArch core assignments"
+msgstr ""
+
+msgctxt "#32037"
+msgid "Core assignments reset"
+msgstr ""
+
+msgctxt "#32038"
+msgid "Game file already exists"
+msgstr ""
+
+msgctxt "#32039"
+msgid "Launch the existing local file, or re-download it from the server?"
+msgstr ""
+
+msgctxt "#32040"
+msgid "Extracting..."
+msgstr ""
+
+msgctxt "#32041"
+msgid "No RetroArch cores found - set the cores directory in settings"
+msgstr ""
+
+msgctxt "#32042"
+msgid "Core saved for platform: %s"
+msgstr ""
+
+msgctxt "#32043"
+msgid "Launch existing file"
+msgstr ""
+
+msgctxt "#32044"
+msgid "Always re-download"
+msgstr ""
+
+msgctxt "#32045"
+msgid "Ask every time"
+msgstr ""
+
 msgctxt "#32100"
 msgid "Server"
 msgstr ""
@@ -100,4 +196,112 @@ msgstr ""
 
 msgctxt "#32102"
 msgid "Downloads"
+msgstr ""
+
+msgctxt "#32103"
+msgid "Launching"
+msgstr ""
+
+msgctxt "#32104"
+msgid "Main menu entries"
+msgstr ""
+
+msgctxt "#32105"
+msgid "Use clean game titles"
+msgstr ""
+
+msgctxt "#32106"
+msgid "List games as"
+msgstr ""
+
+msgctxt "#32107"
+msgid "Games"
+msgstr ""
+
+msgctxt "#32108"
+msgid "Movies"
+msgstr ""
+
+msgctxt "#32109"
+msgid "TV shows"
+msgstr ""
+
+msgctxt "#32110"
+msgid "Show Favorites"
+msgstr ""
+
+msgctxt "#32111"
+msgid "Show Collections"
+msgstr ""
+
+msgctxt "#32112"
+msgid "Show Recently Added"
+msgstr ""
+
+msgctxt "#32113"
+msgid "Show Last Played"
+msgstr ""
+
+msgctxt "#32114"
+msgid "Show Random Games"
+msgstr ""
+
+msgctxt "#32115"
+msgid "Play history size"
+msgstr ""
+
+msgctxt "#32116"
+msgid "If game file already exists locally"
+msgstr ""
+
+msgctxt "#32117"
+msgid "Download cache limit (GB, 0 = unlimited)"
+msgstr ""
+
+msgctxt "#32118"
+msgid "Organize downloads into platform subfolders"
+msgstr ""
+
+msgctxt "#32119"
+msgid "Extract multi-disc zips after download (launches .m3u)"
+msgstr ""
+
+msgctxt "#32120"
+msgid "Launch method"
+msgstr ""
+
+msgctxt "#32121"
+msgid "Kodi RetroPlayer"
+msgstr ""
+
+msgctxt "#32122"
+msgid "External RetroArch"
+msgstr ""
+
+msgctxt "#32123"
+msgid "Custom command"
+msgstr ""
+
+msgctxt "#32124"
+msgid "Android RetroArch (StartAndroidActivity)"
+msgstr ""
+
+msgctxt "#32125"
+msgid "RetroArch executable"
+msgstr ""
+
+msgctxt "#32126"
+msgid "RetroArch cores directory"
+msgstr ""
+
+msgctxt "#32127"
+msgid "Custom launch command (%ROM% = game file path)"
+msgstr ""
+
+msgctxt "#32128"
+msgid "Android RetroArch package name"
+msgstr ""
+
+msgctxt "#32129"
+msgid "Stop playing media before launch"
 msgstr ""

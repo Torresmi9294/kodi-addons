@@ -8,6 +8,8 @@ Tokens) sent as a Bearer token. Endpoints used:
     GET /api/roms?...                           -> {"items": [...], "total": n, "limit": l, "offset": o}
     GET /api/roms/{id}                          -> RomSchema (includes files[])
     GET /api/roms/{id}/content/{file_name}      -> raw file (single-file rom) or zip (multi-part)
+    GET /api/collections                        -> [CollectionSchema, ...]
+    GET /api/stats                              -> {"PLATFORMS": n, "ROMS": n, ...}
 
 Uses only the Python stdlib so the addon has no dependency beyond xbmc.python.
 """
@@ -70,7 +72,7 @@ class RommClient:
         return platforms
 
     def roms(self, platform_id=None, search_term=None, limit=100, offset=0,
-             order_by=None, order_dir=None):
+             order_by=None, order_dir=None, favorite=None, collection_id=None):
         params = {
             'limit': limit,
             'offset': offset,
@@ -87,6 +89,10 @@ class RommClient:
             params['order_by'] = order_by
         if order_dir:
             params['order_dir'] = order_dir
+        if favorite is not None:
+            params['favorite'] = 'true' if favorite else 'false'
+        if collection_id is not None:
+            params['collection_id'] = collection_id
         data = self.get_json('/api/roms', params)
         if isinstance(data, list):  # older servers returned a plain list
             return {'items': data, 'total': len(data), 'limit': limit, 'offset': offset}
@@ -94,6 +100,14 @@ class RommClient:
 
     def rom(self, rom_id):
         return self.get_json('/api/roms/%s' % rom_id)
+
+    def collections(self):
+        cols = self.get_json('/api/collections')
+        cols.sort(key=lambda c: (c.get('name') or '').lower())
+        return cols
+
+    def stats(self):
+        return self.get_json('/api/stats')
 
     def cover_url(self, rom):
         """Best cover image URL for a rom, with auth header piped for Kodi.

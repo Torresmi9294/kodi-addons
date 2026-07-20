@@ -65,6 +65,64 @@
                         <popup>false</popup>
                     </control>
                 </setting>
+                <setting id="clean_titles" type="boolean" label="32105">
+                    <level>0</level>
+                    <default>true</default>
+                    <control type="toggle"/>
+                </setting>
+                <setting id="content_type" type="integer" label="32106">
+                    <level>0</level>
+                    <default>0</default>
+                    <constraints>
+                        <options>
+                            <option label="32107">0</option>
+                            <option label="32108">1</option>
+                            <option label="32109">2</option>
+                        </options>
+                    </constraints>
+                    <control type="list" format="integer">
+                        <heading>32106</heading>
+                    </control>
+                </setting>
+                <setting id="history_size" type="integer" label="32115">
+                    <level>0</level>
+                    <default>25</default>
+                    <constraints>
+                        <minimum>5</minimum>
+                        <step>5</step>
+                        <maximum>100</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                </setting>
+            </group>
+            <group id="2" label="32104">
+                <setting id="show_favorites" type="boolean" label="32110">
+                    <level>0</level>
+                    <default>true</default>
+                    <control type="toggle"/>
+                </setting>
+                <setting id="show_collections" type="boolean" label="32111">
+                    <level>0</level>
+                    <default>true</default>
+                    <control type="toggle"/>
+                </setting>
+                <setting id="show_recent" type="boolean" label="32112">
+                    <level>0</level>
+                    <default>true</default>
+                    <control type="toggle"/>
+                </setting>
+                <setting id="show_lastplayed" type="boolean" label="32113">
+                    <level>0</level>
+                    <default>true</default>
+                    <control type="toggle"/>
+                </setting>
+                <setting id="show_random" type="boolean" label="32114">
+                    <level>0</level>
+                    <default>true</default>
+                    <control type="toggle"/>
+                </setting>
             </group>
         </category>
         <category id="downloads" label="32102">
@@ -80,6 +138,42 @@
                         <heading>32006</heading>
                     </control>
                 </setting>
+                <setting id="organize_by_platform" type="boolean" label="32118">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle"/>
+                </setting>
+                <setting id="existing_action" type="integer" label="32116">
+                    <level>0</level>
+                    <default>0</default>
+                    <constraints>
+                        <options>
+                            <option label="32043">0</option>
+                            <option label="32044">1</option>
+                            <option label="32045">2</option>
+                        </options>
+                    </constraints>
+                    <control type="list" format="integer">
+                        <heading>32116</heading>
+                    </control>
+                </setting>
+                <setting id="cache_limit" type="integer" label="32117">
+                    <level>0</level>
+                    <default>0</default>
+                    <constraints>
+                        <minimum>0</minimum>
+                        <step>1</step>
+                        <maximum>200</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                </setting>
+                <setting id="extract_zips" type="boolean" label="32119">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle"/>
+                </setting>
                 <setting id="on_select" type="integer" label="32008">
                     <level>0</level>
                     <default>0</default>
@@ -92,6 +186,70 @@
                     <control type="list" format="integer">
                         <heading>32008</heading>
                     </control>
+                </setting>
+            </group>
+        </category>
+        <category id="launching" label="32103">
+            <group id="1" label="32103">
+                <setting id="launch_method" type="integer" label="32120">
+                    <level>0</level>
+                    <default>0</default>
+                    <constraints>
+                        <options>
+                            <option label="32121">0</option>
+                            <option label="32122">1</option>
+                            <option label="32123">2</option>
+                            <option label="32124">3</option>
+                        </options>
+                    </constraints>
+                    <control type="list" format="integer">
+                        <heading>32120</heading>
+                    </control>
+                </setting>
+                <setting id="retroarch_path" type="path" label="32125">
+                    <level>0</level>
+                    <default></default>
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="button" format="file">
+                        <heading>32125</heading>
+                    </control>
+                </setting>
+                <setting id="cores_path" type="path" label="32126">
+                    <level>0</level>
+                    <default></default>
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="button" format="path">
+                        <heading>32126</heading>
+                    </control>
+                </setting>
+                <setting id="custom_cmd" type="string" label="32127">
+                    <level>1</level>
+                    <default></default>
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32127</heading>
+                    </control>
+                </setting>
+                <setting id="android_package" type="string" label="32128">
+                    <level>1</level>
+                    <default>com.retroarch</default>
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32128</heading>
+                    </control>
+                </setting>
+                <setting id="stop_media" type="boolean" label="32129">
+                    <level>0</level>
+                    <default>true</default>
+                    <control type="toggle"/>
                 </setting>
             </group>
         </category>
