@@ -500,6 +500,15 @@
                 <animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Control.HasFocus(525)">Conditional</animation>
             </control>
 
+            <control type="label">
+                <description>Games</description>
+                <include>HomeLabel</include>
+                <label>Games</label>
+                <animation effect="fade" start="100" end="40" time="300" tween="cubic" easing="inout" condition="!Container(20).HasFocus(10)">Conditional</animation>
+                <animation effect="zoom" start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Control.HasFocus(1025)">Conditional</animation>
+                <visible>!Skin.HasSetting(HomeGames)</visible>
+            </control>
+
             <control type="group">
                 <posx>0</posx>
                 <posy>0</posy>
@@ -600,15 +609,6 @@
                 <animation effect="fade" start="100" end="40" time="300" tween="cubic" easing="inout" condition="!Container(20).HasFocus(5)">Conditional</animation>
                 <animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Control.HasFocus(425)">Conditional</animation>
                 <visible>!Skin.HasSetting(HomeMusic)</visible>
-            </control>
-
-            <control type="label">
-                <description>Games</description>
-                <include>HomeLabel</include>
-                <label>Games</label>
-                <animation effect="fade" start="100" end="40" time="300" tween="cubic" easing="inout" condition="!Container(20).HasFocus(10)">Conditional</animation>
-                <animation effect="zoom" start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Control.HasFocus(1025)">Conditional</animation>
-                <visible>!Skin.HasSetting(HomeGames)</visible>
             </control>
 
             <control type="label">
