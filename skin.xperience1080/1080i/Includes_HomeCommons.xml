@@ -184,13 +184,13 @@
     </include>
 
     <variable name="HomePictureImageSingle">
-        <value condition="String.IsEmpty(Skin.String(HomePicturesSingleImage))">$INFO[Skin.String(GlobalBackdropSingle)]</value>
-        <value>$INFO[Skin.String(HomePicturesSingleImage)]</value>
+        <value condition="String.IsEmpty(Skin.String(HomeGamesSingleImage))">$INFO[Skin.String(GlobalBackdropSingle)]</value>
+        <value>$INFO[Skin.String(HomeGamesSingleImage)]</value>
     </variable>
 
     <variable name="HomePictureImageMulti">
-        <value condition="String.IsEmpty(Skin.String(HomePicturesMultiImage))">$INFO[Skin.String(GlobalBackdropMulti)]</value>
-        <value>$INFO[Skin.String(HomePicturesMultiImage)]</value>
+        <value condition="String.IsEmpty(Skin.String(HomeGamesMultiImage))">$INFO[Skin.String(GlobalBackdropMulti)]</value>
+        <value>$INFO[Skin.String(HomeGamesMultiImage)]</value>
     </variable>
 
     <variable name="HomeDVDLabel">
@@ -395,6 +395,11 @@
                     <property name="multi">$INFO[Skin.String(HomeHomeMultiImage)]</property>
                     <property name="home">1</property>
                 </item>
+                <item id="10">
+                    <label>Games</label>
+                    <property name="single">$INFO[Skin.String(HomeGamesSingleImage)]</property>
+                    <visible>!Skin.HasSetting(HomeGames)</visible>
+                </item>
                 <item id="9">
                     <label>$LOCALIZE[31220]</label>
                     <visible>!Skin.HasSetting(HomeTV)</visible>
@@ -419,11 +424,6 @@
                     <property name="multi">$INFO[Skin.String(HomeMusicMultiImage)]</property>
                     <property name="music">1</property>
                     <visible>!Skin.HasSetting(HomeMusic)</visible>
-                </item>
-                <item id="10">
-                    <label>$LOCALIZE[1]</label>
-                    <property name="single">$INFO[Skin.String(HomePicturesSingleImage)]</property>
-                    <visible>!Skin.HasSetting(HomePictures)</visible>
                 </item>
                 <item id="6">
                     <label>$LOCALIZE[31504]</label>
@@ -498,6 +498,15 @@
                 <label>$VAR[HomeDVDLabel]</label>
                 <animation effect="fade" start="100" end="40" time="300" tween="cubic" easing="inout" condition="!Container(20).HasFocus(2)">Conditional</animation>
                 <animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Control.HasFocus(525)">Conditional</animation>
+            </control>
+
+            <control type="label">
+                <description>Games</description>
+                <include>HomeLabel</include>
+                <label>Games</label>
+                <animation effect="fade" start="100" end="40" time="300" tween="cubic" easing="inout" condition="!Container(20).HasFocus(10)">Conditional</animation>
+                <animation effect="zoom" start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Control.HasFocus(1025)">Conditional</animation>
+                <visible>!Skin.HasSetting(HomeGames)</visible>
             </control>
 
             <control type="group">
@@ -600,15 +609,6 @@
                 <animation effect="fade" start="100" end="40" time="300" tween="cubic" easing="inout" condition="!Container(20).HasFocus(5)">Conditional</animation>
                 <animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Control.HasFocus(425)">Conditional</animation>
                 <visible>!Skin.HasSetting(HomeMusic)</visible>
-            </control>
-
-            <control type="label">
-                <description>Pictures</description>
-                <include>HomeLabel</include>
-                <label>$LOCALIZE[1]</label>
-                <animation effect="fade" start="100" end="40" time="300" tween="cubic" easing="inout" condition="!Container(20).HasFocus(10)">Conditional</animation>
-                <animation effect="zoom" start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Control.HasFocus(1025)">Conditional</animation>
-                <visible>!Skin.HasSetting(HomePictures)</visible>
             </control>
 
             <control type="label">

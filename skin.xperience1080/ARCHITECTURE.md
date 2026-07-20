@@ -114,36 +114,77 @@ Per-file cheat sheet (representative `<include name="...">` entries, not exhaust
 All the real work is in `HomeItems`, defined in `1080i/Includes_Home.xml`. It's a horizontal
 `<grouplist id="40">` (`itemgap="-815"`, panels overlap into a filmstrip). The main-menu focus
 container is `Container(20)`. Each home category is a `<control type="group" id="N00">` inside
-that grouplist, left-to-right in the XML:
+that grouplist — **the grouplist lays out children in XML document order**, so the category's
+*visual/navigation position* is literally where its `<control type="group">` block sits in the
+file, left-to-right:
 
-| group id | category | line in Includes_Home.xml (as of this doc) |
+| group id | category | notes |
 |---|---|---|
-| 100 | Search (only if `System.HasAddon(script.globalsearch)`) | 24 |
-| 500 | Home (dashboard tile, search fallback) | 160 |
-| 900 | Live TV | 850 |
-| 200 | Movies | 1447 |
-| 300 | TV Shows | 2152 |
-| 400 | Music | 2855 |
-| ~1000 | Pictures | 3604 |
-| 600 | Programs | 4315 |
-| 700 | Weather | 4784 |
-| 800 | Settings (always visible, `<onclick>ActivateWindow(4)</onclick>`) | 5551 |
+| 100 | Search (only if `System.HasAddon(script.globalsearch)`) | |
+| 500 | Home (dashboard tile, search fallback) | |
+| 1000 | **Games** | repurposed from the original "Pictures" tab (Kodi's picture library was never a great fit for a home-screen headline item on this skin); defaults its main click and one widget slot to [IAGL](https://github.com/zach-morris/plugin.program.iagl) (`plugin.program.iagl`), with Advanced Emulator Launcher (`plugin.program.advanced.launcher`) as an alternate, or any other installed Program addon via a picker. Internal `Skin.String`/`Skin.HasSetting` keys are `HomeGames*` (renamed from `HomePictures*` when repurposed — a plain literal-string rename, ~192 occurrences, no numeric control/panel ids were touched). |
+| 900 | Live TV | |
+| 200 | Movies | |
+| 300 | TV Shows | |
+| 400 | Music | |
+| 600 | Programs | |
+| 700 | Weather | |
+| 800 | Settings (always visible, `<onclick>ActivateWindow(4)</onclick>`) | |
 
 Every category except Search and Settings is gated by `Skin.HasSetting(HomeXxx)` (e.g.
-`HomeTV`, `HomeMovies`, `HomeTVShows`, `HomeMusic`, `HomePictures`, `HomePrograms`,
+`HomeTV`, `HomeMovies`, `HomeTVShows`, `HomeMusic`, `HomeGames`, `HomePrograms`,
 `HomeWeather`). Toggling one off means neighboring groups' `<onleft>`/`<onright>` chains skip
 past it, e.g.:
 
 ```xml
+<onright condition="!Skin.HasSetting(HomeGames)">1025</onright>
 <onright condition="!Skin.HasSetting(HomeTV)">925</onright>
-<onright condition="!Skin.HasSetting(HomeMovies)">225</onright>
 ```
 
-**This nav-chain pattern repeats at every focus boundary in the file.** Turning an existing
-category on/off is already handled. Adding a brand-new category requires inserting its group id
-into every neighboring group's `onleft`/`onright`/`onup`/`ondown` chains — the highest-friction
-edit in the skin. Reusing/repointing an existing slot (e.g. repurposing "Programs" or
-"Pictures") is much cheaper than adding a new numbered group.
+**This nav-chain pattern repeats at every focus boundary in the file** — duplicated across each
+category's main button *and* its 1-2 side panels (e.g. Movies has button `225` plus panels `201`
+[left]/`203` [right]; a category with no submenu split, like Games, still has button `1025` plus
+panels `1001`[left]/`1003`[right]). **Reordering or adding a category means editing this chain
+in every neighboring category's button and panels, not just the one moving.** Concretely, when
+Games was moved from last position to right after Home:
+
+- Every group whose left/right neighbor changed needed its `onleft`/`onright` updated — that
+  ended up being 7 of the 9 categories, not just Games and its new immediate neighbors.
+- **Multiple conditional `<onleft>`/`<onright>` tags use first-match-wins**, evaluated top to
+  bottom (confirmed against the [Kodi Skinning Manual](https://kodi.wiki/view/Skinning_Manual) —
+  not documented anywhere in this codebase, easy to get backwards). An unconditional fallback
+  entry (e.g. `<onright>Control.Move(20,1)</onright>`) **must be listed last**, or every
+  conditional entry after it becomes dead code. The original skin is inconsistent about this in
+  a few spots (unconditional fallback listed mid-chain) — evidently harmless in practice because
+  Kodi's plain directional container scroll already skips hidden items as a side effect, but
+  don't copy that quirk into new code; put fallbacks last.
+- Cross-tab "enter the next category from its **left** panel, leave from its **right** panel"
+  convention: a category's right-side panel's `onright` should point at the *next visible
+  category's left panel* (e.g. Movies panel `203`'s onright → TVShows panel `301`, not `303`).
+  Getting the left/right panel id backwards here doesn't break navigation, it just makes you
+  enter the neighboring tab already-focused on the wrong tile (this exact mistake shipped once
+  during the Games reorder: Games panel `1003`'s onright pointed at Live TV's right panel `903`
+  instead of its left panel `901`, so moving right from Games landed on "Guide" instead of "TV
+  channels").
+- **There are two independent places the category's name/order is rendered, not one:**
+  1. `1080i/Includes_HomeCommons.xml`'s `HomeCategoryLabels` include has an invisible
+     2x2px `<wraplist id="20">` ("Category list") whose `<content><item>` order drives
+     `Container(20).CurrentItem`/focus-position bookkeeping — reordering this matters for
+     internal state but **does not** move anything on screen.
+  2. The **visible** category-name text row is a separate `<control type="grouplist">`
+     ("Category labels") in that same include, containing one discrete
+     `<control type="label">` per category (each with its own
+     `Container(20).HasFocus(itemId)`-gated fade animation) — **this is also a grouplist, so
+     it lays out in document order too**, independently of #1. Moving a category means
+     reordering its label block here as well, or the nav order and the visible tab-name order
+     will disagree (exactly what happened the first time Games was reordered: nav worked,
+     names didn't move).
+
+Reusing/repointing an existing slot (as Games did, from "Pictures") stays much cheaper than
+inventing a brand-new numbered group, since the button id, panel ids, tile-editor wiring
+(`Includes_SettingsCustomHomeItems.xml`), and widget-picker settings screen
+(`Includes_SettingsCustomHomeWidgets.xml`) all already exist and just need their `Skin.String`
+key prefix renamed and their default content/actions repointed.
 
 Each category group also owns its home-widget content controls and a quick-submenu popup.
 
@@ -213,7 +254,7 @@ surfaced through custom dialog windows, coordinated via `Window(skinsettings).pr
        <label>$LOCALIZE[19020]</label>
    </control>
    ```
-   (same pattern for `HomeMovies`, `HomeTVShows`, `HomeMusic`, `HomePictures`, `HomePrograms`,
+   (same pattern for `HomeMovies`, `HomeTVShows`, `HomeMusic`, `HomeGames`, `HomePrograms`,
    `HomeWeather`). `SetProperty(CategoryChanged,1,Home)` is what `Home.xml`'s
    `FocusSettingsCategory` include picks up to refresh Home after a toggle.
 
@@ -228,7 +269,7 @@ surfaced through custom dialog windows, coordinated via `Window(skinsettings).pr
    `HomeTileEditTypeName` variables that switch on `Window(3003).Property(SingleDialog)`
    (`item1`…`item42`) to read the right `Skin.String(...)` for whichever slot is being edited
    (video tiles 1/2/5/6, TV-show tiles 1–4, music tiles 1–6, program tiles 1–10, home tiles 1–2,
-   picture tiles 1–4).
+   game tiles 1–4 [`HomeGamesTile1-4`, renamed from `HomePicturesTile1-4`]).
 
 5. **`1080i/Custom_LanguageDialog.xml`** (window id `3006`) — MPAA/subtitle language filter
    picker, also settings-adjacent (`Skin.SetString`).

@@ -28,7 +28,7 @@
     <platform>all</platform>
   </extension>
 </addon>
-<addon id="skin.xperience1080" version="10.0.0" name="Xperience1080" provider-name="xhaggi">
+<addon id="skin.xperience1080" version="10.1.0" name="Xperience1080" provider-name="xhaggi">
     <requires>
         <import addon="xbmc.gui" version="5.17.0" />
         <import addon="script.globalsearch" version="9.0.7" />

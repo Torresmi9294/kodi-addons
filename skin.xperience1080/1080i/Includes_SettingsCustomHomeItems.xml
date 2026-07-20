@@ -28,10 +28,10 @@
         <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item26)">$INFO[Skin.String(HomeMusicTile6.Label)]</value>
         <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item27)">$INFO[Skin.String(HomeProgramTile9.Label)]</value>
         <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item28)">$INFO[Skin.String(HomeProgramTile10.Label)]</value>
-        <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item39)">$INFO[Skin.String(HomePicturesTile1.Label)]</value>
-        <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item40)">$INFO[Skin.String(HomePicturesTile2.Label)]</value>
-        <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item41)">$INFO[Skin.String(HomePicturesTile3.Label)]</value>
-        <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item42)">$INFO[Skin.String(HomePicturesTile4.Label)]</value>
+        <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item39)">$INFO[Skin.String(HomeGamesTile1.Label)]</value>
+        <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item40)">$INFO[Skin.String(HomeGamesTile2.Label)]</value>
+        <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item41)">$INFO[Skin.String(HomeGamesTile3.Label)]</value>
+        <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item42)">$INFO[Skin.String(HomeGamesTile4.Label)]</value>
     </variable>
 
     <variable name="HomeTileEditIcon">
@@ -61,10 +61,10 @@
         <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item26)">$INFO[Skin.String(HomeMusicTile6.Icon)]</value>
         <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item27)">$INFO[Skin.String(HomeProgramTile9.Icon)]</value>
         <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item28)">$INFO[Skin.String(HomeProgramTile10.Icon)]</value>
-        <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item39)">$INFO[Skin.String(HomePicturesTile1.Icon)]</value>
-        <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item40)">$INFO[Skin.String(HomePicturesTile2.Icon)]</value>
-        <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item41)">$INFO[Skin.String(HomePicturesTile3.Icon)]</value>
-        <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item42)">$INFO[Skin.String(HomePicturesTile4.Icon)]</value>
+        <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item39)">$INFO[Skin.String(HomeGamesTile1.Icon)]</value>
+        <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item40)">$INFO[Skin.String(HomeGamesTile2.Icon)]</value>
+        <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item41)">$INFO[Skin.String(HomeGamesTile3.Icon)]</value>
+        <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item42)">$INFO[Skin.String(HomeGamesTile4.Icon)]</value>
     </variable>
 
     <variable name="HomeTileEditTypeName">
@@ -94,10 +94,10 @@
         <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item26)">$INFO[Skin.String(HomeMusicTile6.TypeName)]</value>
         <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item27)">$INFO[Skin.String(HomeProgramTile9.TypeName)]</value>
         <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item28)">$INFO[Skin.String(HomeProgramTile10.TypeName)]</value>
-        <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item39)">$INFO[Skin.String(HomePicturesTile1.TypeName)]</value>
-        <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item40)">$INFO[Skin.String(HomePicturesTile2.TypeName)]</value>
-        <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item41)">$INFO[Skin.String(HomePicturesTile3.TypeName)]</value>
-        <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item42)">$INFO[Skin.String(HomePicturesTile4.TypeName)]</value>
+        <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item39)">$INFO[Skin.String(HomeGamesTile1.TypeName)]</value>
+        <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item40)">$INFO[Skin.String(HomeGamesTile2.TypeName)]</value>
+        <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item41)">$INFO[Skin.String(HomeGamesTile3.TypeName)]</value>
+        <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item42)">$INFO[Skin.String(HomeGamesTile4.TypeName)]</value>
     </variable>
 
     <variable name="HomeTileEditPath">
@@ -127,10 +127,10 @@
         <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item26)">$INFO[Skin.String(HomeMusicTile6.Path)]</value>
         <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item27)">$INFO[Skin.String(HomeProgramTile9.Path)]</value>
         <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item28)">$INFO[Skin.String(HomeProgramTile10.Path)]</value>
-        <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item39)">$INFO[Skin.String(HomePicturesTile1.Path)]</value>
-        <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item40)">$INFO[Skin.String(HomePicturesTile2.Path)]</value>
-        <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item41)">$INFO[Skin.String(HomePicturesTile3.Path)]</value>
-        <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item42)">$INFO[Skin.String(HomePicturesTile4.Path)]</value>
+        <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item39)">$INFO[Skin.String(HomeGamesTile1.Path)]</value>
+        <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item40)">$INFO[Skin.String(HomeGamesTile2.Path)]</value>
+        <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item41)">$INFO[Skin.String(HomeGamesTile3.Path)]</value>
+        <value condition="String.IsEqual(Window(3003).Property(SingleDialog),item42)">$INFO[Skin.String(HomeGamesTile4.Path)]</value>
     </variable>
 
     <include name="PanelDialogHomeTile">
@@ -620,82 +620,82 @@
                         <control type="radiobutton" id="433">
                             <include>SettingsBackgroundDialogRadioButtonVars</include>
                             <label>$LOCALIZE[31032] 1</label>
-                            <onclick>Skin.SetString(HomePicturesTile1.Type,0)</onclick>
-                            <onclick>Skin.SetString(HomePicturesTile1.TypeName,$LOCALIZE[31145])</onclick>
-                            <onclick>Skin.Reset(HomePicturesTile1.Label)</onclick>
-                            <onclick>Skin.Reset(HomePicturesTile1.Icon)</onclick>
-                            <onclick>Skin.Reset(HomePicturesTile1.Animate)</onclick>
-                            <onclick>Skin.Reset(HomePicturesTile1.ShowLabel)</onclick>
-                            <onclick>Skin.Reset(HomePicturesTile1.Path)</onclick>
-                            <onclick>Skin.ToggleSetting(HomePicturesTile1)</onclick>
-                            <onclick>SetProperty(HomeTileEdit.Enabled,$INFO[Skin.HasSetting(HomePicturesTile1)])</onclick>
+                            <onclick>Skin.SetString(HomeGamesTile1.Type,0)</onclick>
+                            <onclick>Skin.SetString(HomeGamesTile1.TypeName,$LOCALIZE[31145])</onclick>
+                            <onclick>Skin.Reset(HomeGamesTile1.Label)</onclick>
+                            <onclick>Skin.Reset(HomeGamesTile1.Icon)</onclick>
+                            <onclick>Skin.Reset(HomeGamesTile1.Animate)</onclick>
+                            <onclick>Skin.Reset(HomeGamesTile1.ShowLabel)</onclick>
+                            <onclick>Skin.Reset(HomeGamesTile1.Path)</onclick>
+                            <onclick>Skin.ToggleSetting(HomeGamesTile1)</onclick>
+                            <onclick>SetProperty(HomeTileEdit.Enabled,$INFO[Skin.HasSetting(HomeGamesTile1)])</onclick>
                             <onfocus>SetProperty(SingleDialog,item39)</onfocus>
-                            <onfocus>SetProperty(HomeTileEdit,HomePicturesTile1)</onfocus>
-                            <onfocus>SetProperty(HomeTileEdit.Enabled,$INFO[Skin.HasSetting(HomePicturesTile1)])</onfocus>
-                            <onfocus>SetProperty(HomeTileEdit.Type,$INFO[Skin.String(HomePicturesTile1.Type)])</onfocus>
-                            <onfocus>SetProperty(HomeTileEdit.ShowLabel,$INFO[Skin.String(HomePicturesTile1.ShowLabel)])</onfocus>
-                            <onfocus>SetProperty(HomeTileEdit.Animate,$INFO[Skin.String(HomePicturesTile1.Animate)])</onfocus>
-                            <selected>Skin.HasSetting(HomePicturesTile1)</selected>
+                            <onfocus>SetProperty(HomeTileEdit,HomeGamesTile1)</onfocus>
+                            <onfocus>SetProperty(HomeTileEdit.Enabled,$INFO[Skin.HasSetting(HomeGamesTile1)])</onfocus>
+                            <onfocus>SetProperty(HomeTileEdit.Type,$INFO[Skin.String(HomeGamesTile1.Type)])</onfocus>
+                            <onfocus>SetProperty(HomeTileEdit.ShowLabel,$INFO[Skin.String(HomeGamesTile1.ShowLabel)])</onfocus>
+                            <onfocus>SetProperty(HomeTileEdit.Animate,$INFO[Skin.String(HomeGamesTile1.Animate)])</onfocus>
+                            <selected>Skin.HasSetting(HomeGamesTile1)</selected>
                         </control>
                         <control type="radiobutton" id="444">
                             <include>SettingsBackgroundDialogRadioButtonVars</include>
                             <label>$LOCALIZE[31032] 2</label>
-                            <onclick>Skin.SetString(HomePicturesTile2.Type,0)</onclick>
-                            <onclick>Skin.SetString(HomePicturesTile2.TypeName,$LOCALIZE[31145])</onclick>
-                            <onclick>Skin.Reset(HomePicturesTile2.Label)</onclick>
-                            <onclick>Skin.Reset(HomePicturesTile2.Icon)</onclick>
-                            <onclick>Skin.Reset(HomePicturesTile2.Animate)</onclick>
-                            <onclick>Skin.Reset(HomePicturesTile2.ShowLabel)</onclick>
-                            <onclick>Skin.Reset(HomePicturesTile2.Path)</onclick>
-                            <onclick>Skin.ToggleSetting(HomePicturesTile2)</onclick>
-                            <onclick>SetProperty(HomeTileEdit.Enabled,$INFO[Skin.HasSetting(HomePicturesTile2)])</onclick>
+                            <onclick>Skin.SetString(HomeGamesTile2.Type,0)</onclick>
+                            <onclick>Skin.SetString(HomeGamesTile2.TypeName,$LOCALIZE[31145])</onclick>
+                            <onclick>Skin.Reset(HomeGamesTile2.Label)</onclick>
+                            <onclick>Skin.Reset(HomeGamesTile2.Icon)</onclick>
+                            <onclick>Skin.Reset(HomeGamesTile2.Animate)</onclick>
+                            <onclick>Skin.Reset(HomeGamesTile2.ShowLabel)</onclick>
+                            <onclick>Skin.Reset(HomeGamesTile2.Path)</onclick>
+                            <onclick>Skin.ToggleSetting(HomeGamesTile2)</onclick>
+                            <onclick>SetProperty(HomeTileEdit.Enabled,$INFO[Skin.HasSetting(HomeGamesTile2)])</onclick>
                             <onfocus>SetProperty(SingleDialog,item40)</onfocus>
-                            <onfocus>SetProperty(HomeTileEdit,HomePicturesTile2)</onfocus>
-                            <onfocus>SetProperty(HomeTileEdit.Enabled,$INFO[Skin.HasSetting(HomePicturesTile2)])</onfocus>
-                            <onfocus>SetProperty(HomeTileEdit.Type,$INFO[Skin.String(HomePicturesTile2.Type)])</onfocus>
-                            <onfocus>SetProperty(HomeTileEdit.ShowLabel,$INFO[Skin.String(HomePicturesTile2.ShowLabel)])</onfocus>
-                            <onfocus>SetProperty(HomeTileEdit.Animate,$INFO[Skin.String(HomePicturesTile2.Animate)])</onfocus>
-                            <selected>Skin.HasSetting(HomePicturesTile2)</selected>
+                            <onfocus>SetProperty(HomeTileEdit,HomeGamesTile2)</onfocus>
+                            <onfocus>SetProperty(HomeTileEdit.Enabled,$INFO[Skin.HasSetting(HomeGamesTile2)])</onfocus>
+                            <onfocus>SetProperty(HomeTileEdit.Type,$INFO[Skin.String(HomeGamesTile2.Type)])</onfocus>
+                            <onfocus>SetProperty(HomeTileEdit.ShowLabel,$INFO[Skin.String(HomeGamesTile2.ShowLabel)])</onfocus>
+                            <onfocus>SetProperty(HomeTileEdit.Animate,$INFO[Skin.String(HomeGamesTile2.Animate)])</onfocus>
+                            <selected>Skin.HasSetting(HomeGamesTile2)</selected>
                         </control>
                         <control type="radiobutton" id="455">
                             <include>SettingsBackgroundDialogRadioButtonVars</include>
                             <label>$LOCALIZE[31032] 3</label>
-                            <onclick>Skin.SetString(HomePicturesTile3.Type,0)</onclick>
-                            <onclick>Skin.SetString(HomePicturesTile3.TypeName,$LOCALIZE[31145])</onclick>
-                            <onclick>Skin.Reset(HomePicturesTile3.Label)</onclick>
-                            <onclick>Skin.Reset(HomePicturesTile3.Icon)</onclick>
-                            <onclick>Skin.Reset(HomePicturesTile3.Animate)</onclick>
-                            <onclick>Skin.Reset(HomePicturesTile3.ShowLabel)</onclick>
-                            <onclick>Skin.Reset(HomePicturesTile3.Path)</onclick>
-                            <onclick>Skin.ToggleSetting(HomePicturesTile3)</onclick>
-                            <onclick>SetProperty(HomeTileEdit.Enabled,$INFO[Skin.HasSetting(HomePicturesTile3)])</onclick>
+                            <onclick>Skin.SetString(HomeGamesTile3.Type,0)</onclick>
+                            <onclick>Skin.SetString(HomeGamesTile3.TypeName,$LOCALIZE[31145])</onclick>
+                            <onclick>Skin.Reset(HomeGamesTile3.Label)</onclick>
+                            <onclick>Skin.Reset(HomeGamesTile3.Icon)</onclick>
+                            <onclick>Skin.Reset(HomeGamesTile3.Animate)</onclick>
+                            <onclick>Skin.Reset(HomeGamesTile3.ShowLabel)</onclick>
+                            <onclick>Skin.Reset(HomeGamesTile3.Path)</onclick>
+                            <onclick>Skin.ToggleSetting(HomeGamesTile3)</onclick>
+                            <onclick>SetProperty(HomeTileEdit.Enabled,$INFO[Skin.HasSetting(HomeGamesTile3)])</onclick>
                             <onfocus>SetProperty(SingleDialog,item41)</onfocus>
-                            <onfocus>SetProperty(HomeTileEdit,HomePicturesTile3)</onfocus>
-                            <onfocus>SetProperty(HomeTileEdit.Enabled,$INFO[Skin.HasSetting(HomePicturesTile3)])</onfocus>
-                            <onfocus>SetProperty(HomeTileEdit.Type,$INFO[Skin.String(HomePicturesTile3.Type)])</onfocus>
-                            <onfocus>SetProperty(HomeTileEdit.ShowLabel,$INFO[Skin.String(HomePicturesTile3.ShowLabel)])</onfocus>
-                            <onfocus>SetProperty(HomeTileEdit.Animate,$INFO[Skin.String(HomePicturesTile3.Animate)])</onfocus>
-                            <selected>Skin.HasSetting(HomePicturesTile3)</selected>
+                            <onfocus>SetProperty(HomeTileEdit,HomeGamesTile3)</onfocus>
+                            <onfocus>SetProperty(HomeTileEdit.Enabled,$INFO[Skin.HasSetting(HomeGamesTile3)])</onfocus>
+                            <onfocus>SetProperty(HomeTileEdit.Type,$INFO[Skin.String(HomeGamesTile3.Type)])</onfocus>
+                            <onfocus>SetProperty(HomeTileEdit.ShowLabel,$INFO[Skin.String(HomeGamesTile3.ShowLabel)])</onfocus>
+                            <onfocus>SetProperty(HomeTileEdit.Animate,$INFO[Skin.String(HomeGamesTile3.Animate)])</onfocus>
+                            <selected>Skin.HasSetting(HomeGamesTile3)</selected>
                         </control>
                         <control type="radiobutton" id="466">
                             <include>SettingsBackgroundDialogRadioButtonVars</include>
                             <label>$LOCALIZE[31032] 4</label>
-                            <onclick>Skin.SetString(HomePicturesTile4.Type,0)</onclick>
-                            <onclick>Skin.SetString(HomePicturesTile4.TypeName,$LOCALIZE[31145])</onclick>
-                            <onclick>Skin.Reset(HomePicturesTile4.Label)</onclick>
-                            <onclick>Skin.Reset(HomePicturesTile4.Icon)</onclick>
-                            <onclick>Skin.Reset(HomePicturesTile4.Animate)</onclick>
-                            <onclick>Skin.Reset(HomePicturesTile4.ShowLabel)</onclick>
-                            <onclick>Skin.Reset(HomePicturesTile4.Path)</onclick>
-                            <onclick>Skin.ToggleSetting(HomePicturesTile4)</onclick>
-                            <onclick>SetProperty(HomeTileEdit.Enabled,$INFO[Skin.HasSetting(HomePicturesTile4)])</onclick>
+                            <onclick>Skin.SetString(HomeGamesTile4.Type,0)</onclick>
+                            <onclick>Skin.SetString(HomeGamesTile4.TypeName,$LOCALIZE[31145])</onclick>
+                            <onclick>Skin.Reset(HomeGamesTile4.Label)</onclick>
+                            <onclick>Skin.Reset(HomeGamesTile4.Icon)</onclick>
+                            <onclick>Skin.Reset(HomeGamesTile4.Animate)</onclick>
+                            <onclick>Skin.Reset(HomeGamesTile4.ShowLabel)</onclick>
+                            <onclick>Skin.Reset(HomeGamesTile4.Path)</onclick>
+                            <onclick>Skin.ToggleSetting(HomeGamesTile4)</onclick>
+                            <onclick>SetProperty(HomeTileEdit.Enabled,$INFO[Skin.HasSetting(HomeGamesTile4)])</onclick>
                             <onfocus>SetProperty(SingleDialog,item42)</onfocus>
-                            <onfocus>SetProperty(HomeTileEdit,HomePicturesTile4)</onfocus>
-                            <onfocus>SetProperty(HomeTileEdit.Enabled,$INFO[Skin.HasSetting(HomePicturesTile4)])</onfocus>
-                            <onfocus>SetProperty(HomeTileEdit.Type,$INFO[Skin.String(HomePicturesTile4.Type)])</onfocus>
-                            <onfocus>SetProperty(HomeTileEdit.ShowLabel,$INFO[Skin.String(HomePicturesTile4.ShowLabel)])</onfocus>
-                            <onfocus>SetProperty(HomeTileEdit.Animate,$INFO[Skin.String(HomePicturesTile4.Animate)])</onfocus>
-                            <selected>Skin.HasSetting(HomePicturesTile4)</selected>
+                            <onfocus>SetProperty(HomeTileEdit,HomeGamesTile4)</onfocus>
+                            <onfocus>SetProperty(HomeTileEdit.Enabled,$INFO[Skin.HasSetting(HomeGamesTile4)])</onfocus>
+                            <onfocus>SetProperty(HomeTileEdit.Type,$INFO[Skin.String(HomeGamesTile4.Type)])</onfocus>
+                            <onfocus>SetProperty(HomeTileEdit.ShowLabel,$INFO[Skin.String(HomeGamesTile4.ShowLabel)])</onfocus>
+                            <onfocus>SetProperty(HomeTileEdit.Animate,$INFO[Skin.String(HomeGamesTile4.Animate)])</onfocus>
+                            <selected>Skin.HasSetting(HomeGamesTile4)</selected>
                         </control>
                         <control type="radiobutton" id="44">
                             <include>SettingsBackgroundDialogRadioButtonVars</include>

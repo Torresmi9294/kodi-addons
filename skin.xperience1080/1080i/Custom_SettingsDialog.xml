@@ -78,10 +78,10 @@
                 <control type="radiobutton" id="2105">
                     <width>1210</width>
                     <include>SettingsDialogRadioButtonVars</include>
-                    <selected>!Skin.HasSetting(HomePictures)</selected>
-                    <onclick>Skin.ToggleSetting(HomePictures)</onclick>
+                    <selected>!Skin.HasSetting(HomeGames)</selected>
+                    <onclick>Skin.ToggleSetting(HomeGames)</onclick>
                     <onclick>SetProperty(CategoryChanged,1,Home)</onclick>
-                    <label>$LOCALIZE[1]</label>
+                    <label>Games</label>
                 </control>
                 <control type="radiobutton" id="2106">
                     <width>1210</width>
