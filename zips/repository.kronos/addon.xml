@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="repository.kronos" name="Kronos Kodi Addons" version="1.0.0" provider-name="kronos">
+  <extension point="xbmc.addon.repository" name="Kronos Kodi Addons">
+    <dir>
+      <info compressed="false">https://raw.githubusercontent.com/Torresmi9294/kodi-addons/main/zips/addons.xml</info>
+      <checksum>https://raw.githubusercontent.com/Torresmi9294/kodi-addons/main/zips/addons.xml.md5</checksum>
+      <datadir zip="true">https://raw.githubusercontent.com/Torresmi9294/kodi-addons/main/zips</datadir>
+    </dir>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Kronos's personal Kodi addon repository</summary>
+    <description lang="en_GB">Repository for testing and distributing custom Kodi addons pushed from GitHub.</description>
+    <platform>all</platform>
+  </extension>
+</addon>
