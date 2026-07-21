@@ -122,8 +122,18 @@ class RommClient:
 
     def resource_url(self, path):
         """Server-local resource with auth header piped for Kodi image loading
-        (Kodi supports `url|Header=Value` suffixes on image paths)."""
-        local = '%s/assets/romm/resources/%s' % (self.base_url, path.lstrip('/'))
+        (Kodi supports `url|Header=Value` suffixes on image paths).
+
+        RomM's schema is inconsistent about this: some path fields (cover,
+        screenshots, ss_metadata fanart/title_screen) already come back
+        prefixed with the server's resource root (/assets/romm/resources/...),
+        others are bare relative paths - blindly prepending the prefix to an
+        already-prefixed path doubles it into a 404."""
+        path = path.lstrip('/')
+        prefix = 'assets/romm/resources/'
+        if not path.startswith(prefix):
+            path = prefix + path
+        local = '%s/%s' % (self.base_url, path)
         return local + '|' + urllib.parse.urlencode({'Authorization': self.auth_header()})
 
     def cover_url(self, rom):
@@ -152,9 +162,31 @@ class RommClient:
         return []
 
     def fanart_url(self, rom):
-        """A screenshot to use as background art, if the rom has any."""
+        """Dedicated fanart/backdrop art. Prefers RomM's own locally-served
+        copy (ss_metadata.fanart_path, fetched via resource_url()) over the
+        ss_metadata.fanart_url variant, which is a live ScreenScraper API
+        call (with RomM's own scraper credentials baked into the query
+        string) rather than an asset RomM itself is serving - falls back to
+        a screenshot if the rom has no fanart of its own."""
+        ss = rom.get('ss_metadata') or {}
+        path = ss.get('fanart_path')
+        if path:
+            return self.resource_url(path)
+        url = ss.get('fanart_url')
+        if url and url.startswith('http'):
+            return url
         shots = self.screenshot_urls(rom, limit=1)
         return shots[0] if shots else ''
+
+    def title_screen_url(self, rom):
+        """Title-screen art, preferring RomM's own locally-served copy over
+        the live ScreenScraper URL (see fanart_url())."""
+        ss = rom.get('ss_metadata') or {}
+        path = ss.get('title_screen_path')
+        if path:
+            return self.resource_url(path)
+        url = ss.get('title_screen_url')
+        return url if url and url.startswith('http') else ''
 
     def download(self, rom, dest_path, progress_cb=None):
         """Stream a rom's content to dest_path.

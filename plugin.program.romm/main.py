@@ -133,7 +133,7 @@ def list_root():
     if ADDON.getSettingBool('show_collections'):
         entries.append((build_url(action='collections'), L(32023), 'DefaultPlaylist.png'))
     if ADDON.getSettingBool('show_recent'):
-        entries.append((build_url(action='roms', order_by='created_at', order_dir='desc', label=L(32012)), L(32012), 'DefaultRecentlyAddedEpisodes.png'))
+        entries.append((build_url(action='recent', offset=0), L(32012), 'DefaultRecentlyAddedEpisodes.png'))
     if ADDON.getSettingBool('show_lastplayed'):
         entries.append((build_url(action='lastplayed'), L(32024), 'DefaultYear.png'))
     if ADDON.getSettingBool('show_random'):
@@ -199,10 +199,16 @@ def add_rom_item(client, rom):
     name = rom_label(rom)
     item = xbmcgui.ListItem(label=name)
     cover = client.cover_url(rom)
+    art = {'icon': 'DefaultAddonGame.png'}
     if cover:
-        item.setArt({'thumb': cover, 'poster': cover, 'icon': 'DefaultAddonGame.png'})
-    else:
-        item.setArt({'icon': 'DefaultAddonGame.png'})
+        art['thumb'] = art['poster'] = cover
+    fanart = client.fanart_url(rom)
+    if fanart:
+        art['fanart'] = fanart
+    shots = client.screenshot_urls(rom, limit=1)
+    if shots:
+        art['screenshot'] = shots[0]
+    item.setArt(art)
     try:
         item.setInfo('game', {
             'title': name,
@@ -255,6 +261,34 @@ def list_roms(client, params):
     for rom in items:
         add_rom_item(client, rom)
 
+    xbmcplugin.setContent(HANDLE, CONTENT_TYPES.get(ADDON.getSettingInt('content_type'), 'games'))
+    xbmcplugin.endOfDirectory(HANDLE)
+
+
+def list_recent(client, offset):
+    """Recently Added is genuinely paginated with a Next page item, unlike
+    every other listing in this addon - it's the one query (sort-by-date,
+    no platform/favorite/collection filter to narrow it) that got big enough
+    on a large library to make the fetch-all-pages loop slow enough for Kodi
+    to kill the script as unresponsive."""
+    limit = page_size()
+    try:
+        data = client.roms(order_by='created_at', order_dir='desc', limit=limit, offset=offset)
+    except RommError as e:
+        notify(L(32019) % str(e), xbmcgui.NOTIFICATION_ERROR)
+        xbmcplugin.endOfDirectory(HANDLE, succeeded=False)
+        return
+    items = data.get('items', [])
+    total = data.get('total', len(items))
+    if not items:
+        notify(L(32020))
+    for rom in items:
+        add_rom_item(client, rom)
+    if offset + limit < total:
+        next_item = xbmcgui.ListItem(label=L(32130))
+        next_item.setArt({'icon': 'DefaultFolderBack.png'})
+        xbmcplugin.addDirectoryItem(
+            HANDLE, build_url(action='recent', offset=offset + limit), next_item, isFolder=True)
     xbmcplugin.setContent(HANDLE, CONTENT_TYPES.get(ADDON.getSettingInt('content_type'), 'games'))
     xbmcplugin.endOfDirectory(HANDLE)
 
@@ -436,8 +470,15 @@ def purge_cache(keep_path):
 
 
 def extract_zip(zip_path, rom):
-    """Extract a multi-part zip next to itself; return the file to launch."""
-    out_dir = os.path.join(os.path.dirname(zip_path), rom.get('fs_name', 'extracted'))
+    """Extract a zip next to itself; return the file to launch.
+
+    The output folder is derived from the zip's own basename (extension
+    stripped), not rom['fs_name'] - for a single-file rom whose one file IS
+    the zip, fs_name can be identical to the zip's filename (extension and
+    all), which would make out_dir equal zip_path itself and crash the
+    extraction."""
+    base = os.path.splitext(os.path.basename(zip_path))[0]
+    out_dir = os.path.join(os.path.dirname(zip_path), base)
     dialog = xbmcgui.DialogProgress()
     dialog.create(ADDON.getAddonInfo('name'), L(32040))
     try:
@@ -455,6 +496,15 @@ def extract_zip(zip_path, rom):
     return os.path.join(out_dir, target) if target else None
 
 
+def needs_extraction():
+    """Kodi's own RetroPlayer (launch_method 0) can't open a raw multi-part zip -
+    PlayMedia() on a bare .zip has no game-core route and lands in VideoPlayer,
+    which fails outright. Extraction is only truly optional for the external
+    launch methods, which may (RetroArch) or may not (custom command, Android)
+    handle zips on their own."""
+    return ADDON.getSettingBool('extract_zips') or ADDON.getSettingInt('launch_method') == 0
+
+
 def fetch_rom_to_disk(client, rom_or_id):
     """Download a rom (respecting the existing-file policy). Returns (path, rom).
 
@@ -466,12 +516,20 @@ def fetch_rom_to_disk(client, rom_or_id):
         out_name = (files[0].get('file_name') if files else None) or rom.get('fs_name', 'rom.bin')
     else:
         out_name = (rom.get('fs_name') or 'rom') + '.zip'
+    # RomM's own "multi-file" flag isn't the only case that lands as a .zip on
+    # disk - a single-file rom can itself be a zip-compressed dump (e.g. some
+    # compilation carts). Either way, if what we're about to hand Kodi is a
+    # .zip, it needs extracting for launch_method 0: Kodi's playercorefactory
+    # dispatches purely on file extension, and most game cores don't register
+    # .zip as a valid extension.
+    is_zip = out_name.lower().endswith('.zip')
     dest_dir = download_dir(rom)
     dest = os.path.join(dest_dir, out_name)
 
-    # for extracted multi-part roms, the extracted folder is the cache marker
-    extracted_dir = os.path.join(dest_dir, rom.get('fs_name', ''))
-    if multi and ADDON.getSettingBool('extract_zips') and os.path.isdir(extracted_dir):
+    # for extracted zips, the extracted folder is the cache marker - must match
+    # extract_zip()'s own naming (zip basename minus extension, not fs_name)
+    extracted_dir = os.path.join(dest_dir, os.path.splitext(out_name)[0])
+    if is_zip and needs_extraction() and os.path.isdir(extracted_dir):
         existing = extracted_dir
     elif os.path.isfile(dest) and os.path.getsize(dest) > 0:
         existing = dest
@@ -492,6 +550,12 @@ def fetch_rom_to_disk(client, rom_or_id):
                 target = m3u[0] if m3u else (files_in[0] if files_in else None)
                 if target:
                     return os.path.join(existing, target), rom
+            elif is_zip and needs_extraction():
+                # a cached raw zip from before extraction was required/enabled -
+                # extract it now rather than handing the raw zip back unplayable
+                launched = extract_zip(existing, rom)
+                if launched:
+                    return launched, rom
             else:
                 return existing, rom
         if os.path.isdir(existing):
@@ -518,7 +582,7 @@ def fetch_rom_to_disk(client, rom_or_id):
         raise
     dialog.close()
 
-    if multi and ADDON.getSettingBool('extract_zips'):
+    if is_zip and needs_extraction():
         launched = extract_zip(dest, rom)
         if launched:
             dest = launched
@@ -685,6 +749,8 @@ def router(paramstring):
         list_platforms(client)
     elif action == 'roms':
         list_roms(client, params)
+    elif action == 'recent':
+        list_recent(client, int(params.get('offset', 0)))
     elif action == 'collections':
         list_collections(client)
     elif action == 'random':

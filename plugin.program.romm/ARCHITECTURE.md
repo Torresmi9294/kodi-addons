@@ -81,10 +81,22 @@ Endpoints:
 Cover art: prefer `url_cover` (metadata-provider CDN, public). Fallback: server-local
 `{host}/assets/romm/resources/{path_cover_large}` via `RommClient.resource_url()` — that route
 needs auth, which is why it appends Kodi's `|Header=Value` image-URL suffix carrying the
-Authorization header. `screenshot_urls()`/`fanart_url()` use the same resource_url() fallback
-for screenshots that aren't already public URLs.
+Authorization header. `resource_url()` normalizes its input rather than blindly prefixing it:
+RomM's schema is inconsistent about whether a given path field already includes the
+`/assets/romm/resources/` root (`merged_screenshots`/`path_cover_large`/`path_cover_small` do;
+`ss_metadata.*_path` fields like `fanart_path`/`title_screen_path` don't) — prefixing an
+already-prefixed path doubles it into a 404, so `resource_url()` checks first.
 
-## Unpaginated listings
+Fanart/screenshot: `fanart_url()`/`title_screen_url()` read RomM's `ss_metadata` (ScreenScraper-
+sourced), preferring the `_path` variant (an asset RomM itself serves, via `resource_url()`)
+over the `_url` variant (a live ScreenScraper API call using RomM's own scraper devid/
+devpassword baked into the query string) — deliberately, so nothing here depends on reaching a
+third-party API directly from the client. `fanart_url()` falls back to a screenshot
+(`screenshot_urls()`) when a rom has no dedicated fanart. `add_rom_item()` sets `thumb`/`poster`
+(cover), `fanart`, and `screenshot` art keys on every listed rom — used by the skin's Games
+home widget (see "Skin integration" below) to pick a backdrop.
+
+## Unpaginated listings (except Recently Added)
 
 `list_roms()` has no "Next page" folder item and takes no `offset` param from the caller —
 Kodi has no true lazy/infinite-scroll for plugin directories (a plugin populates a directory
@@ -92,11 +104,15 @@ once, then Kodi just scrolls what it got), so the practical equivalent is fetchi
 from RomM internally, in a loop, before ever calling `xbmcplugin.endOfDirectory()`, and handing
 Kodi one fully-assembled list. The `page_size` setting (relabeled "Server fetch batch size" —
 it's no longer a user-facing page size) controls the batch size of that internal loop, not
-anything visible. Tradeoff: for a huge unfiltered listing (e.g. Recently Added across a
-library with thousands of ROMs), Kodi shows its native busy spinner for longer up front instead
-of paging incrementally — accepted as the cost of "no next-page button," not a bug.
-`list_random()` is unrelated to this — it picks one random offset window on each call by
-design, not exhaustive fetching.
+anything visible. `list_random()` is unrelated to this — it picks one random offset window on
+each call by design, not exhaustive fetching.
+
+**Recently Added is the one exception** — it's a genuinely paginated `action=recent` (its own
+handler, `list_recent()`, with a real "Next page >>" item), not `list_roms()`. It's an
+unfiltered sort-by-date query across the *whole* library (unlike platform/favorites/
+collections/search, which all narrow the result set first), and on a large library the
+fetch-all-pages loop got slow enough that Kodi killed the script as unresponsive. Every other
+listing keeps the unpaginated fetch-all behavior; only this one paginates for real.
 
 ## Flow
 
@@ -113,12 +129,22 @@ design, not exhaustive fetching.
 3. `fetch_rom_to_disk` (download core): GET rom detail if not already a dict, decide output
    name (single file → its `file_name`; multi-part → `fs_name + '.zip'`), check the
    `existing_action` setting (0 launch existing / 1 always re-download / 2 ask via yes/no
-   dialog) against a cached file or, for multi-disc, an already-extracted folder. Downloads
-   stream via `RommClient.download()` with a cancel-aware `DialogProgress` (cancelling raises
-   `RommError('cancelled')` and deletes the partial file). If `extract_zips` is on and the rom
-   is multi-part, `extract_zip()` unpacks it next to itself and launches the `.m3u` if present,
-   else the first file, then deletes the source zip. `purge_cache()` runs after every download,
-   evicting oldest-mtime files first until under the `cache_limit` (GB, 0 = unlimited) setting.
+   dialog) against a cached file — or, if the output file is a zip, an already-extracted folder.
+   Downloads stream via `RommClient.download()` with a cancel-aware `DialogProgress` (cancelling
+   raises `RommError('cancelled')` and deletes the partial file); a short byte count vs.
+   Content-Length also raises `RommError`, so a dropped connection can't silently leave a
+   truncated file passed off as a successful download. `needs_extraction()` decides whether a
+   zip gets extracted: not just RomM's "multi-file" rom flag, but *any* time the file about to
+   be launched ends in `.zip` — a single-file rom can itself be a zip-compressed dump (e.g. some
+   compilation carts), which tripped up the multi-file-only check — and always when
+   `launch_method` is 0 (Kodi's own RetroPlayer), since `PlayMedia()` on a bare `.zip` has no
+   game-core route in Kodi's playercorefactory and lands in the wrong player entirely; the
+   `extract_zips` setting only still matters for the external launch methods. `extract_zip()`
+   names its output folder from the zip's own basename with the extension stripped, not
+   `rom['fs_name']` — for a single-file zip-compressed rom those can be identical, which made
+   the extraction target the same path as the zip currently being read from. `purge_cache()`
+   runs after every download, evicting oldest-mtime files first until under the `cache_limit`
+   (GB, 0 = unlimited) setting.
 4. `launch()` dispatches on the `launch_method` setting: 0 Kodi `PlayMedia` (RetroPlayer core
    picker), 1 external RetroArch (`retroarch_path` + a per-platform core from `cores.json`,
    prompting via `choose_core()` the first time a platform is launched externally), 2 a custom
@@ -181,12 +207,12 @@ maintains the repo, not something the addon enforces or blocks on.
 
 ## Skin integration (skin.xperience1080 Games tab)
 
-Nothing addon-side is needed: `<provides>executable game</provides>` makes this addon
-selectable anywhere the skin uses `Skin.SetAddon(..., xbmc.addon.executable)` — the Games
-tab's tile editor and the widget picker's "Other Program Addon..." option both qualify. To
-make RomM a *named/default* option in the skin's Games widget picker, that's a skin-side edit
-(`Includes_SettingsCustomHomeWidgets.xml` widget-6 items + `Widget.6.Games` variable in
-`Includes_HomeWidgets.xml`), pointing at `plugin://plugin.program.romm/`.
+The Games home widget is a named, built-in option in the skin's widget picker
+(`Includes_SettingsCustomHomeWidgets.xml`), pointing at `plugin://plugin.program.romm/?action=
+random` (see `skin.xperience1080/ARCHITECTURE.md` section 1 for the widget-6 type values and the
+per-item art-selection logic). `<provides>executable game</provides>` in `addon.xml` is what
+made this addon eligible for that in the first place, and still makes it selectable anywhere
+else the skin uses `Skin.SetAddon(..., xbmc.addon.executable)`.
 
 ## Main vs experimental
 
@@ -204,8 +230,9 @@ main copy, updated at promotion time.
 - `order_by=created_at` for Recently Added is the frontend's convention; if a server rejects
   it, the roms call errors visibly (notification) rather than silently mislisting.
 - Launching relies on the platform file being something RetroPlayer (or the configured external
-  launcher) can open; multi-part zips launch only if the target core handles zip/m3u content,
-  or `extract_zips` unpacks them first.
+  launcher) can open; zips get extracted automatically before a Kodi RetroPlayer launch (see
+  `needs_extraction()` above), but external launch methods still hand over the raw zip unless
+  `extract_zips` is on.
 - Whether a given platform actually has an RomM-side `url_logo` depends on RomM's own IGDB
   metadata matching, not on this addon; whether it has *local* art depends on whether someone
   dropped a matching file in `resources/platforms/`.

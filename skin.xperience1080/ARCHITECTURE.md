@@ -82,14 +82,21 @@ Per-file cheat sheet (representative `<include name="...">` entries, not exhaust
 - **Includes_HomeWidgets.xml** — `HomeWidgets.Initialization` (widget content paths on load).
   The Games widget (`Widget.6.Games`, widget slot 6) is keyed off `HomeWidget.6.Type`: `30` =
   `plugin.program.romm` (random-across-platforms listing), `32` = `plugin.program.romm.experimental`
-  (same, for pointing the widget at whatever's being tested there without touching main), `31` =
-  Advanced Emulator Launcher, `34` = any other program addon via `GamesWidgetPath`
-  (`Includes_SettingsCustomHomeWidgets.xml` is the type picker). The widget's click handler
-  (`Includes_Home.xml`, group `1002`) runs `RunPlugin()` on the focused item's path rather than
-  `ShowPicture()` — it was copy-built from the original Pictures widget this tab replaced, and
-  `ShowPicture()` was a leftover from that heritage that never did anything useful for a game
-  item; `RunPlugin()` re-enters whichever addon supplied the item exactly as a normal directory
-  selection would, so it launches per that addon's own on-select behavior.
+  (same, for pointing the widget at whatever's being tested there without touching main). The
+  type picker (`Includes_SettingsCustomHomeWidgets.xml`) only offers these two — an earlier pass
+  also had Advanced Emulator Launcher and an arbitrary "Other Program Addon..." option, plus a
+  three-way Fanart/Screenshot/Cover split, both cut back down to keep this RomM-only and simple.
+  The widget's click handler (`Includes_Home.xml`, group `1002`) runs `RunPlugin()` on the
+  focused item's path rather than `ShowPicture()` — it was copy-built from the original Pictures
+  widget this tab replaced, and `ShowPicture()` was a leftover from that heritage that never did
+  anything useful for a game item; `RunPlugin()` re-enters whichever addon supplied the item
+  exactly as a normal directory selection would, so it launches per that addon's own on-select
+  behavior. Each widget item's background prefers `ListItem.Art(fanart)` (set by the RomM addon
+  from its RomM-hosted, not ScreenScraper-hosted, art), falling back to `ListItem.PicturePath`
+  then `ListItem.Thumb` (cover) per item when fanart is missing — via separate per-control
+  `<visible>` conditions directly in the itemlayout/focusedlayout, not a shared `$VAR`: an earlier
+  attempt to consolidate those into one variable silently broke the art selection (every item
+  fell back to cover), so this needs to stay as separate controls.
 - **Includes_Views.xml** — pulls in the `Viewtypes*.xml` files, assembles per-media-type view
   lists (`VideoViews`, `MusicViews`, `PictureViews`, `ProgramViews`, `AddonViews`,
   `MusicPlaylistViewIds`/`VideoPlaylistViewIds`), plus a large block of art-fallback
