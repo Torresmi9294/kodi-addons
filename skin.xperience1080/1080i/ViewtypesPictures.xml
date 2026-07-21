@@ -336,7 +336,6 @@
                     <texture>views/list/panel/panel.png</texture>
                 </control>
                 <control type="list" id="52">
-                    <visible>Container.HasFiles + !Container.Content(addons)</visible>
                     <posx>1100</posx>
                     <posy>277</posy>
                     <width>710</width>

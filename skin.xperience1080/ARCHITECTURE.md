@@ -307,6 +307,44 @@ control's `id` and `<viewtype label="$LOCALIZE[id]">stylekeyword</viewtype>`. Te
 reference `media/views/<style>/...` (e.g. `views/list/panel/panel.png`,
 `views/fallbacks/DefaultVideo.png`).
 
+**All view types are unlocked for all content/plugins** (as of this doc). Originally, most
+non-List views in every media window were gated on content type or, for Programs, literally
+`$EXP[IsPluginAdvancedLauncher]` — meaning a generic addon (any Program addon that isn't
+Advanced Launcher) only ever got List and Thumbnail, with every other view chooser button
+either hidden or, if visible, silently falling back to List when clicked. Two separate gates
+had to be found and removed, in two different places:
+
+1. **The chooser buttons** (`MyVideoNav.xml`, `MyMusicNav.xml`, `MyPics.xml`,
+   `MyPrograms.xml`, `AddonBrowser.xml`, `MyGames.xml` — the `<control type="radiobutton"
+   id="2NN">` entries with `onclick>Container.SetViewMode(N)` inside the `OptionsMenu`
+   popup): had `<visible>` conditions like `$EXP[IsPluginAdvancedLauncher]` or
+   `Container.Content(Artists)` gating whether the option even showed up in the menu.
+2. **The actual view containers** (the `<control type="list|panel|wraplist|fixedlist"
+   id="N">` declared inside each `Viewtype-*` include, registered via the window's `<views>`
+   tag) — these had the *same kind* of gate directly on themselves, independent of the
+   chooser buttons. This is the one that actually matters functionally: Kodi's
+   `CGUIViewControl::UpdateViewVisibility()` filters which views are even *switchable* by
+   evaluating each candidate's current visibility before applying `Container.SetViewMode`,
+   so a view gated this way can never become the active view via a click — fixing only the
+   buttons (unlocking the menu) without also fixing the containers (unlocking the
+   destination) is purely cosmetic. Removing the button gate without removing the container
+   gate reproduces the exact "shows the option, but clicking it does nothing" symptom.
+
+Fixed by stripping the `<visible>` tag from both layers, everywhere, across all five
+`Viewtypes*.xml` files (`MyGames.xml` was also upgraded from the 2-view `GamesViews` set to
+the full 13-view `ProgramViews` set it already declared in `<views>` but never shipped).
+
+**Cover/thumb art aspect ratio is `keep`** (image size ≤ box size, full image visible,
+proportional, no crop/distortion — Kodi's `CAspectRatio` enum, confirmed via
+`xbmc/guilib/AspectRatio.h`) on every `ListItem.Thumb`/`ListItem.Icon`/`ListItem.Art(fanart)`
+image across every `Viewtype-*` include in all five files. It was previously an inconsistent
+mix of `scale` (crop-to-cover), `stretch` (distort-to-fill), and — for a couple of controls
+that had no `<aspectratio>` tag at all — a silent default of `stretch` (Kodi's
+`CAspectRatio` constructor default). `keep` may show thin letterbox/pillarbox bars when a
+box art's aspect ratio doesn't exactly match the tile's; that trade-off (over crop or
+distortion) was a deliberate, explicit choice, not a default — reconsider before changing it
+skin-wide again.
+
 ## 5. Windows and dialogs
 
 No `1080i/windows/` or `1080i/dialogs/` subfolders — those are only texture-path prefixes under
@@ -364,6 +402,28 @@ Custom window ids (all `type="dialog"`, 3000-range to avoid Kodi's reserved core
 Custom_SettingsDialog, `3002` Custom_SettingsBackgroundDialog, `3003` Custom_PanelDialog, `3005`
 Custom_RSS, `3006` Custom_LanguageDialog, `3008`/`3009` Bounce Left/Right Dummy, `3010`
 Custom_MusicFullscreenEnabler, `3020`–`3023` the four Home submenus.
+
+**RetroPlayer's savestate picker** (window name `gamesaves`, `CDialogGameSaves` in Kodi core,
+launched when a game with existing saves is selected) renders through `DialogSelect.xml` like
+everything else in the generic/native dialog list above — but it doesn't use the same control
+ids as the rest of that shared layout (`DialogSelect`/`DialogSelectOSD`, control 3/6 etc). It
+has its own fixed set: list `3` (the savestates, art via `ListItem.Art(screenshot)`), heading
+`10820`, caption `10822`, emulator name/version/icon `10823`/`10828`/`10824`, New-game button
+`10825`, Cancel button `10826` — all defined by Kodi core
+(`xbmc/games/dialogs/DialogGameDefines.h`), not something the skin gets to renumber. The
+skin originally had no layout at all for these ids, so `DialogSelect.xml`'s generic chrome
+(gated on `Control.IsVisible(6)`, the detail-list layout meant for addon browsing) and this
+window's own content drew on top of each other simultaneously — misaligned background,
+double-drawn item counter, an orphaned "Author" panel from the addon-detail layout that has
+no meaning here. Fixed with a **dedicated `DialogSelectGameSaves` include** in
+`Includes_Dialogs.xml`, routed in `DialogSelect.xml` via
+`<include condition="Window.IsActive(gamesaves)">DialogSelectGameSaves</include>` ahead of
+the normal `DialogSelect`/`DialogSelectOSD` routing (which now both carry an added
+`!Window.IsActive(gamesaves)` guard so they stop competing for the same window). The in-game
+saves manager (opened from the game OSD mid-play, window `ingamesaves`) is a *different* Kodi
+code path (`CDialogInGameSaves` extends `CDialogGameVideoSelect`, not
+`CDialogGameSaves`/`DialogSelect.xml`) and was not covered by this fix — if it has similar
+gaps, that's a separate investigation.
 
 ## 6. Colors & themes
 

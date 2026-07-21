@@ -230,7 +230,6 @@
                     <onup>500</onup>
                     <ondown>500</ondown>
                     <preloaditems>2</preloaditems>
-                    <visible>Container.HasFiles + Container.Content(addons)</visible>
                     <itemlayout width="244" height="244">
                         <control type="image">
                             <description>Folder Back</description>
@@ -252,7 +251,7 @@
                             <bordertexture border="1">windows/common/darkgrey.png</bordertexture>
                             <texture background="true" fallback="views/fallbacks/DefaultAddon.png/square-small.png">$INFO[ListItem.Thumb]</texture>
                             <colordiffuse>eewhite</colordiffuse>
-                            <aspectratio>scale</aspectratio>
+                            <aspectratio>keep</aspectratio>
                             <visible>!String.IsEqual(ListItem.Label,..)</visible>
                         </control>
                         <control type="image">
@@ -289,7 +288,7 @@
                                 <height>232</height>
                                 <bordertexture border="1">windows/common/darkgrey.png</bordertexture>
                                 <texture background="true" fallback="views/fallbacks/DefaultAddon.png/square-small.png">$INFO[ListItem.Thumb]</texture>
-                                <aspectratio>scale</aspectratio>
+                                <aspectratio>keep</aspectratio>
                                 <visible>!String.IsEqual(ListItem.Label,..)</visible>
                             </control>
                             <control type="image">

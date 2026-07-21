@@ -372,7 +372,7 @@
                     <height>600</height>
                     <texture background="true" fallback="views/fallbacks/DefaultProgram.png/large.png">$INFO[ListItem.Thumb]</texture>
                     <fadetime>500</fadetime>
-                    <aspectratio>scale</aspectratio>
+                    <aspectratio>keep</aspectratio>
                 </control>
             </control>
             <control type="group">
@@ -535,7 +535,6 @@
                     <viewtype label="31962">list</viewtype>
                     <preloaditems>2</preloaditems>
                     <scrolltime tween="cubic" easing="out">500</scrolltime>
-                    <visible>$EXP[IsPluginAdvancedLauncher]</visible>
                     <itemlayout height="60">
                         <control type="image">
                             <posx>0</posx>
@@ -696,7 +695,7 @@
                     <height>480</height>
                     <texture background="true" fallback="views/fallbacks/DefaultProgram.png/square.png">$INFO[ListItem.Thumb]</texture>
                     <fadetime>500</fadetime>
-                    <aspectratio>scale</aspectratio>
+                    <aspectratio>keep</aspectratio>
                 </control>
             </control>
             <control type="group">
@@ -859,7 +858,6 @@
                     <viewtype label="31963">list</viewtype>
                     <preloaditems>2</preloaditems>
                     <scrolltime tween="cubic" easing="out">500</scrolltime>
-                    <visible>$EXP[IsPluginAdvancedLauncher]</visible>
                     <itemlayout height="60">
                         <control type="image">
                             <posx>0</posx>
@@ -1022,14 +1020,13 @@
                     <preloaditems>2</preloaditems>
                     <scrolltime tween="cubic" easing="out">500</scrolltime>
                     <orientation>horizontal</orientation>
-                    <visible>$EXP[IsPluginAdvancedLauncher]</visible>
                     <itemlayout width="140" height="204">
                         <control type="image">
                             <posx>12</posx>
                             <posy>12</posy>
                             <width>128</width>
                             <height>192</height>
-                            <aspectratio>scale</aspectratio>
+                            <aspectratio>keep</aspectratio>
                             <colordiffuse>eewhite</colordiffuse>
                             <bordertexture border="1">windows/common/darkgrey.png</bordertexture>
                             <texture background="true" fallback="views/fallbacks/DefaultProgram.png/medium.png">$INFO[ListItem.Thumb]</texture>
@@ -1048,7 +1045,7 @@
                                 <posy>12</posy>
                                 <width>128</width>
                                 <height>192</height>
-                                <aspectratio scalediffuse="false">scale</aspectratio>
+                                <aspectratio scalediffuse="false">keep</aspectratio>
                                 <bordertexture border="1">windows/common/darkgrey.png</bordertexture>
                                 <texture background="true" fallback="views/fallbacks/DefaultProgram.png/medium.png">$INFO[ListItem.Thumb]</texture>
                             </control>
@@ -1114,7 +1111,7 @@
                     <height>600</height>
                     <texture background="true" fallback="views/fallbacks/DefaultProgram.png/large.png">$INFO[ListItem.Thumb]</texture>
                     <fadetime>500</fadetime>
-                    <aspectratio>scale</aspectratio>
+                    <aspectratio>keep</aspectratio>
                 </control>
             </control>
             <control type="group">
@@ -1311,14 +1308,13 @@
                     <viewtype label="31965">list</viewtype>
                     <preloaditems>2</preloaditems>
                     <scrolltime tween="cubic" easing="out">500</scrolltime>
-                    <visible>$EXP[IsPluginAdvancedLauncher]</visible>
                     <itemlayout width="164" height="164">
                         <control type="image">
                             <posx>12</posx>
                             <posy>12</posy>
                             <width>152</width>
                             <height>152</height>
-                            <aspectratio>scale</aspectratio>
+                            <aspectratio>keep</aspectratio>
                             <colordiffuse>eewhite</colordiffuse>
                             <bordertexture border="1">windows/common/darkgrey.png</bordertexture>
                             <texture background="true" fallback="views/fallbacks/DefaultProgram.png/square-medium.png">$INFO[ListItem.Thumb]</texture>
@@ -1337,7 +1333,7 @@
                                 <posy>12</posy>
                                 <width>152</width>
                                 <height>152</height>
-                                <aspectratio scalediffuse="false">scale</aspectratio>
+                                <aspectratio scalediffuse="false">keep</aspectratio>
                                 <bordertexture border="1">windows/common/darkgrey.png</bordertexture>
                                 <texture background="true" fallback="views/fallbacks/DefaultProgram.png/square-medium.png">$INFO[ListItem.Thumb]</texture>
                             </control>
@@ -1403,7 +1399,7 @@
                     <height>480</height>
                     <texture background="true" fallback="views/fallbacks/DefaultProgram.png/square.png">$INFO[ListItem.Thumb]</texture>
                     <fadetime>500</fadetime>
-                    <aspectratio>scale</aspectratio>
+                    <aspectratio>keep</aspectratio>
                 </control>
             </control>
             <control type="group">
@@ -2089,7 +2085,6 @@
                     <ondown>70</ondown>
                     <focusposition>1</focusposition>
                     <preloaditems>2</preloaditems>
-                    <visible>$EXP[IsPluginAdvancedLauncher]</visible>
                     <animation type="WindowOpen" reversible="false">
                         <effect type="fade" start="0" end="100" time="0" />
                         <effect type="slide" start="0,-1500" end="0,0" delay="700" time="0" />
@@ -2771,7 +2766,6 @@
                     <ondown>70</ondown>
                     <focusposition>1</focusposition>
                     <preloaditems>2</preloaditems>
-                    <visible>$EXP[IsPluginAdvancedLauncher]</visible>
                     <animation type="WindowOpen" reversible="false">
                         <effect type="fade" start="0" end="100" time="0" />
                         <effect type="slide" start="0,-1500" end="0,0" delay="700" time="0" />
@@ -2792,7 +2786,7 @@
                                 <height>570</height>
                                 <colordiffuse>77white</colordiffuse>
                                 <texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref.png" fallback="views/fallbacks/DefaultProgram.png/large.png">$INFO[ListItem.Thumb]</texture>
-                                <aspectratio align="center" scalediffuse="false">scale</aspectratio>
+                                <aspectratio align="center" scalediffuse="false">keep</aspectratio>
                             </control>
                             <control type="image">
                                 <description>Shadow Bottom</description>
@@ -2810,7 +2804,7 @@
                                 <height>570</height>
                                 <colordiffuse>ddwhite</colordiffuse>
                                 <texture background="true" fallback="views/fallbacks/DefaultProgram.png/large.png">$INFO[ListItem.Thumb]</texture>
-                                <aspectratio align="center" scalediffuse="false">scale</aspectratio>
+                                <aspectratio align="center" scalediffuse="false">keep</aspectratio>
                             </control>
                         </control>
                     </itemlayout>
@@ -2830,7 +2824,7 @@
                                 <height>570</height>
                                 <colordiffuse>77white</colordiffuse>
                                 <texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref.png" fallback="views/fallbacks/DefaultProgram.png/large.png">$INFO[ListItem.Thumb]</texture>
-                                <aspectratio align="center" scalediffuse="false">scale</aspectratio>
+                                <aspectratio align="center" scalediffuse="false">keep</aspectratio>
                             </control>
                             <control type="image">
                                 <posx>-16</posx>
@@ -2868,7 +2862,7 @@
                                 <texture background="true" fallback="views/fallbacks/DefaultProgram.png/large.png">$INFO[ListItem.Thumb]</texture>
                                 <animation effect="fade" start="86.71875" end="100" time="200" tween="sine" easing="in" condition="Container(57).OnNext | Container(57).OnPrevious">Focus</animation>
                                 <animation effect="fade" start="100" end="86.71875" time="200" tween="sine" easing="out" condition="Container(57).OnNext | Container(57).OnPrevious">UnFocus</animation>
-                                <aspectratio align="center" scalediffuse="false">scale</aspectratio>
+                                <aspectratio align="center" scalediffuse="false">keep</aspectratio>
                             </control>
                             <control type="image">
                                 <posx>-16</posx>
@@ -3408,7 +3402,6 @@
                     <ondown>70</ondown>
                     <focusposition>1</focusposition>
                     <preloaditems>2</preloaditems>
-                    <visible>$EXP[IsPluginAdvancedLauncher]</visible>
                     <animation type="WindowOpen" reversible="false">
                         <effect type="fade" start="0" end="100" time="0" />
                         <effect type="slide" start="0,-1500" end="0,0" delay="700" time="0" />
@@ -3429,7 +3422,7 @@
                                 <height>380</height>
                                 <colordiffuse>77white</colordiffuse>
                                 <texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="views/fallbacks/DefaultProgram.png/square.png">$INFO[ListItem.Thumb]</texture>
-                                <aspectratio align="center" scalediffuse="false">scale</aspectratio>
+                                <aspectratio align="center" scalediffuse="false">keep</aspectratio>
                             </control>
                             <control type="image">
                                 <description>Shadow Bottom</description>
@@ -3447,7 +3440,7 @@
                                 <height>380</height>
                                 <colordiffuse>ddwhite</colordiffuse>
                                 <texture background="true" fallback="views/fallbacks/DefaultProgram.png/square.png">$INFO[ListItem.Thumb]</texture>
-                                <aspectratio align="center" scalediffuse="false">scale</aspectratio>
+                                <aspectratio align="center" scalediffuse="false">keep</aspectratio>
                             </control>
                         </control>
                     </itemlayout>
@@ -3467,7 +3460,7 @@
                                 <height>380</height>
                                 <colordiffuse>77white</colordiffuse>
                                 <texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="views/fallbacks/DefaultProgram.png/square.png">$INFO[ListItem.Thumb]</texture>
-                                <aspectratio align="center" scalediffuse="false">scale</aspectratio>
+                                <aspectratio align="center" scalediffuse="false">keep</aspectratio>
                             </control>
                             <control type="image">
                                 <posx>-16</posx>
@@ -3505,7 +3498,7 @@
                                 <texture background="true" fallback="views/fallbacks/DefaultProgram.png/square.png">$INFO[ListItem.Thumb]</texture>
                                 <animation effect="fade" start="86.71875" end="100" time="200" tween="sine" easing="in" condition="Container(58).OnNext | Container(58).OnPrevious">Focus</animation>
                                 <animation effect="fade" start="100" end="86.71875" time="200" tween="sine" easing="out" condition="Container(58).OnNext | Container(58).OnPrevious">UnFocus</animation>
-                                <aspectratio align="center" scalediffuse="false">scale</aspectratio>
+                                <aspectratio align="center" scalediffuse="false">keep</aspectratio>
                             </control>
                             <control type="image">
                                 <posx>-16</posx>
@@ -3629,7 +3622,6 @@
                     <onup>501</onup>
                     <ondown>501</ondown>
                     <preloaditems>2</preloaditems>
-                    <visible>$EXP[IsPluginAdvancedLauncher]</visible>
                     <animation effect="slide" end="35" time="400" tween="cubic" easing="inout" condition="Skin.HasSetting(ProgramThumbnailSmall)">Conditional</animation>
                     <itemlayout width="167" height="244" condition="Skin.HasSetting(ProgramThumbnailSmall)">
                         <control type="image">
@@ -3641,7 +3633,7 @@
                             <bordertexture border="1">windows/common/darkgrey.png</bordertexture>
                             <texture background="true" fallback="views/fallbacks/DefaultProgram.png/medium.png">$INFO[ListItem.Thumb]</texture>
                             <colordiffuse>eewhite</colordiffuse>
-                            <aspectratio>scale</aspectratio>
+                            <aspectratio>keep</aspectratio>
                         </control>
                     </itemlayout>
                     <itemlayout width="248" height="366" condition="!Skin.HasSetting(ProgramThumbnailSmall)">
@@ -3654,7 +3646,7 @@
                             <bordertexture border="1">windows/common/darkgrey.png</bordertexture>
                             <texture background="true" fallback="views/fallbacks/DefaultProgram.png/medium.png">$INFO[ListItem.Thumb]</texture>
                             <colordiffuse>eewhite</colordiffuse>
-                            <aspectratio>scale</aspectratio>
+                            <aspectratio>keep</aspectratio>
                         </control>
                     </itemlayout>
                     <focusedlayout width="167" height="244" condition="Skin.HasSetting(ProgramThumbnailSmall)">
@@ -3671,7 +3663,7 @@
                                 <width>155</width>
                                 <height>232</height>
                                 <bordertexture border="1">windows/common/darkgrey.png</bordertexture>
-                                <aspectratio scalediffuse="false">scale</aspectratio>
+                                <aspectratio scalediffuse="false">keep</aspectratio>
                                 <texture background="true" fallback="views/fallbacks/DefaultProgram.png/medium.png">$INFO[ListItem.Thumb]</texture>
                             </control>
                             <control type="image">
@@ -3705,7 +3697,7 @@
                                 <width>236</width>
                                 <height>354</height>
                                 <bordertexture border="1">windows/common/darkgrey.png</bordertexture>
-                                <aspectratio scalediffuse="false">scale</aspectratio>
+                                <aspectratio scalediffuse="false">keep</aspectratio>
                                 <texture background="true" fallback="views/fallbacks/DefaultProgram.png/medium.png">$INFO[ListItem.Thumb]</texture>
                             </control>
                             <control type="image">
@@ -3769,7 +3761,7 @@
                     <height>720</height>
                     <texture background="true" fallback="views/fallbacks/DefaultProgram.png/large.png">$INFO[Container(501).ListItem.Thumb]</texture>
                     <fadetime>500</fadetime>
-                    <aspectratio>scale</aspectratio>
+                    <aspectratio>keep</aspectratio>
                 </control>
                 <control type="group">
                     <posx>1304</posx>
@@ -3915,7 +3907,6 @@
                     <onup>502</onup>
                     <ondown>502</ondown>
                     <preloaditems>2</preloaditems>
-                    <visible>$EXP[IsPluginAdvancedLauncher]</visible>
                     <itemlayout width="244" height="244">
                         <control type="image">
                             <description>Poster</description>
@@ -3926,7 +3917,7 @@
                             <bordertexture border="1">windows/common/darkgrey.png</bordertexture>
                             <texture background="true" fallback="views/fallbacks/DefaultProgram.png/square-medium.png">$INFO[ListItem.Thumb]</texture>
                             <colordiffuse>eewhite</colordiffuse>
-                            <aspectratio>scale</aspectratio>
+                            <aspectratio>keep</aspectratio>
                         </control>
                     </itemlayout>
                     <focusedlayout width="244" height="244">
@@ -3942,7 +3933,7 @@
                                 <posy>12</posy>
                                 <width>232</width>
                                 <height>232</height>
-                                <aspectratio scalediffuse="false">scale</aspectratio>
+                                <aspectratio scalediffuse="false">keep</aspectratio>
                                 <bordertexture border="1">windows/common/darkgrey.png</bordertexture>
                                 <texture background="true" fallback="views/fallbacks/DefaultProgram.png/square-medium.png">$INFO[ListItem.Thumb]</texture>
                             </control>
@@ -3999,7 +3990,7 @@
                     <bordertexture border="1">windows/common/darkgrey.png</bordertexture>
                     <texture background="true" fallback="views/fallbacks/DefaultProgram.png/square.png">$INFO[ListItem.Thumb]</texture>
                     <fadetime>500</fadetime>
-                    <aspectratio>scale</aspectratio>
+                    <aspectratio>keep</aspectratio>
                 </control>
                 <control type="group">
                     <posx>1332</posx>
@@ -4162,7 +4153,6 @@
                 <movement>3</movement>
                 <focusposition>2</focusposition>
                 <preloaditems>2</preloaditems>
-                <visible>$EXP[IsPluginAdvancedLauncher]</visible>
                 <itemlayout height="96">
                     <control type="group">
                         <posx>660</posx>
@@ -4218,7 +4208,7 @@
                             <width>175</width>
                             <height>262</height>
                             <texture diffuse="views/banner/diffuse/poster.png" background="true" fallback="views/fallbacks/DefaultProgram.png/medium.png">$INFO[ListItem.Thumb]</texture>
-                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <aspectratio scalediffuse="false">keep</aspectratio>
                         </control>
                         <control type="image">
                             <posx>47</posx>
@@ -4336,7 +4326,6 @@
                 <movement>3</movement>
                 <focusposition>2</focusposition>
                 <preloaditems>2</preloaditems>
-                <visible>$EXP[IsPluginAdvancedLauncher]</visible>
                 <itemlayout height="96">
                     <control type="group">
                         <posx>660</posx>
@@ -4392,7 +4381,7 @@
                             <width>262</width>
                             <height>262</height>
                             <texture diffuse="views/banner/diffuse/square.png" background="true" fallback="views/fallbacks/DefaultProgram.png/square-medium.png">$INFO[ListItem.Thumb]</texture>
-                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <aspectratio scalediffuse="false">keep</aspectratio>
                         </control>
                         <control type="image">
                             <posx>134</posx>

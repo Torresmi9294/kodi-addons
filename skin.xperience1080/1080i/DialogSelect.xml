@@ -18,8 +18,9 @@
             <animation type="WindowOpen" condition="Window.IsVisible(contextmenu) | !String.IsEmpty(Window(Home).Property(metadata.actors))" reversible="false">
                 <effect type="fade" start="0" end="100" time="0" delay="550" />
             </animation>
-            <include condition="String.IsEmpty(Window(Home).Property(ChooseArt)) + !Window.IsActive(fullscreenvideo) + !Window.IsActive(fullscreengame) + !Window.IsActive(visualisation)">DialogSelect</include>
-            <include condition="String.IsEmpty(Window(Home).Property(ChooseArt)) + [Window.IsActive(fullscreenvideo) | Window.IsActive(fullscreengame) | Window.IsActive(visualisation)]">DialogSelectOSD</include>
+            <include condition="Window.IsActive(gamesaves)">DialogSelectGameSaves</include>
+            <include condition="!Window.IsActive(gamesaves) + String.IsEmpty(Window(Home).Property(ChooseArt)) + !Window.IsActive(fullscreenvideo) + !Window.IsActive(fullscreengame) + !Window.IsActive(visualisation)">DialogSelect</include>
+            <include condition="!Window.IsActive(gamesaves) + String.IsEmpty(Window(Home).Property(ChooseArt)) + [Window.IsActive(fullscreenvideo) | Window.IsActive(fullscreengame) | Window.IsActive(visualisation)]">DialogSelectOSD</include>
         </control>
         <include condition="!String.IsEmpty(Window(Home).Property(ChooseArt))">DialogSelectArt</include>
     </controls>

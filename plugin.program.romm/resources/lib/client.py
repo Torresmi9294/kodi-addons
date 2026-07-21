@@ -8,6 +8,8 @@ Tokens) sent as a Bearer token. Endpoints used:
     GET /api/roms?...                           -> {"items": [...], "total": n, "limit": l, "offset": o}
     GET /api/roms/{id}                          -> RomSchema (includes files[])
     GET /api/roms/{id}/content/{file_name}      -> raw file (single-file rom) or zip (multi-part)
+    GET /api/collections                        -> [CollectionSchema, ...]
+    GET /api/stats                              -> {"PLATFORMS": n, "ROMS": n, ...}
 
 Uses only the Python stdlib so the addon has no dependency beyond xbmc.python.
 """
@@ -70,7 +72,7 @@ class RommClient:
         return platforms
 
     def roms(self, platform_id=None, search_term=None, limit=100, offset=0,
-             order_by=None, order_dir=None):
+             order_by=None, order_dir=None, favorite=None, collection_id=None):
         params = {
             'limit': limit,
             'offset': offset,
@@ -87,6 +89,10 @@ class RommClient:
             params['order_by'] = order_by
         if order_dir:
             params['order_dir'] = order_dir
+        if favorite is not None:
+            params['favorite'] = 'true' if favorite else 'false'
+        if collection_id is not None:
+            params['collection_id'] = collection_id
         data = self.get_json('/api/roms', params)
         if isinstance(data, list):  # older servers returned a plain list
             return {'items': data, 'total': len(data), 'limit': limit, 'offset': offset}
@@ -95,21 +101,60 @@ class RommClient:
     def rom(self, rom_id):
         return self.get_json('/api/roms/%s' % rom_id)
 
-    def cover_url(self, rom):
-        """Best cover image URL for a rom, with auth header piped for Kodi.
+    def collections(self):
+        cols = self.get_json('/api/collections')
+        cols.sort(key=lambda c: (c.get('name') or '').lower())
+        return cols
 
-        Prefers the metadata-provider URL (public CDN, no auth needed); falls
-        back to the server-local resource, which needs our auth header - Kodi
-        supports `url|Header=Value` suffixes on image paths for that.
+    def stats(self):
+        return self.get_json('/api/stats')
+
+    def platform_logo_url(self, platform):
+        """Platform logo/artwork URL, if RomM has one for this platform.
+
+        RomM's PlatformSchema exposes `url_logo` (sourced from IGDB/etc, a
+        public CDN URL - no auth header needed, same convention as `url_cover`
+        on roms). Unlike rom covers there's no server-local `path_logo`
+        fallback variant in the schema, so this is all-or-nothing.
         """
+        url = platform.get('url_logo')
+        return url if url and url.startswith('http') else ''
+
+    def resource_url(self, path):
+        """Server-local resource with auth header piped for Kodi image loading
+        (Kodi supports `url|Header=Value` suffixes on image paths)."""
+        local = '%s/assets/romm/resources/%s' % (self.base_url, path.lstrip('/'))
+        return local + '|' + urllib.parse.urlencode({'Authorization': self.auth_header()})
+
+    def cover_url(self, rom):
+        """Best cover image URL for a rom. Prefers the metadata-provider URL
+        (public CDN, no auth needed); falls back to the server-local resource."""
         url = rom.get('url_cover')
         if url and url.startswith('http'):
             return url
         path = rom.get('path_cover_large') or rom.get('path_cover_small')
         if not path:
             return ''
-        local = '%s/assets/romm/resources/%s' % (self.base_url, path.lstrip('/'))
-        return local + '|' + urllib.parse.urlencode({'Authorization': self.auth_header()})
+        return self.resource_url(path)
+
+    def screenshot_urls(self, rom, limit=4):
+        """Screenshot image URLs for a rom (empty list if none)."""
+        for key in ('merged_screenshots', 'path_screenshots', 'url_screenshots'):
+            shots = rom.get(key) or []
+            if shots and isinstance(shots, list):
+                urls = []
+                for shot in shots[:limit]:
+                    if isinstance(shot, str) and shot:
+                        urls.append(shot if shot.startswith('http')
+                                    else self.resource_url(shot))
+                if urls:
+                    return urls
+        return []
+
+    def fanart_url(self, rom):
+        """A screenshot to use as background art, if the rom has any."""
+        shots = self.screenshot_urls(rom, limit=1)
+        return shots[0] if shots else ''
 
     def download(self, rom, dest_path, progress_cb=None):
         """Stream a rom's content to dest_path.
