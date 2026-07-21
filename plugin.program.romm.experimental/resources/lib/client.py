@@ -122,8 +122,18 @@ class RommClient:
 
     def resource_url(self, path):
         """Server-local resource with auth header piped for Kodi image loading
-        (Kodi supports `url|Header=Value` suffixes on image paths)."""
-        local = '%s/assets/romm/resources/%s' % (self.base_url, path.lstrip('/'))
+        (Kodi supports `url|Header=Value` suffixes on image paths).
+
+        RomM's schema is inconsistent about this: some path fields (cover,
+        screenshots, ss_metadata fanart/title_screen) already come back
+        prefixed with the server's resource root (/assets/romm/resources/...),
+        others are bare relative paths - blindly prepending the prefix to an
+        already-prefixed path doubles it into a 404."""
+        path = path.lstrip('/')
+        prefix = 'assets/romm/resources/'
+        if not path.startswith(prefix):
+            path = prefix + path
+        local = '%s/%s' % (self.base_url, path)
         return local + '|' + urllib.parse.urlencode({'Authorization': self.auth_header()})
 
     def cover_url(self, rom):
