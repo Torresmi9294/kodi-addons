@@ -436,8 +436,15 @@ def purge_cache(keep_path):
 
 
 def extract_zip(zip_path, rom):
-    """Extract a multi-part zip next to itself; return the file to launch."""
-    out_dir = os.path.join(os.path.dirname(zip_path), rom.get('fs_name', 'extracted'))
+    """Extract a zip next to itself; return the file to launch.
+
+    The output folder is derived from the zip's own basename (extension
+    stripped), not rom['fs_name'] - for a single-file rom whose one file IS
+    the zip, fs_name can be identical to the zip's filename (extension and
+    all), which would make out_dir equal zip_path itself and crash the
+    extraction."""
+    base = os.path.splitext(os.path.basename(zip_path))[0]
+    out_dir = os.path.join(os.path.dirname(zip_path), base)
     dialog = xbmcgui.DialogProgress()
     dialog.create(ADDON.getAddonInfo('name'), L(32040))
     try:
@@ -485,8 +492,9 @@ def fetch_rom_to_disk(client, rom_or_id):
     dest_dir = download_dir(rom)
     dest = os.path.join(dest_dir, out_name)
 
-    # for extracted zips, the extracted folder is the cache marker
-    extracted_dir = os.path.join(dest_dir, rom.get('fs_name', ''))
+    # for extracted zips, the extracted folder is the cache marker - must match
+    # extract_zip()'s own naming (zip basename minus extension, not fs_name)
+    extracted_dir = os.path.join(dest_dir, os.path.splitext(out_name)[0])
     if is_zip and needs_extraction() and os.path.isdir(extracted_dir):
         existing = extracted_dir
     elif os.path.isfile(dest) and os.path.getsize(dest) > 0:
