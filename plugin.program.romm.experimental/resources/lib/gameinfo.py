@@ -36,11 +36,18 @@ def release_date(meta):
         return ''
     try:
         value = float(value)
-        if value > 1e12:  # milliseconds
-            value /= 1000.0
-        return time.strftime('%d/%m/%Y', time.gmtime(value))
     except (TypeError, ValueError):
         return str(value)[:10]
+    if value > 1e12:  # milliseconds
+        value /= 1000.0
+    try:
+        # time.gmtime() raises OSError on Windows (not just ValueError/
+        # OverflowError as on Linux) for timestamps its C runtime can't
+        # represent - a bad/out-of-range first_release_date must not be
+        # allowed to crash the whole info dialog.
+        return time.strftime('%d/%m/%Y', time.gmtime(value))
+    except (OSError, OverflowError, ValueError):
+        return ''
 
 
 def build_meta_lines(rom):
