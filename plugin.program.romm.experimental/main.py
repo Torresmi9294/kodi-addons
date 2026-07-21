@@ -501,6 +501,12 @@ def fetch_rom_to_disk(client, rom_or_id):
                 target = m3u[0] if m3u else (files_in[0] if files_in else None)
                 if target:
                     return os.path.join(existing, target), rom
+            elif multi and needs_extraction():
+                # a cached raw zip from before extraction was required/enabled -
+                # extract it now rather than handing the raw zip back unplayable
+                launched = extract_zip(existing, rom)
+                if launched:
+                    return launched, rom
             else:
                 return existing, rom
         if os.path.isdir(existing):
