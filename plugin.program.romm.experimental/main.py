@@ -23,6 +23,7 @@ HANDLE = int(sys.argv[1])
 PLUGIN_URL = sys.argv[0]
 
 CONTENT_TYPES = {0: 'games', 1: 'movies', 2: 'tvshows'}
+PLATFORM_ART_DIR = os.path.join(ADDON.getAddonInfo('path'), 'resources', 'platforms')
 
 
 def L(string_id):
@@ -98,6 +99,25 @@ def page_size():
         return 100
 
 
+def local_platform_art(platform):
+    """Bundled-in-the-addon artwork for a platform, if present.
+
+    Ships offline: these files are part of the addon package (zipped and
+    installed with it), so they're available even if RomM is unreachable.
+    Checked before any network art - see resources/platforms/README.md for
+    the naming convention. Returns '' if nothing local matches.
+    """
+    candidates = [platform.get('fs_slug'), platform.get('slug')]
+    for name in candidates:
+        if not name:
+            continue
+        for ext in ('png', 'jpg'):
+            path = os.path.join(PLATFORM_ART_DIR, '%s.%s' % (name.lower(), ext))
+            if os.path.isfile(path):
+                return path
+    return ''
+
+
 def rom_label(rom):
     if ADDON.getSettingBool('clean_titles'):
         return rom.get('name') or rom.get('fs_name_no_tags') or rom.get('fs_name', '?')
@@ -144,7 +164,7 @@ def list_platforms(client):
         name = p.get('display_name') or p.get('name') or p.get('slug', '?')
         label = '%s  (%s)' % (name, p.get('rom_count', 0))
         item = xbmcgui.ListItem(label=label)
-        logo = client.platform_logo_url(p)
+        logo = local_platform_art(p) or client.platform_logo_url(p)
         if logo:
             item.setArt({'thumb': logo, 'poster': logo, 'icon': logo})
         else:
