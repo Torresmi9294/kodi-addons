@@ -105,6 +105,18 @@
           <onclick>Skin.SetFile(HomeWidget.1.Path,.xsp,special://profile/playlists/video/)</onclick>
           <onclick>Close</onclick>
         </item>
+        <item>
+          <label>RomM Game Launcher</label>
+          <onclick>Skin.SetString(HomeWidget.1.Type,30)</onclick>
+          <onclick>Skin.SetString(HomeWidget.1.Label,Games)</onclick>
+          <onclick>Close</onclick>
+        </item>
+        <item>
+          <label>RomM Game Launcher (Experimental)</label>
+          <onclick>Skin.SetString(HomeWidget.1.Type,32)</onclick>
+          <onclick>Skin.SetString(HomeWidget.1.Label,Games)</onclick>
+          <onclick>Close</onclick>
+        </item>
       </content>
     </control>
   </include>
