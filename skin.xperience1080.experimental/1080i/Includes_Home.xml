@@ -369,7 +369,7 @@
                             </control>
                         </control>
                         <control type="button">
-                            <description>Title label</description>
+                            <description>Title label (video Title tag - movies/TV/trakt)</description>
                             <posx>20</posx>
                             <posy>508</posy>
                             <width>779</width>
@@ -381,7 +381,23 @@
                             <align>left</align>
                             <aligny>center</aligny>
                             <enable>false</enable>
-                            <visible>!Container(5022).IsUpdating + Integer.IsGreater(Container(5022).NumItems,0)</visible>
+                            <visible>!Container(5022).IsUpdating + Integer.IsGreater(Container(5022).NumItems,0) + !String.IsEmpty(Container(5022).ListItem.Title)</visible>
+                            <include>visiblehidefadeinfodelayvisible</include>
+                        </control>
+                        <control type="button">
+                            <description>Title label fallback (ListItem.Label - RomM games have no video Title tag)</description>
+                            <posx>20</posx>
+                            <posy>508</posy>
+                            <width>779</width>
+                            <height>64</height>
+                            <label>$INFO[Container(5022).ListItem.Label]</label>
+                            <label2>$INFO[Container(5022).ListItem.Rating, ★ ,]</label2>
+                            <font>Font-Condensed-S29-B</font>
+                            <disabledcolor>aawhite</disabledcolor>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <enable>false</enable>
+                            <visible>!Container(5022).IsUpdating + Integer.IsGreater(Container(5022).NumItems,0) + String.IsEmpty(Container(5022).ListItem.Title)</visible>
                             <include>visiblehidefadeinfodelayvisible</include>
                         </control>
                         <control type="label">
