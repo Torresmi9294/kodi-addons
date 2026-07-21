@@ -455,6 +455,15 @@ def extract_zip(zip_path, rom):
     return os.path.join(out_dir, target) if target else None
 
 
+def needs_extraction():
+    """Kodi's own RetroPlayer (launch_method 0) can't open a raw multi-part zip -
+    PlayMedia() on a bare .zip has no game-core route and lands in VideoPlayer,
+    which fails outright. Extraction is only truly optional for the external
+    launch methods, which may (RetroArch) or may not (custom command, Android)
+    handle zips on their own."""
+    return ADDON.getSettingBool('extract_zips') or ADDON.getSettingInt('launch_method') == 0
+
+
 def fetch_rom_to_disk(client, rom_or_id):
     """Download a rom (respecting the existing-file policy). Returns (path, rom).
 
@@ -471,7 +480,7 @@ def fetch_rom_to_disk(client, rom_or_id):
 
     # for extracted multi-part roms, the extracted folder is the cache marker
     extracted_dir = os.path.join(dest_dir, rom.get('fs_name', ''))
-    if multi and ADDON.getSettingBool('extract_zips') and os.path.isdir(extracted_dir):
+    if multi and needs_extraction() and os.path.isdir(extracted_dir):
         existing = extracted_dir
     elif os.path.isfile(dest) and os.path.getsize(dest) > 0:
         existing = dest
@@ -518,7 +527,7 @@ def fetch_rom_to_disk(client, rom_or_id):
         raise
     dialog.close()
 
-    if multi and ADDON.getSettingBool('extract_zips'):
+    if multi and needs_extraction():
         launched = extract_zip(dest, rom)
         if launched:
             dest = launched
