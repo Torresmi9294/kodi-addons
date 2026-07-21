@@ -3633,7 +3633,7 @@
                             <bordertexture border="1">windows/common/darkgrey.png</bordertexture>
                             <texture background="true" fallback="views/fallbacks/DefaultProgram.png/medium.png">$INFO[ListItem.Thumb]</texture>
                             <colordiffuse>eewhite</colordiffuse>
-                            <aspectratio>scale</aspectratio>
+                            <aspectratio>stretch</aspectratio>
                         </control>
                     </itemlayout>
                     <itemlayout width="248" height="366" condition="!Skin.HasSetting(ProgramThumbnailSmall)">
@@ -3646,7 +3646,7 @@
                             <bordertexture border="1">windows/common/darkgrey.png</bordertexture>
                             <texture background="true" fallback="views/fallbacks/DefaultProgram.png/medium.png">$INFO[ListItem.Thumb]</texture>
                             <colordiffuse>eewhite</colordiffuse>
-                            <aspectratio>scale</aspectratio>
+                            <aspectratio>stretch</aspectratio>
                         </control>
                     </itemlayout>
                     <focusedlayout width="167" height="244" condition="Skin.HasSetting(ProgramThumbnailSmall)">
@@ -3663,7 +3663,7 @@
                                 <width>155</width>
                                 <height>232</height>
                                 <bordertexture border="1">windows/common/darkgrey.png</bordertexture>
-                                <aspectratio scalediffuse="false">scale</aspectratio>
+                                <aspectratio scalediffuse="false">stretch</aspectratio>
                                 <texture background="true" fallback="views/fallbacks/DefaultProgram.png/medium.png">$INFO[ListItem.Thumb]</texture>
                             </control>
                             <control type="image">
@@ -3697,7 +3697,7 @@
                                 <width>236</width>
                                 <height>354</height>
                                 <bordertexture border="1">windows/common/darkgrey.png</bordertexture>
-                                <aspectratio scalediffuse="false">scale</aspectratio>
+                                <aspectratio scalediffuse="false">stretch</aspectratio>
                                 <texture background="true" fallback="views/fallbacks/DefaultProgram.png/medium.png">$INFO[ListItem.Thumb]</texture>
                             </control>
                             <control type="image">
@@ -3761,7 +3761,7 @@
                     <height>720</height>
                     <texture background="true" fallback="views/fallbacks/DefaultProgram.png/large.png">$INFO[Container(501).ListItem.Thumb]</texture>
                     <fadetime>500</fadetime>
-                    <aspectratio>scale</aspectratio>
+                    <aspectratio>stretch</aspectratio>
                 </control>
                 <control type="group">
                     <posx>1304</posx>
