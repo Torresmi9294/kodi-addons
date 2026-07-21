@@ -80,6 +80,16 @@ Per-file cheat sheet (representative `<include name="...">` entries, not exhaust
   `HomeWidgetContextMenuOverlay`, `HomeWidgetActions`, `HomeShutdownFavouritesButtons`,
   `HomeLabel`, `HomeProfileInfoLabel`, `HomeProfileInfo`, `HomeCategoryLabels`.
 - **Includes_HomeWidgets.xml** — `HomeWidgets.Initialization` (widget content paths on load).
+  The Games widget (`Widget.6.Games`, widget slot 6) is keyed off `HomeWidget.6.Type`: `30` =
+  `plugin.program.romm` (random-across-platforms listing), `32` = `plugin.program.romm.experimental`
+  (same, for pointing the widget at whatever's being tested there without touching main), `31` =
+  Advanced Emulator Launcher, `34` = any other program addon via `GamesWidgetPath`
+  (`Includes_SettingsCustomHomeWidgets.xml` is the type picker). The widget's click handler
+  (`Includes_Home.xml`, group `1002`) runs `RunPlugin()` on the focused item's path rather than
+  `ShowPicture()` — it was copy-built from the original Pictures widget this tab replaced, and
+  `ShowPicture()` was a leftover from that heritage that never did anything useful for a game
+  item; `RunPlugin()` re-enters whichever addon supplied the item exactly as a normal directory
+  selection would, so it launches per that addon's own on-select behavior.
 - **Includes_Views.xml** — pulls in the `Viewtypes*.xml` files, assembles per-media-type view
   lists (`VideoViews`, `MusicViews`, `PictureViews`, `ProgramViews`, `AddonViews`,
   `MusicPlaylistViewIds`/`VideoPlaylistViewIds`), plus a large block of art-fallback

@@ -866,7 +866,7 @@
                     <onright>Control.Move(20,1)</onright>
                     <onup>80</onup>
                     <ondown>1001</ondown>
-                    <onclick condition="String.IsEmpty(Skin.String(GameTile.Path))">ActivateWindow(10001,plugin://plugin.program.iagl/,return)</onclick>
+                    <onclick condition="String.IsEmpty(Skin.String(GameTile.Path))">ActivateWindow(10001,plugin://plugin.program.romm/,return)</onclick>
                     <onclick condition="!String.IsEmpty(Skin.String(GameTile.Path))">ActivateWindow(10001,$INFO[Skin.String(GameTile.Path)],return)</onclick>
                 </control>
                 <control type="group" id="1050">
@@ -930,8 +930,8 @@
                             <ondown>Control.Move(10022,1)</ondown>
                             <onleft>1001</onleft>
                             <onright>1003</onright>
-                            <onclick condition="String.IsEmpty(Container(10022).ListItem.PicturePath)">ShowPicture($INFO[Container(10022).ListItem.Thumb])</onclick>
-                            <onclick condition="!String.IsEmpty(Container(10022).ListItem.PicturePath)">ShowPicture($INFO[Container(10022).ListItem.PicturePath])</onclick>
+                            <onclick condition="!String.IsEmpty(Container(10022).ListItem.FileNameAndPath)">RunPlugin($INFO[Container(10022).ListItem.FileNameAndPath])</onclick>
+                            <onclick condition="String.IsEmpty(Container(10022).ListItem.FileNameAndPath) + !String.IsEmpty(Container(10022).ListItem.PicturePath)">ShowPicture($INFO[Container(10022).ListItem.PicturePath])</onclick>
                             <onback condition="!Skin.HasSetting(KioskMode)">SetProperty(SingleDialog,widget10,3003)</onback>
                             <onback condition="!Skin.HasSetting(KioskMode)">SetProperty(Dialog,$LOCALIZE[31168],skinsettings)</onback>
                             <onback condition="!Skin.HasSetting(KioskMode)">ActivateWindow(3003)</onback>
@@ -1305,7 +1305,7 @@
                                 <onclick condition="String.IsEmpty(Window.Property(EditTile)) + Skin.HasSetting(HomeGamesTile1) + String.IsEqual(Skin.String(HomeGamesTile1.Type),8)">ActivateWindow(10025,$INFO[Skin.String(HomeGamesTile1.Path)],return)</onclick>
                                 <onclick condition="String.IsEmpty(Window.Property(EditTile)) + Skin.HasSetting(HomeGamesTile1) + String.IsEqual(Skin.String(HomeGamesTile1.Type),5)">ActivateWindow(Music,$INFO[Skin.String(HomeGamesTile1.Path)],return)</onclick>
                                 <onclick condition="String.IsEmpty(Window.Property(EditTile)) + Skin.HasSetting(HomeGamesTile1) + [String.IsEqual(Skin.String(HomeGamesTile1.Type),6) | String.IsEqual(Skin.String(HomeGamesTile1.Type),7)]">$INFO[Skin.String(HomeGamesTile1.Path)]</onclick>
-                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + !Skin.HasSetting(HomeGamesTile1)">ActivateWindow(10001,plugin://plugin.program.iagl/,return)</onclick>
+                                <onclick condition="String.IsEmpty(Window.Property(EditTile)) + !Skin.HasSetting(HomeGamesTile1)">ActivateWindow(10001,plugin://plugin.program.romm/,return)</onclick>
                                 <onclick condition="!String.IsEmpty(Window.Property(EditTile))">Skin.SetBool(HomeGamesTile1)</onclick>
                                 <onclick condition="!String.IsEmpty(Window.Property(EditTile)) + String.IsEmpty(Skin.String(HomeGamesTile1.Type))">Skin.SetString(HomeGamesTile1.Type,0)</onclick>
                                 <onclick condition="!String.IsEmpty(Window.Property(EditTile)) + String.IsEmpty(Skin.String(HomeGamesTile1.TypeName))">Skin.SetString(HomeGamesTile1.TypeName,$LOCALIZE[41145])</onclick>
