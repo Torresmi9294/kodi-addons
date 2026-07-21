@@ -1294,7 +1294,6 @@
                     <texture>views/list/panel/panel.png</texture>
                 </control>
                 <control type="list" id="52">
-                    <visible>$EXP[IsVideoContent] | $EXP[IsPluginVideoContent]</visible>
                     <posx>512</posx>
                     <posy>277</posy>
                     <width>710</width>
@@ -2074,7 +2073,6 @@
                     <effect type="fade" start="100" end="0" tween="cubic" easing="out" time="250" />
                 </animation>
                 <control type="panel" id="53">
-                    <visible>$EXP[IsVideoContent]</visible>
                     <posx>100</posx>
                     <posy>265</posy>
                     <width>630</width>
@@ -2983,7 +2981,6 @@
                 <animation effect="fade" start="100" end="0" time="0" reversible="false">Hidden</animation>
                 <animation effect="fade" start="0" end="100" time="0" delay="1000" reversible="false">Visible</animation>
                 <control type="fixedlist" id="54">
-                    <visible>$EXP[IsVideoContent] | $EXP[IsPluginVideoContent]</visible>
                     <posx>-392</posx>
                     <posy>260</posy>
                     <width>2500</width>
@@ -3789,7 +3786,6 @@
                 <animation effect="fade" start="100" end="0" time="0" reversible="false">Hidden</animation>
                 <animation effect="fade" start="0" end="100" time="0" delay="1000" reversible="false">Visible</animation>
                 <control type="fixedlist" id="55">
-                    <visible>$EXP[IsVideoContent]</visible>
                     <posx>-259</posx>
                     <posy>240</posy>
                     <width>2300</width>
@@ -4098,7 +4094,6 @@
                     <texture>windows/home/item-shadow.png</texture>
                 </control>
                 <control type="panel" id="500">
-                    <visible>[$EXP[IsPluginVideoContent] | String.StartsWith(Container.FolderPath,addons)] + !$EXP[IsVideoContent]</visible>
                     <posx>94</posx>
                     <posy>174</posy>
                     <width>1744</width>
@@ -4464,7 +4459,6 @@
                     <include>ThumbnailAnimationsShadow</include>
                 </control>
                 <control type="panel" id="501">
-                    <visible>$EXP[IsVideoContent]</visible>
                     <posx>88</posx>
                     <posy>174</posy>
                     <width>1252</width>
@@ -4804,7 +4798,6 @@
             <include>BannerListAnimations</include>
             <include>OptionsShutdownAnimation</include>
             <control type="wraplist" id="502">
-                <visible>$EXP[IsVideoContent] | $EXP[IsPluginVideoContent]</visible>
                 <posx>-1115</posx>
                 <posy>170</posy>
                 <width>4149</width>
@@ -4947,7 +4940,6 @@
             <include>BannerListAnimations</include>
             <visible>Control.IsVisible(60)</visible>
             <control type="fixedlist" id="60">
-                <visible>$EXP[IsVideoContent]</visible>
                 <posx>0</posx>
                 <posy>134</posy>
                 <width>1920</width>

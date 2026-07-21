@@ -1039,7 +1039,6 @@
                     <texture>views/list/panel/panel.png</texture>
                 </control>
                 <control type="list" id="52">
-                    <visible>Container.Content(Artists) | Container.Content(Albums) | Container.Content(Songs) | Window.IsVisible(MusicPlaylist)</visible>
                     <posx>592</posx>
                     <posy>397</posy>
                     <width>630</width>
@@ -1394,7 +1393,6 @@
                 <animation effect="slide" end="164" time="400" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(53).NumItems,3) + Integer.IsLessOrEqual(Container(53).NumItems,6)">Conditional</animation>
                 <animation effect="slide" end="82" time="400" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(53).NumItems,6) + Integer.IsLessOrEqual(Container(53).NumItems,9)">Conditional</animation>
                 <control type="panel" id="53">
-                    <visible>Container.Content(Artists) | Container.Content(Albums)</visible>
                     <posx>580</posx>
                     <posy>385</posy>
                     <width>668</width>
@@ -2069,7 +2067,6 @@
                 <animation effect="fade" start="100" end="0" time="0" reversible="false">Hidden</animation>
                 <animation effect="fade" start="0" end="100" time="0" delay="1000" reversible="false">Visible</animation>
                 <control type="fixedlist" id="55">
-                    <visible>Container.Content(Artists) | Container.Content(Albums)</visible>
                     <posx>-259</posx>
                     <posy>430</posy>
                     <width>2300</width>
@@ -2329,7 +2326,6 @@
                     <onup>501</onup>
                     <ondown>501</ondown>
                     <preloaditems>2</preloaditems>
-                    <visible>Container.Content(artists) | Container.Content(albums) | Container.Content(genres)</visible>
                     <itemlayout width="244" height="244">
                         <control type="image">
                             <posx>12</posx>
@@ -2555,7 +2551,6 @@
             <include>BannerListAnimations</include>
             <visible>Control.IsVisible(60)</visible>
             <control type="fixedlist" id="60">
-                <visible>Container.Content(Artists) | Container.Content(Albums) | Container.Content(Songs) | Window.IsVisible(MusicPlaylist)</visible>
                 <posx>0</posx>
                 <posy>134</posy>
                 <width>1920</width>

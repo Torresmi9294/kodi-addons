@@ -535,7 +535,6 @@
                     <viewtype label="31962">list</viewtype>
                     <preloaditems>2</preloaditems>
                     <scrolltime tween="cubic" easing="out">500</scrolltime>
-                    <visible>$EXP[IsPluginAdvancedLauncher]</visible>
                     <itemlayout height="60">
                         <control type="image">
                             <posx>0</posx>
@@ -859,7 +858,6 @@
                     <viewtype label="31963">list</viewtype>
                     <preloaditems>2</preloaditems>
                     <scrolltime tween="cubic" easing="out">500</scrolltime>
-                    <visible>$EXP[IsPluginAdvancedLauncher]</visible>
                     <itemlayout height="60">
                         <control type="image">
                             <posx>0</posx>
@@ -1022,7 +1020,6 @@
                     <preloaditems>2</preloaditems>
                     <scrolltime tween="cubic" easing="out">500</scrolltime>
                     <orientation>horizontal</orientation>
-                    <visible>$EXP[IsPluginAdvancedLauncher]</visible>
                     <itemlayout width="140" height="204">
                         <control type="image">
                             <posx>12</posx>
@@ -1311,7 +1308,6 @@
                     <viewtype label="31965">list</viewtype>
                     <preloaditems>2</preloaditems>
                     <scrolltime tween="cubic" easing="out">500</scrolltime>
-                    <visible>$EXP[IsPluginAdvancedLauncher]</visible>
                     <itemlayout width="164" height="164">
                         <control type="image">
                             <posx>12</posx>
@@ -2089,7 +2085,6 @@
                     <ondown>70</ondown>
                     <focusposition>1</focusposition>
                     <preloaditems>2</preloaditems>
-                    <visible>$EXP[IsPluginAdvancedLauncher]</visible>
                     <animation type="WindowOpen" reversible="false">
                         <effect type="fade" start="0" end="100" time="0" />
                         <effect type="slide" start="0,-1500" end="0,0" delay="700" time="0" />
@@ -2771,7 +2766,6 @@
                     <ondown>70</ondown>
                     <focusposition>1</focusposition>
                     <preloaditems>2</preloaditems>
-                    <visible>$EXP[IsPluginAdvancedLauncher]</visible>
                     <animation type="WindowOpen" reversible="false">
                         <effect type="fade" start="0" end="100" time="0" />
                         <effect type="slide" start="0,-1500" end="0,0" delay="700" time="0" />
@@ -3408,7 +3402,6 @@
                     <ondown>70</ondown>
                     <focusposition>1</focusposition>
                     <preloaditems>2</preloaditems>
-                    <visible>$EXP[IsPluginAdvancedLauncher]</visible>
                     <animation type="WindowOpen" reversible="false">
                         <effect type="fade" start="0" end="100" time="0" />
                         <effect type="slide" start="0,-1500" end="0,0" delay="700" time="0" />
@@ -3629,7 +3622,6 @@
                     <onup>501</onup>
                     <ondown>501</ondown>
                     <preloaditems>2</preloaditems>
-                    <visible>$EXP[IsPluginAdvancedLauncher]</visible>
                     <animation effect="slide" end="35" time="400" tween="cubic" easing="inout" condition="Skin.HasSetting(ProgramThumbnailSmall)">Conditional</animation>
                     <itemlayout width="167" height="244" condition="Skin.HasSetting(ProgramThumbnailSmall)">
                         <control type="image">
@@ -3915,7 +3907,6 @@
                     <onup>502</onup>
                     <ondown>502</ondown>
                     <preloaditems>2</preloaditems>
-                    <visible>$EXP[IsPluginAdvancedLauncher]</visible>
                     <itemlayout width="244" height="244">
                         <control type="image">
                             <description>Poster</description>
@@ -4162,7 +4153,6 @@
                 <movement>3</movement>
                 <focusposition>2</focusposition>
                 <preloaditems>2</preloaditems>
-                <visible>$EXP[IsPluginAdvancedLauncher]</visible>
                 <itemlayout height="96">
                     <control type="group">
                         <posx>660</posx>
@@ -4336,7 +4326,6 @@
                 <movement>3</movement>
                 <focusposition>2</focusposition>
                 <preloaditems>2</preloaditems>
-                <visible>$EXP[IsPluginAdvancedLauncher]</visible>
                 <itemlayout height="96">
                     <control type="group">
                         <posx>660</posx>

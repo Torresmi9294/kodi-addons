@@ -230,7 +230,6 @@
                     <onup>500</onup>
                     <ondown>500</ondown>
                     <preloaditems>2</preloaditems>
-                    <visible>Container.HasFiles + Container.Content(addons)</visible>
                     <itemlayout width="244" height="244">
                         <control type="image">
                             <description>Folder Back</description>
