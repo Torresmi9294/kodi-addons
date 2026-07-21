@@ -475,12 +475,19 @@ def fetch_rom_to_disk(client, rom_or_id):
         out_name = (files[0].get('file_name') if files else None) or rom.get('fs_name', 'rom.bin')
     else:
         out_name = (rom.get('fs_name') or 'rom') + '.zip'
+    # RomM's own "multi-file" flag isn't the only case that lands as a .zip on
+    # disk - a single-file rom can itself be a zip-compressed dump (e.g. some
+    # compilation carts). Either way, if what we're about to hand Kodi is a
+    # .zip, it needs extracting for launch_method 0: Kodi's playercorefactory
+    # dispatches purely on file extension, and most game cores don't register
+    # .zip as a valid extension.
+    is_zip = out_name.lower().endswith('.zip')
     dest_dir = download_dir(rom)
     dest = os.path.join(dest_dir, out_name)
 
-    # for extracted multi-part roms, the extracted folder is the cache marker
+    # for extracted zips, the extracted folder is the cache marker
     extracted_dir = os.path.join(dest_dir, rom.get('fs_name', ''))
-    if multi and needs_extraction() and os.path.isdir(extracted_dir):
+    if is_zip and needs_extraction() and os.path.isdir(extracted_dir):
         existing = extracted_dir
     elif os.path.isfile(dest) and os.path.getsize(dest) > 0:
         existing = dest
@@ -501,7 +508,7 @@ def fetch_rom_to_disk(client, rom_or_id):
                 target = m3u[0] if m3u else (files_in[0] if files_in else None)
                 if target:
                     return os.path.join(existing, target), rom
-            elif multi and needs_extraction():
+            elif is_zip and needs_extraction():
                 # a cached raw zip from before extraction was required/enabled -
                 # extract it now rather than handing the raw zip back unplayable
                 launched = extract_zip(existing, rom)
@@ -533,7 +540,7 @@ def fetch_rom_to_disk(client, rom_or_id):
         raise
     dialog.close()
 
-    if multi and needs_extraction():
+    if is_zip and needs_extraction():
         launched = extract_zip(dest, rom)
         if launched:
             dest = launched
