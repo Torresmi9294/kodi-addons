@@ -539,6 +539,12 @@
           <onclick>Close</onclick>
         </item>
         <item>
+          <label>RomM Game Launcher (Experimental)</label>
+          <onclick>Skin.SetString(HomeWidget.6.Type,32)</onclick>
+          <onclick>Skin.SetString(HomeWidget.6.Label,Games)</onclick>
+          <onclick>Close</onclick>
+        </item>
+        <item>
           <label>Advanced Emulator Launcher</label>
           <onclick>Skin.SetString(HomeWidget.6.Type,31)</onclick>
           <onclick>Skin.SetString(HomeWidget.6.Label,Games)</onclick>

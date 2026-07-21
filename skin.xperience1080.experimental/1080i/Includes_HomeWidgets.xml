@@ -69,6 +69,7 @@
 
     <variable name="Widget.6.Games">
         <value condition="String.IsEqual(Skin.String(HomeWidget.6.Type),30)">plugin://plugin.program.romm/?action=random</value>
+        <value condition="String.IsEqual(Skin.String(HomeWidget.6.Type),32)">plugin://plugin.program.romm.experimental/?action=random</value>
         <value condition="String.IsEqual(Skin.String(HomeWidget.6.Type),31)">plugin://plugin.program.advanced.launcher/</value>
         <value condition="String.IsEqual(Skin.String(HomeWidget.6.Type),34)">$INFO[Skin.String(GamesWidgetPath)]</value>
     </variable>
