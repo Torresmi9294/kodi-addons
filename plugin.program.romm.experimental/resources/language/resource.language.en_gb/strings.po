@@ -317,3 +317,7 @@ msgstr ""
 msgctxt "#32129"
 msgid "Stop playing media before launch"
 msgstr ""
+
+msgctxt "#32130"
+msgid "Next page >>"
+msgstr ""

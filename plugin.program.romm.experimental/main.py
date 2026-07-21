@@ -133,7 +133,7 @@ def list_root():
     if ADDON.getSettingBool('show_collections'):
         entries.append((build_url(action='collections'), L(32023), 'DefaultPlaylist.png'))
     if ADDON.getSettingBool('show_recent'):
-        entries.append((build_url(action='roms', order_by='created_at', order_dir='desc', label=L(32012)), L(32012), 'DefaultRecentlyAddedEpisodes.png'))
+        entries.append((build_url(action='recent', offset=0), L(32012), 'DefaultRecentlyAddedEpisodes.png'))
     if ADDON.getSettingBool('show_lastplayed'):
         entries.append((build_url(action='lastplayed'), L(32024), 'DefaultYear.png'))
     if ADDON.getSettingBool('show_random'):
@@ -255,6 +255,34 @@ def list_roms(client, params):
     for rom in items:
         add_rom_item(client, rom)
 
+    xbmcplugin.setContent(HANDLE, CONTENT_TYPES.get(ADDON.getSettingInt('content_type'), 'games'))
+    xbmcplugin.endOfDirectory(HANDLE)
+
+
+def list_recent(client, offset):
+    """Recently Added is genuinely paginated with a Next page item, unlike
+    every other listing in this addon - it's the one query (sort-by-date,
+    no platform/favorite/collection filter to narrow it) that got big enough
+    on a large library to make the fetch-all-pages loop slow enough for Kodi
+    to kill the script as unresponsive."""
+    limit = page_size()
+    try:
+        data = client.roms(order_by='created_at', order_dir='desc', limit=limit, offset=offset)
+    except RommError as e:
+        notify(L(32019) % str(e), xbmcgui.NOTIFICATION_ERROR)
+        xbmcplugin.endOfDirectory(HANDLE, succeeded=False)
+        return
+    items = data.get('items', [])
+    total = data.get('total', len(items))
+    if not items:
+        notify(L(32020))
+    for rom in items:
+        add_rom_item(client, rom)
+    if offset + limit < total:
+        next_item = xbmcgui.ListItem(label=L(32130))
+        next_item.setArt({'icon': 'DefaultFolderBack.png'})
+        xbmcplugin.addDirectoryItem(
+            HANDLE, build_url(action='recent', offset=offset + limit), next_item, isFolder=True)
     xbmcplugin.setContent(HANDLE, CONTENT_TYPES.get(ADDON.getSettingInt('content_type'), 'games'))
     xbmcplugin.endOfDirectory(HANDLE)
 
@@ -715,6 +743,8 @@ def router(paramstring):
         list_platforms(client)
     elif action == 'roms':
         list_roms(client, params)
+    elif action == 'recent':
+        list_recent(client, int(params.get('offset', 0)))
     elif action == 'collections':
         list_collections(client)
     elif action == 'random':
