@@ -293,17 +293,31 @@ def list_recent(client, offset):
     xbmcplugin.endOfDirectory(HANDLE)
 
 
+RANDOM_ITEM_COUNT = 10
+
+
 def list_random(client):
-    limit = page_size()
+    """RomM has no server-side random ordering (order_by falls back to name),
+    so one shuffled contiguous block always landed in the same alphabetical/
+    id neighborhood no matter how it was shuffled internally. Instead, pick
+    RANDOM_ITEM_COUNT independently-random offsets across the *whole* library
+    and fetch one item per offset, so results are spread across the entire
+    catalog regardless of platform or first letter."""
     try:
         total = client.roms(limit=1).get('total', 0)
-        offset = random.randint(0, max(0, total - limit))
-        data = client.roms(limit=limit, offset=offset)
+        items = []
+        if total > 0:
+            offsets = set()
+            while len(offsets) < min(RANDOM_ITEM_COUNT, total):
+                offsets.add(random.randint(0, total - 1))
+            for offset in offsets:
+                batch = client.roms(limit=1, offset=offset).get('items', [])
+                if batch:
+                    items.append(batch[0])
     except RommError as e:
         notify(L(32019) % str(e), xbmcgui.NOTIFICATION_ERROR)
         xbmcplugin.endOfDirectory(HANDLE, succeeded=False)
         return
-    items = data.get('items', [])
     random.shuffle(items)
     for rom in items:
         add_rom_item(client, rom)
