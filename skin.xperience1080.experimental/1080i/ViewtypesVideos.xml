@@ -1121,7 +1121,7 @@
                         <height>324</height>
                         <texture background="true" fallback="views/fallbacks/DefaultVideo.png/landscape.png">$INFO[Container(52).ListItem.Thumb]</texture>
                         <fadetime>500</fadetime>
-                        <aspectratio>scale</aspectratio>
+                        <aspectratio>keep</aspectratio>
                         <visible>Container.Content(Episodes)</visible>
                     </control>
                     <control type="group">
@@ -4127,7 +4127,7 @@
                             <height>332</height>
                             <texture background="true">$VAR[ThumbIcon]</texture>
                             <colordiffuse>eewhite</colordiffuse>
-                            <aspectratio>scale</aspectratio>
+                            <aspectratio>keep</aspectratio>
                         </control>
                         <control type="image">
                             <posx>12</posx>
@@ -4178,7 +4178,7 @@
                             <height>217</height>
                             <texture background="true">$VAR[ThumbIcon]</texture>
                             <colordiffuse>eewhite</colordiffuse>
-                            <aspectratio>scale</aspectratio>
+                            <aspectratio>keep</aspectratio>
                         </control>
                         <control type="image">
                             <posx>12</posx>
@@ -4232,7 +4232,7 @@
                                 <width>332</width>
                                 <height>332</height>
                                 <texture background="true">$VAR[ThumbIcon]</texture>
-                                <aspectratio>scale</aspectratio>
+                                <aspectratio>keep</aspectratio>
                             </control>
                             <control type="group">
                                 <animation type="Focus">
@@ -4311,7 +4311,7 @@
                                 <width>217</width>
                                 <height>217</height>
                                 <texture background="true">$VAR[ThumbIcon]</texture>
-                                <aspectratio>scale</aspectratio>
+                                <aspectratio>keep</aspectratio>
                             </control>
                             <control type="group">
                                 <animation type="Focus">

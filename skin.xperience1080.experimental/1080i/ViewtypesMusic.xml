@@ -75,6 +75,7 @@
                         <width>85</width>
                         <height>85</height>
                         <texture background="true">$INFO[ListItem.Icon]</texture>
+                        <aspectratio>keep</aspectratio>
                         <visible>!Container.Content(Genres) | String.IsEqual(ListItem.Label,..)</visible>
                     </control>
                     <control type="image">
@@ -214,7 +215,7 @@
                         <width>85</width>
                         <height>85</height>
                         <texture background="true">$INFO[ListItem.Icon]</texture>
-                        <aspectratio>scale</aspectratio>
+                        <aspectratio>keep</aspectratio>
                     </control>
                     <control type="label">
                         <description>Label</description>
@@ -316,7 +317,7 @@
                         <width>85</width>
                         <height>85</height>
                         <texture background="true">$INFO[ListItem.Icon]</texture>
-                        <aspectratio>scale</aspectratio>
+                        <aspectratio>keep</aspectratio>
                     </control>
                     <control type="label">
                         <description>Label</description>
@@ -429,6 +430,7 @@
                         <width>85</width>
                         <height>85</height>
                         <texture background="true">$INFO[ListItem.Icon]</texture>
+                        <aspectratio>keep</aspectratio>
                         <visible>!Container.Content(Genres) | String.IsEqual(ListItem.Label,..)</visible>
                     </control>
                     <control type="image">
@@ -600,7 +602,7 @@
                         <width>85</width>
                         <height>85</height>
                         <texture background="true">$INFO[ListItem.Icon]</texture>
-                        <aspectratio>scale</aspectratio>
+                        <aspectratio>keep</aspectratio>
                     </control>
                     <control type="group">
                         <animation type="Focus" condition="Container(50).OnNext | Container(50).OnPrevious" reversible="false">
@@ -719,7 +721,7 @@
                         <width>85</width>
                         <height>85</height>
                         <texture background="true">$INFO[ListItem.Icon]</texture>
-                        <aspectratio>scale</aspectratio>
+                        <aspectratio>keep</aspectratio>
                     </control>
                     <control type="group">
                         <animation type="Focus" condition="[Container(50).OnNext | Container(50).OnPrevious] + !Container(50).ListItem.IsPlaying" reversible="false">
@@ -928,7 +930,7 @@
                         <height>480</height>
                         <texture background="true">$INFO[ListItem.Art(fanart)]</texture>
                         <fadetime>500</fadetime>
-                        <aspectratio>scale</aspectratio>
+                        <aspectratio>keep</aspectratio>
                     </control>
                     <control type="group">
                         <visible>[!String.IsEmpty(Container(52).ListItem.Property(Album_Description)) + Skin.HasSetting(MusicInfoListReview)] | [!String.IsEmpty(Container(52).ListItem.Property(Artist_Description)) + Skin.HasSetting(MusicInfoListBiography)]</visible>
@@ -1546,7 +1548,7 @@
                         <height>480</height>
                         <texture background="true">$INFO[ListItem.Art(fanart)]</texture>
                         <fadetime>500</fadetime>
-                        <aspectratio>scale</aspectratio>
+                        <aspectratio>keep</aspectratio>
                     </control>
                     <control type="group">
                         <visible>[!String.IsEmpty(Container(53).ListItem.Property(Album_Description)) + Skin.HasSetting(MusicPanelReview)] | [!String.IsEmpty(Container(53).ListItem.Property(Artist_Description)) + Skin.HasSetting(MusicPanelBiography)]</visible>
