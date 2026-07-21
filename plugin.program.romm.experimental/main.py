@@ -205,6 +205,9 @@ def add_rom_item(client, rom):
     fanart = client.fanart_url(rom)
     if fanart:
         art['fanart'] = fanart
+    shots = client.screenshot_urls(rom, limit=1)
+    if shots:
+        art['screenshot'] = shots[0]
     item.setArt(art)
     try:
         item.setInfo('game', {
