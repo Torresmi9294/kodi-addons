@@ -533,7 +533,7 @@
       </focusedlayout>
       <content>
         <item>
-          <label>IAGL (Internet Archive Game Launcher)</label>
+          <label>RomM Game Launcher</label>
           <onclick>Skin.SetString(HomeWidget.6.Type,30)</onclick>
           <onclick>Skin.SetString(HomeWidget.6.Label,Games)</onclick>
           <onclick>Close</onclick>

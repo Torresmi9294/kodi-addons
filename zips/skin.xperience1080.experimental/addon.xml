@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="skin.xperience1080.experimental" version="10.5.0" name="Xperience1080 (Experimental)" provider-name="xhaggi">
+<addon id="skin.xperience1080.experimental" version="10.6.0" name="Xperience1080 (Experimental)" provider-name="xhaggi">
     <requires>
         <import addon="xbmc.gui" version="5.17.0" />
         <import addon="script.globalsearch" version="9.0.7" />
