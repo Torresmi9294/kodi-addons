@@ -18,7 +18,7 @@
         </assets>
     </extension>
 </addon>
-<addon id="plugin.program.romm.experimental" name="RomM Game Launcher (Experimental)" version="1.4.11" provider-name="kronos">
+<addon id="plugin.program.romm.experimental" name="RomM Game Launcher (Experimental)" version="1.4.12" provider-name="kronos">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
     </requires>
@@ -112,7 +112,7 @@
         </assets>
     </extension>
 </addon>
-<addon id="skin.xperience1080.experimental" version="10.9.0" name="Xperience1080 (Experimental)" provider-name="xhaggi">
+<addon id="skin.xperience1080.experimental" version="10.10.0" name="Xperience1080 (Experimental)" provider-name="xhaggi">
     <requires>
         <import addon="xbmc.gui" version="5.17.0" />
         <import addon="script.globalsearch" version="9.0.7" />

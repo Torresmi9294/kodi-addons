@@ -74,14 +74,4 @@
         <value condition="String.IsEqual(Skin.String(HomeWidget.6.Type),31)">plugin://plugin.program.advanced.launcher/</value>
         <value condition="String.IsEqual(Skin.String(HomeWidget.6.Type),34)">$INFO[Skin.String(GamesWidgetPath)]</value>
     </variable>
-
-    <!-- Which art the Games widget's background prefers for the focused item.
-         Falls through to PicturePath (legacy/other-addon widgets) then Thumb
-         (cover) whenever the preferred type isn't set on a given item. -->
-    <variable name="GamesWidgetArt">
-        <value condition="String.IsEqual(Skin.String(HomeWidget.6.ArtType),fanart) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
-        <value condition="String.IsEqual(Skin.String(HomeWidget.6.ArtType),screenshot) + !String.IsEmpty(ListItem.Art(screenshot))">$INFO[ListItem.Art(screenshot)]</value>
-        <value condition="String.IsEmpty(Skin.String(HomeWidget.6.ArtType)) + !String.IsEmpty(ListItem.PicturePath)">$INFO[ListItem.PicturePath]</value>
-        <value>$INFO[ListItem.Thumb]</value>
-    </variable>
 </includes>

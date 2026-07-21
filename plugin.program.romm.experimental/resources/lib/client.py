@@ -162,27 +162,31 @@ class RommClient:
         return []
 
     def fanart_url(self, rom):
-        """Dedicated fanart/backdrop art (RomM's ss_metadata.fanart_*, scraped
-        from ScreenScraper), falling back to a screenshot if the rom has no
-        fanart of its own."""
+        """Dedicated fanart/backdrop art. Prefers RomM's own locally-served
+        copy (ss_metadata.fanart_path, fetched via resource_url()) over the
+        ss_metadata.fanart_url variant, which is a live ScreenScraper API
+        call (with RomM's own scraper credentials baked into the query
+        string) rather than an asset RomM itself is serving - falls back to
+        a screenshot if the rom has no fanart of its own."""
         ss = rom.get('ss_metadata') or {}
-        url = ss.get('fanart_url')
-        if url and url.startswith('http'):
-            return url
         path = ss.get('fanart_path')
         if path:
             return self.resource_url(path)
+        url = ss.get('fanart_url')
+        if url and url.startswith('http'):
+            return url
         shots = self.screenshot_urls(rom, limit=1)
         return shots[0] if shots else ''
 
     def title_screen_url(self, rom):
-        """Title-screen art (RomM's ss_metadata.title_screen_*), if present."""
+        """Title-screen art, preferring RomM's own locally-served copy over
+        the live ScreenScraper URL (see fanart_url())."""
         ss = rom.get('ss_metadata') or {}
-        url = ss.get('title_screen_url')
-        if url and url.startswith('http'):
-            return url
         path = ss.get('title_screen_path')
-        return self.resource_url(path) if path else ''
+        if path:
+            return self.resource_url(path)
+        url = ss.get('title_screen_url')
+        return url if url and url.startswith('http') else ''
 
     def download(self, rom, dest_path, progress_cb=None):
         """Stream a rom's content to dest_path.
