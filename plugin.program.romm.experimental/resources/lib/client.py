@@ -152,9 +152,27 @@ class RommClient:
         return []
 
     def fanart_url(self, rom):
-        """A screenshot to use as background art, if the rom has any."""
+        """Dedicated fanart/backdrop art (RomM's ss_metadata.fanart_*, scraped
+        from ScreenScraper), falling back to a screenshot if the rom has no
+        fanart of its own."""
+        ss = rom.get('ss_metadata') or {}
+        url = ss.get('fanart_url')
+        if url and url.startswith('http'):
+            return url
+        path = ss.get('fanart_path')
+        if path:
+            return self.resource_url(path)
         shots = self.screenshot_urls(rom, limit=1)
         return shots[0] if shots else ''
+
+    def title_screen_url(self, rom):
+        """Title-screen art (RomM's ss_metadata.title_screen_*), if present."""
+        ss = rom.get('ss_metadata') or {}
+        url = ss.get('title_screen_url')
+        if url and url.startswith('http'):
+            return url
+        path = ss.get('title_screen_path')
+        return self.resource_url(path) if path else ''
 
     def download(self, rom, dest_path, progress_cb=None):
         """Stream a rom's content to dest_path.

@@ -964,8 +964,8 @@
                                     <width>928</width>
                                     <height>572</height>
                                     <aspectratio aligny="top">scale</aspectratio>
-                                    <texture background="true">$INFO[ListItem.Thumb]</texture>
-                                    <visible>String.IsEmpty(ListItem.PicturePath)</visible>
+                                    <texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+                                    <visible>!String.IsEmpty(ListItem.Art(fanart))</visible>
                                 </control>
                                 <control type="image">
                                     <posx>0</posx>
@@ -974,7 +974,16 @@
                                     <height>572</height>
                                     <aspectratio aligny="top">scale</aspectratio>
                                     <texture background="true">$INFO[ListItem.PicturePath]</texture>
-                                    <visible>!String.IsEmpty(ListItem.PicturePath)</visible>
+                                    <visible>String.IsEmpty(ListItem.Art(fanart)) + !String.IsEmpty(ListItem.PicturePath)</visible>
+                                </control>
+                                <control type="image">
+                                    <posx>0</posx>
+                                    <posy>0</posy>
+                                    <width>928</width>
+                                    <height>572</height>
+                                    <aspectratio aligny="top">scale</aspectratio>
+                                    <texture background="true">$INFO[ListItem.Thumb]</texture>
+                                    <visible>String.IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.PicturePath)</visible>
                                 </control>
                             </itemlayout>
                             <focusedlayout width="928" height="572">
@@ -984,8 +993,8 @@
                                     <width>928</width>
                                     <height>572</height>
                                     <aspectratio aligny="top">scale</aspectratio>
-                                    <texture background="true">$INFO[ListItem.Thumb]</texture>
-                                    <visible>String.IsEmpty(ListItem.PicturePath)</visible>
+                                    <texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+                                    <visible>!String.IsEmpty(ListItem.Art(fanart))</visible>
                                 </control>
                                 <control type="image">
                                     <posx>0</posx>
@@ -994,7 +1003,16 @@
                                     <height>572</height>
                                     <aspectratio aligny="top">scale</aspectratio>
                                     <texture background="true">$INFO[ListItem.PicturePath]</texture>
-                                    <visible>!String.IsEmpty(ListItem.PicturePath)</visible>
+                                    <visible>String.IsEmpty(ListItem.Art(fanart)) + !String.IsEmpty(ListItem.PicturePath)</visible>
+                                </control>
+                                <control type="image">
+                                    <posx>0</posx>
+                                    <posy>0</posy>
+                                    <width>928</width>
+                                    <height>572</height>
+                                    <aspectratio aligny="top">scale</aspectratio>
+                                    <texture background="true">$INFO[ListItem.Thumb]</texture>
+                                    <visible>String.IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.PicturePath)</visible>
                                 </control>
                             </focusedlayout>
                             <content target="files">$VAR[Widget.6.Games]</content>

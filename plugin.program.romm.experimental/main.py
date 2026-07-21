@@ -199,10 +199,13 @@ def add_rom_item(client, rom):
     name = rom_label(rom)
     item = xbmcgui.ListItem(label=name)
     cover = client.cover_url(rom)
+    art = {'icon': 'DefaultAddonGame.png'}
     if cover:
-        item.setArt({'thumb': cover, 'poster': cover, 'icon': 'DefaultAddonGame.png'})
-    else:
-        item.setArt({'icon': 'DefaultAddonGame.png'})
+        art['thumb'] = art['poster'] = cover
+    fanart = client.fanart_url(rom)
+    if fanart:
+        art['fanart'] = fanart
+    item.setArt(art)
     try:
         item.setInfo('game', {
             'title': name,
