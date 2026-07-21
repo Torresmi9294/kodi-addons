@@ -533,23 +533,9 @@
       </focusedlayout>
       <content>
         <item>
-          <label>RomM Game Launcher (Fanart)</label>
+          <label>RomM Game Launcher</label>
           <onclick>Skin.SetString(HomeWidget.6.Type,30)</onclick>
           <onclick>Skin.SetString(HomeWidget.6.ArtType,fanart)</onclick>
-          <onclick>Skin.SetString(HomeWidget.6.Label,Games)</onclick>
-          <onclick>Close</onclick>
-        </item>
-        <item>
-          <label>RomM Game Launcher (Screenshot)</label>
-          <onclick>Skin.SetString(HomeWidget.6.Type,30)</onclick>
-          <onclick>Skin.SetString(HomeWidget.6.ArtType,screenshot)</onclick>
-          <onclick>Skin.SetString(HomeWidget.6.Label,Games)</onclick>
-          <onclick>Close</onclick>
-        </item>
-        <item>
-          <label>RomM Game Launcher (Cover)</label>
-          <onclick>Skin.SetString(HomeWidget.6.Type,30)</onclick>
-          <onclick>Skin.SetString(HomeWidget.6.ArtType,cover)</onclick>
           <onclick>Skin.SetString(HomeWidget.6.Label,Games)</onclick>
           <onclick>Close</onclick>
         </item>
@@ -558,19 +544,6 @@
           <onclick>Skin.SetString(HomeWidget.6.Type,32)</onclick>
           <onclick>Skin.SetString(HomeWidget.6.ArtType,fanart)</onclick>
           <onclick>Skin.SetString(HomeWidget.6.Label,Games)</onclick>
-          <onclick>Close</onclick>
-        </item>
-        <item>
-          <label>Advanced Emulator Launcher</label>
-          <onclick>Skin.SetString(HomeWidget.6.Type,31)</onclick>
-          <onclick>Skin.SetString(HomeWidget.6.Label,Games)</onclick>
-          <onclick>Close</onclick>
-        </item>
-        <item>
-          <label>Other Program Addon...</label>
-          <onclick>Skin.SetString(HomeWidget.6.Type,34)</onclick>
-          <onclick>Skin.SetString(HomeWidget.6.Label,Games)</onclick>
-          <onclick>Skin.SetAddon(GamesWidgetPath,xbmc.addon.executable)</onclick>
           <onclick>Close</onclick>
         </item>
       </content>
