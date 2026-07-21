@@ -144,7 +144,11 @@ def list_platforms(client):
         name = p.get('display_name') or p.get('name') or p.get('slug', '?')
         label = '%s  (%s)' % (name, p.get('rom_count', 0))
         item = xbmcgui.ListItem(label=label)
-        item.setArt({'icon': 'DefaultAddonGame.png'})
+        logo = client.platform_logo_url(p)
+        if logo:
+            item.setArt({'thumb': logo, 'poster': logo, 'icon': logo})
+        else:
+            item.setArt({'icon': 'DefaultAddonGame.png'})
         item.addContextMenuItems([
             (L(32034), 'RunPlugin(%s)' % build_url(action='hide_platform', platform_id=p['id'])),
             (L(32035), 'RunPlugin(%s)' % build_url(action='choose_core', platform=p.get('fs_slug') or p.get('slug', ''))),

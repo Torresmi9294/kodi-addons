@@ -109,6 +109,17 @@ class RommClient:
     def stats(self):
         return self.get_json('/api/stats')
 
+    def platform_logo_url(self, platform):
+        """Platform logo/artwork URL, if RomM has one for this platform.
+
+        RomM's PlatformSchema exposes `url_logo` (sourced from IGDB/etc, a
+        public CDN URL - no auth header needed, same convention as `url_cover`
+        on roms). Unlike rom covers there's no server-local `path_logo`
+        fallback variant in the schema, so this is all-or-nothing.
+        """
+        url = platform.get('url_logo')
+        return url if url and url.startswith('http') else ''
+
     def resource_url(self, path):
         """Server-local resource with auth header piped for Kodi image loading
         (Kodi supports `url|Header=Value` suffixes on image paths)."""
