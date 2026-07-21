@@ -176,4 +176,6 @@ class RommClient:
                     done += len(chunk)
                     if progress_cb:
                         progress_cb(done, total)
+        if total and done < total:
+            raise RommError('incomplete download: got %d of %d bytes' % (done, total))
         return dest_path
