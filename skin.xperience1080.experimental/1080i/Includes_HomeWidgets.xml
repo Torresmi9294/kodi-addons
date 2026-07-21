@@ -29,6 +29,8 @@
         <value condition="String.IsEqual(Skin.String(HomeWidget.1.Type),17)">$INFO[Skin.String(HomeWidget.1.Path)]</value>
         <value condition="String.IsEqual(Skin.String(HomeWidget.1.Type),30)">plugin://plugin.program.romm/?action=random</value>
         <value condition="String.IsEqual(Skin.String(HomeWidget.1.Type),32)">plugin://plugin.program.romm.experimental/?action=random</value>
+        <value condition="String.IsEqual(Skin.String(HomeWidget.1.Type),40)">plugin://plugin.program.romm/?action=recentwidget</value>
+        <value condition="String.IsEqual(Skin.String(HomeWidget.1.Type),41)">plugin://plugin.program.romm.experimental/?action=recentwidget</value>
     </variable>
 
     <variable name="Widget.2.Home">
@@ -73,5 +75,7 @@
     <variable name="Widget.6.Games">
         <value condition="String.IsEqual(Skin.String(HomeWidget.6.Type),30)">plugin://plugin.program.romm/?action=random</value>
         <value condition="String.IsEqual(Skin.String(HomeWidget.6.Type),32)">plugin://plugin.program.romm.experimental/?action=random</value>
+        <value condition="String.IsEqual(Skin.String(HomeWidget.6.Type),40)">plugin://plugin.program.romm/?action=recentwidget</value>
+        <value condition="String.IsEqual(Skin.String(HomeWidget.6.Type),41)">plugin://plugin.program.romm.experimental/?action=recentwidget</value>
     </variable>
 </includes>

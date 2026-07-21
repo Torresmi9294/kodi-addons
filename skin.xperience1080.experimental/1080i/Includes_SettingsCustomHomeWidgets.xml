@@ -117,6 +117,18 @@
           <onclick>Skin.SetString(HomeWidget.1.Label,Games)</onclick>
           <onclick>Close</onclick>
         </item>
+        <item>
+          <label>RomM Recently Added</label>
+          <onclick>Skin.SetString(HomeWidget.1.Type,40)</onclick>
+          <onclick>Skin.SetString(HomeWidget.1.Label,Games)</onclick>
+          <onclick>Close</onclick>
+        </item>
+        <item>
+          <label>RomM Recently Added (Experimental)</label>
+          <onclick>Skin.SetString(HomeWidget.1.Type,41)</onclick>
+          <onclick>Skin.SetString(HomeWidget.1.Label,Games)</onclick>
+          <onclick>Close</onclick>
+        </item>
       </content>
     </control>
   </include>
@@ -554,6 +566,20 @@
         <item>
           <label>RomM Game Launcher (Experimental)</label>
           <onclick>Skin.SetString(HomeWidget.6.Type,32)</onclick>
+          <onclick>Skin.SetString(HomeWidget.6.ArtType,fanart)</onclick>
+          <onclick>Skin.SetString(HomeWidget.6.Label,Games)</onclick>
+          <onclick>Close</onclick>
+        </item>
+        <item>
+          <label>RomM Recently Added</label>
+          <onclick>Skin.SetString(HomeWidget.6.Type,40)</onclick>
+          <onclick>Skin.SetString(HomeWidget.6.ArtType,fanart)</onclick>
+          <onclick>Skin.SetString(HomeWidget.6.Label,Games)</onclick>
+          <onclick>Close</onclick>
+        </item>
+        <item>
+          <label>RomM Recently Added (Experimental)</label>
+          <onclick>Skin.SetString(HomeWidget.6.Type,41)</onclick>
           <onclick>Skin.SetString(HomeWidget.6.ArtType,fanart)</onclick>
           <onclick>Skin.SetString(HomeWidget.6.Label,Games)</onclick>
           <onclick>Close</onclick>

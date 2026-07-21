@@ -296,6 +296,23 @@ def list_recent(client, offset):
 RANDOM_ITEM_COUNT = 10
 
 
+def list_recent_widget(client):
+    """Recently Added for a widget: a single small, unpaginated batch in
+    server order (newest first) - no Next page item (would show up as an
+    odd extra tile in a widget strip) and no fetch-everything loop (that's
+    exactly what list_recent()'s pagination was added to avoid)."""
+    try:
+        data = client.roms(order_by='created_at', order_dir='desc', limit=RANDOM_ITEM_COUNT, offset=0)
+    except RommError as e:
+        notify(L(32019) % str(e), xbmcgui.NOTIFICATION_ERROR)
+        xbmcplugin.endOfDirectory(HANDLE, succeeded=False)
+        return
+    for rom in data.get('items', []):
+        add_rom_item(client, rom)
+    xbmcplugin.setContent(HANDLE, CONTENT_TYPES.get(ADDON.getSettingInt('content_type'), 'games'))
+    xbmcplugin.endOfDirectory(HANDLE)
+
+
 def list_random(client):
     """RomM has no server-side random ordering (order_by falls back to name),
     so one shuffled contiguous block always landed in the same alphabetical/
@@ -765,6 +782,8 @@ def router(paramstring):
         list_roms(client, params)
     elif action == 'recent':
         list_recent(client, int(params.get('offset', 0)))
+    elif action == 'recentwidget':
+        list_recent_widget(client)
     elif action == 'collections':
         list_collections(client)
     elif action == 'random':
