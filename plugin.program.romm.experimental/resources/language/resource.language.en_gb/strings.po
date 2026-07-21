@@ -31,7 +31,7 @@ msgid "Download directory"
 msgstr ""
 
 msgctxt "#32007"
-msgid "Games per page"
+msgid "Server fetch batch size (listings load unpaginated - all games at once)"
 msgstr ""
 
 msgctxt "#32008"
@@ -60,10 +60,6 @@ msgstr ""
 
 msgctxt "#32014"
 msgid "Settings"
-msgstr ""
-
-msgctxt "#32015"
-msgid "Next page >>"
 msgstr ""
 
 msgctxt "#32016"

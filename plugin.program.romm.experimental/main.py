@@ -196,37 +196,40 @@ def add_rom_item(client, rom):
 
 
 def list_roms(client, params):
-    offset = int(params.get('offset', 0))
-    limit = page_size()
+    """Fetch every page from RomM internally and hand Kodi one combined,
+    unpaginated listing - no "Next page" item, just one long scrollable list
+    (Kodi has no true infinite/lazy-loaded scroll for plugin directories;
+    this is the practical equivalent)."""
+    batch_size = page_size()
+    items = []
     try:
-        data = client.roms(
-            platform_id=params.get('platform_id'),
-            search_term=params.get('search_term'),
-            collection_id=params.get('collection_id'),
-            favorite=True if params.get('favorite') else None,
-            limit=limit, offset=offset,
-            order_by=params.get('order_by'),
-            order_dir=params.get('order_dir'),
-        )
+        offset = 0
+        while True:
+            data = client.roms(
+                platform_id=params.get('platform_id'),
+                search_term=params.get('search_term'),
+                collection_id=params.get('collection_id'),
+                favorite=True if params.get('favorite') else None,
+                limit=batch_size, offset=offset,
+                order_by=params.get('order_by'),
+                order_dir=params.get('order_dir'),
+            )
+            batch = data.get('items', [])
+            items.extend(batch)
+            total = data.get('total', len(items))
+            offset += batch_size
+            if not batch or offset >= total:
+                break
     except RommError as e:
         notify(L(32019) % str(e), xbmcgui.NOTIFICATION_ERROR)
         xbmcplugin.endOfDirectory(HANDLE, succeeded=False)
         return
 
-    items = data.get('items', [])
-    total = data.get('total', len(items))
-    if not items and offset == 0:
+    if not items:
         notify(L(32020))
 
     for rom in items:
         add_rom_item(client, rom)
-
-    if offset + limit < total:
-        next_params = {k: v for k, v in params.items() if k != 'offset'}
-        next_params['offset'] = offset + limit
-        item = xbmcgui.ListItem(label=L(32015))
-        item.setArt({'icon': 'DefaultFolder.png'})
-        xbmcplugin.addDirectoryItem(HANDLE, build_url(**next_params), item, isFolder=True)
 
     xbmcplugin.setContent(HANDLE, CONTENT_TYPES.get(ADDON.getSettingInt('content_type'), 'games'))
     xbmcplugin.endOfDirectory(HANDLE)
